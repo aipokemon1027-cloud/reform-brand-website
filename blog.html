@@ -3,210 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>部落格 | reform.</title>
+  <title>Journal — reform.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo">reform<span>.</span></a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav__link">首頁</a>
-        <a href="about.html" class="nav__link">品牌故事</a>
-        <a href="products.html" class="nav__link">產品</a>
-        <a href="blog.html" class="nav__link">部落格</a>
-        <a href="contact.html" class="nav__link">聯絡</a>
-        <a href="#" class="nav__link nav__link--cta">會員登入</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">reform.</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="blog.html" class="nav-link">Journal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
       </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="products.html" class="mobile-link">Products</a>
+      <a href="blog.html" class="mobile-link">Journal</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Journal</span>
+      <h1 class="page-title">故事</h1>
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero" style="
-    padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-xl);
-    background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-cream) 100%);
-    text-align: center;
-  ">
-    <div class="container">
-      <span class="section__tag">Blog</span>
-      <h1 style="animation: none; opacity: 1; font-size: clamp(2.5rem, 6vw, 4rem);">
-        部落格
-      </h1>
-      <p style="max-width: 60ch; margin: 1rem auto 0; color: var(--color-text-light);">
-        探索關於運動、健康與生活的一切
-      </p>
-    </div>
-  </section>
-
   <!-- Featured Post -->
-  <section class="section section--alt">
-    <div class="container">
-      <article class="featured-post reveal" style="
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-        background: var(--color-white);
-        border-radius: 24px;
-        overflow: hidden;
-      ">
-        <div class="featured-post__image" style="aspect-ratio: 4/3; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-lavender) 100%); display: flex; align-items: center; justify-content: center;">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
+  <section class="blog-featured">
+    <div class="blog-featured-inner">
+      <a href="blog.html" class="blog-featured-link">
+        <div class="blog-featured-img">
+          <div class="blog-featured-placeholder" style="background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-lavender) 100%);"></div>
         </div>
-        <div class="featured-post__content" style="padding: var(--space-lg); display: flex; flex-direction: column; justify-content: center;">
-          <span class="blog-card__date" style="color: var(--color-text-light); font-size: 0.85rem;">2026.04.12</span>
-          <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0.75rem 0 1rem;">如何選擇適合你的 Pilates 襪子</h2>
-          <p style="color: var(--color-text-light); line-height: 1.7; margin-bottom: 1.5rem;">
-            挑選 Pilates 襪子時，最重要的不是外觀，而是支撐性和防滑效果。市場上有太多選擇，但並非每一雙都適合你。讓我們從材質、厚度、抓地力等面向，幫你找到完美的一雙。
-          </p>
-          <div>
-            <a href="#" class="btn btn--primary">閱讀更多</a>
+        <div class="blog-featured-content">
+          <div class="blog-featured-meta">
+            <span class="blog-featured-date">2026.04.10</span>
+            <span class="blog-featured-cat">Movement</span>
           </div>
+          <h2 class="blog-featured-title">找到你的節奏：如何建立每日的輕運動習慣</h2>
+          <p class="blog-featured-excerpt">
+            不需要熱血沸騰，只需要持續。今天的你可以比昨天多走一步。
+            我們訪問了三位坚持運動超過一年的朋友，發現他們的共同點不是紀律，而是找到意義。
+          </p>
+          <span class="blog-featured-cta">Read More</span>
         </div>
-      </article>
+      </a>
     </div>
   </section>
 
   <!-- Blog Grid -->
-  <section class="section">
-    <div class="container">
+  <section class="blog-section">
+    <div class="blog-inner">
       <div class="blog-grid">
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #E8E0F0 0%, #F5E6E8 100%);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/>
-              <line x1="15" y1="9" x2="15.01" y2="9"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.04.05</time>
-            <h3 class="blog-card__title">5 個動作提升你的核心力量</h3>
-            <p class="blog-card__excerpt">核心訓練不只是仰臥起坐。這五個動作每天十分鐘，有效強化你的核心肌群。</p>
-          </div>
+        
+        <article class="blog-card">
+          <a href="blog.html" class="blog-card-link">
+            <div class="blog-card-img">
+              <div class="blog-card-img-placeholder" style="background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-warm-gray) 100%);"></div>
+            </div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">2026.03.28</span>
+              <span class="blog-card-cat">Aesthetic</span>
+            </div>
+            <h3 class="blog-card-title">極簡主義：少即是多的運動穿搭</h3>
+            <p class="blog-card-excerpt">當你開始注意服裝的質感和剪裁，你會發現運動不再只是為了看起來怎樣。</p>
+          </a>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #F5E6E8 0%, #FDFBF7 100%);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.03.28</time>
-            <h3 class="blog-card__title">為什麼開始運動永遠不嫌晚</h3>
-            <p class="blog-card__excerpt">無論你是 25 歲還是 65 歲，身體永遠在改變。現在開始，就是最好的時機。</p>
-          </div>
+
+        <article class="blog-card">
+          <a href="blog.html" class="blog-card-link">
+            <div class="blog-card-img">
+              <div class="blog-card-img-placeholder" style="background: linear-gradient(135deg, var(--color-warm-gray) 0%, var(--color-soft-pink) 100%);"></div>
+            </div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">2026.03.15</span>
+              <span class="blog-card-cat">Community</span>
+            </div>
+            <h3 class="blog-card-title">不只是襪子：reform. 的誕生故事</h3>
+            <p class="blog-card-excerpt">一個困擾，開啟了一個問題，最後成為我們的使命。</p>
+          </a>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #FDFBF7 0%, #E8E0F0 100%);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2L12 22M8 6L12 2L16 6M8 10L12 6L16 10M6 14L12 10L18 14M4 18L12 14L20 18"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.03.20</time>
-            <h3 class="blog-card__title">呼吸：你可能忽略的訓練基礎</h3>
-            <p class="blog-card__excerpt">正確的呼吸方式可以改變你的訓練效果。教練不會告訴你的呼吸秘密。</p>
-          </div>
+
+        <article class="blog-card">
+          <a href="blog.html" class="blog-card-link">
+            <div class="blog-card-img">
+              <div class="blog-card-img-placeholder" style="background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-deep-rose) 100%);"></div>
+            </div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">2026.02.28</span>
+              <span class="blog-card-cat">Movement</span>
+            </div>
+            <h3 class="blog-card-title">五個動作，開啟你的每日晨間運動</h3>
+            <p class="blog-card-excerpt">不需要瑜伽墊，不需要器材。只需要一個墊子，和決定的勇氣。</p>
+          </a>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #E8E0F0 0%, #F5E6E8 100%);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-              <line x1="3" y1="9" x2="21" y2="9"/>
-              <line x1="9" y1="21" x2="9" y2="9"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.03.15</time>
-            <h3 class="blog-card__title">如何建立你的每週運動習慣</h3>
-            <p class="blog-card__excerpt">不是強度問題，是一致性問題。3個步驟幫你建立可持續的運動習慣。</p>
-          </div>
+
+        <article class="blog-card">
+          <a href="blog.html" class="blog-card-link">
+            <div class="blog-card-img">
+              <div class="blog-card-img-placeholder" style="background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-soft-pink) 100%);"></div>
+            </div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">2026.02.10</span>
+              <span class="blog-card-cat">Quality</span>
+            </div>
+            <h3 class="blog-card-title">為什麼我們只做一個產品線</h3>
+            <p class="blog-card-excerpt">專注，是我們對品質的承諾。每一雙襪子，都經過 200 小時的測試。</p>
+          </a>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #F5E6E8 0%, #E8E0F0 100%);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4M12 8h.01"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.03.08</time>
-            <h3 class="blog-card__title">Reform. 的設計哲學</h3>
-            <p class="blog-card__excerpt">為什麼我們願意花 6 個月設計一雙襪子？從材料到包裝，我們的選擇邏輯。</p>
-          </div>
+
+        <article class="blog-card">
+          <a href="blog.html" class="blog-card-link">
+            <div class="blog-card-img">
+              <div class="blog-card-img-placeholder" style="background: linear-gradient(135deg, var(--color-warm-gray) 0%, var(--color-lavender) 100%);"></div>
+            </div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">2026.01.25</span>
+              <span class="blog-card-cat">Community</span>
+            </div>
+            <h3 class="blog-card-title">我們的第一次線下活動</h3>
+            <p class="blog-card-excerpt">三十個人，一個小時的安靜運動。這是我們在台北的第一次嘗試。</p>
+          </a>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #FDFBF7 0%, #F5E6E8 100%);">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.03.01</time>
-            <h3 class="blog-card__title">社群裡的女孩們：她们的運動故事</h3>
-            <p class="blog-card__excerpt">來自 reform. 社群的真實故事。她們如何從零開始，找到運動的熱情。</p>
-          </div>
+
+        <article class="blog-card">
+          <a href="blog.html" class="blog-card-link">
+            <div class="blog-card-img">
+              <div class="blog-card-img-placeholder" style="background: linear-gradient(135deg, var(--color-deep-rose) 0%, var(--color-lavender) 100%);"></div>
+            </div>
+            <div class="blog-card-meta">
+              <span class="blog-card-date">2026.01.10</span>
+              <span class="blog-card-cat">Aesthetic</span>
+            </div>
+            <h3 class="blog-card-title">2026 春季色彩趨勢：柔霧粉與中性灰</h3>
+            <p class="blog-card-excerpt">從時裝週到運動場，今年的色彩語言是安靜而有力。</p>
+          </a>
         </article>
+
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">reform<span>.</span></div>
-          <p class="footer__desc">重新定義你的運動日常。</p>
-          <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-            </a>
-          </div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">reform.</span>
+        <p class="footer-tagline">be the reform</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <a href="products.html" class="footer-link">All Products</a>
+          <a href="products.html" class="footer-link">Grip Socks</a>
+          <a href="products.html" class="footer-link">Accessories</a>
         </div>
-        <div class="footer__column">
-          <h4>商店</h4>
-          <ul class="footer__links">
-            <li><a href="products.html">所有產品</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4 class="footer-heading">About</h4>
+          <a href="about.html" class="footer-link">Our Story</a>
+          <a href="blog.html" class="footer-link">Journal</a>
+          <a href="contact.html" class="footer-link">Contact</a>
         </div>
-        <div class="footer__column">
-          <h4>幫助</h4>
-          <ul class="footer__links">
-            <li><a href="contact.html">聯絡我們</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4>關於</h4>
-          <ul class="footer__links">
-            <li><a href="about.html">品牌故事</a></li>
-            <li><a href="blog.html">部落格</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect</h4>
+          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
+          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 reform. All rights reserved.</p>
-        <p>made with care</p>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+        <p class="footer-location">Taipei, Taiwan</p>
       </div>
     </div>
   </footer>

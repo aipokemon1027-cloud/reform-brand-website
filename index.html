@@ -3,301 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>reform. | be the reform</title>
+  <title>reform. — be the reform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo">reform<span>.</span></a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav__link">首頁</a>
-        <a href="about.html" class="nav__link">品牌故事</a>
-        <a href="products.html" class="nav__link">產品</a>
-        <a href="blog.html" class="nav__link">部落格</a>
-        <a href="contact.html" class="nav__link">聯絡</a>
-        <a href="#" class="nav__link nav__link--cta">會員登入</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">reform.</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="blog.html" class="nav-link">Journal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
       </button>
     </div>
-  </header>
+  </nav>
 
-  <!-- Hero Section with Video Background -->
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="products.html" class="mobile-link">Products</a>
+      <a href="blog.html" class="mobile-link">Journal</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
   <section class="hero">
-    <!-- Video placeholder - Replace with actual Minimax video -->
-    <div class="hero__video-bg" id="heroVideoBg">
-      <video autoplay muted loop playsinline class="hero__video" id="heroVideo" style="display: none;">
-        <source src="assets/video/hero-reform.mp4" type="video/mp4">
-      </video>
-      <!-- Animated gradient fallback (simulates video) -->
-      <div class="hero__gradient-bg"></div>
+    <div class="hero-media">
+      <!-- Video placeholder - gradient for now -->
+      <div class="hero-video-placeholder"></div>
     </div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <span class="hero__tag">Pilates Grip Socks</span>
-      <h1 class="hero__title">
-        be the
-        <span>reform</span>
-      </h1>
-      <p class="hero__subtitle">
-        重新定義你的運動日常。頂級防滑襪，為每一個動作而生。
-      </p>
-      <a href="products.html" class="hero__cta">
-        探索系列
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="hero-title-line">be the</span>
+          <span class="hero-title-line accent">reform</span>
+        </h1>
+        <p class="hero-subtitle">Pilates Grip Socks · Essential Tools for Movement</p>
+      </div>
     </div>
-    <div class="hero__scroll">
+    <div class="hero-scroll-hint">
       <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- About Preview Section -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="split-section reveal">
-        <div class="split-section__image">
-          <div class="placeholder-image">Brand Story</div>
-        </div>
-        <div class="split-section__content">
-          <span class="section__tag">品牌故事</span>
-          <h2 class="section__title">每一個動作<br>都值得被认真对待</h2>
-          <p>
-            reform. 相信運動不只是身體的訓練，更是心靈的修行。
-            我們專注於每一個細節，從材質選擇到工藝設計，
-            打造讓你專注於當下的運動裝備。
-          </p>
-          <a href="about.html" class="btn btn--outline" style="margin-top: 2rem;">了解更多</a>
-        </div>
+  <!-- Brand Statement -->
+  <section class="statement">
+    <div class="statement-inner">
+      <div class="statement-number">01</div>
+      <div class="statement-content">
+        <h2 class="statement-title">重新定義<br><em>你的運動美學</em></h2>
+        <p class="statement-text">
+          reform. 相信好的設計不存在。只有適合你的，成為你的一部分。
+          <br><br>
+          從一雙襪子開始，找到你的節奏。
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="section__tag">產品</span>
-        <h2 class="section__title">精選系列</h2>
-        <p class="section__desc">每一雙襪子都是對品質的堅持</p>
+  <!-- Philosophy Grid -->
+  <section class="philosophy">
+    <div class="philosophy-inner">
+      <div class="philosophy-header">
+        <span class="section-label">Philosophy</span>
+        <h2 class="section-title">我們的信念</h2>
       </div>
-      <div class="product-grid">
-        <div class="product-card reveal">
-          <div class="product-card__image">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2L12 22M8 6L12 2L16 6M8 10L12 6L16 10M6 14L12 10L18 14M4 18L12 14L20 18"/>
-            </svg>
-          </div>
-          <div class="product-card__content">
-            <span class="product-card__category">Grip Socks</span>
-            <h3 class="product-card__name">Essential Classic</h3>
-            <div class="product-card__price">
-              $45
-              <span>$65</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #E8E0F0 0%, #F5E6E8 100%);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 6v6l4 2"/>
-            </svg>
-          </div>
-          <div class="product-card__content">
-            <span class="product-card__category">Grip Socks</span>
-            <h3 class="product-card__name">Performance Pro</h3>
-            <div class="product-card__price">
-              $65
-              <span>$89</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #FDFBF7 0%, #E8E0F0 100%);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z"/>
-              <line x1="16" y1="8" x2="2" y2="22"/>
-              <line x1="17.5" y1="15" x2="9" y2="15"/>
-            </svg>
-          </div>
-          <div class="product-card__content">
-            <span class="product-card__category">Grip Socks</span>
-            <h3 class="product-card__name">Limited Edition</h3>
-            <div class="product-card__price">
-              $95
-              <span>$130</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #F5E6E8 0%, #E8E0F0 100%);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <div class="product-card__content">
-            <span class="product-card__category">Gift Set</span>
-            <h3 class="product-card__name">Reform Box</h3>
-            <div class="product-card__price">
-              $149
-              <span>$199</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 3rem;" class="reveal">
-        <a href="products.html" class="btn btn--primary">查看全部產品</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section class="section section--primary">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="section__tag">部落格</span>
-        <h2 class="section__title">運動與生活</h2>
-        <p class="section__desc">探索關於運動、健康與生活的一切</p>
-      </div>
-      <div class="blog-grid">
-        <article class="blog-card reveal">
-          <div class="blog-card__image">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.04.10</time>
-            <h3 class="blog-card__title">如何選擇適合你的 Pilates 襪子</h3>
-            <p class="blog-card__excerpt">挑選 Pilates 襪子時，最重要的不是外觀，而是支撐性和防滑效果。讓我們告訴你如何找到完美的一雙。</p>
-          </div>
+      <div class="philosophy-grid">
+        <article class="philosophy-item">
+          <span class="philosophy-num">A</span>
+          <h3 class="philosophy-name">Movement</h3>
+          <p class="philosophy-desc">每一個動作，都值得被好好對待。舒適是基本，儀式感是日常。</p>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #E8E0F0 0%, #F5E6E8 100%);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/>
-              <line x1="15" y1="9" x2="15.01" y2="9"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.04.05</time>
-            <h3 class="blog-card__title">5 個動作提升你的核心力量</h3>
-            <p class="blog-card__excerpt">核心訓練不只是仰臥起坐。這五個動作每天十分鐘，有效強化你的核心肌群。</p>
-          </div>
+        <article class="philosophy-item">
+          <span class="philosophy-num">B</span>
+          <h3 class="philosophy-name">Aesthetic</h3>
+          <p class="philosophy-desc">極簡不是空洞，是精準。每一個選擇都有它的理由。</p>
         </article>
-        <article class="blog-card reveal">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #FDFBF7 0%, #E8E0F0 100%);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <div class="blog-card__content">
-            <time class="blog-card__date">2026.03.28</time>
-            <h3 class="blog-card__title">為什麼開始運動永遠不嫌晚</h3>
-            <p class="blog-card__excerpt">無論你是 25 歲還是 65 歲，身體永遠在改變。現在開始，就是最好的時機。</p>
-          </div>
+        <article class="philosophy-item">
+          <span class="philosophy-num">C</span>
+          <h3 class="philosophy-name">Quality</h3>
+          <p class="philosophy-desc">材質會說話。透氣、防滑、支撐——看不見的地方才是實力。</p>
+        </article>
+        <article class="philosophy-item">
+          <span class="philosophy-num">D</span>
+          <h3 class="philosophy-name">Community</h3>
+          <p class="philosophy-desc">你不是一個人在動。我們都在找自己的節奏。</p>
         </article>
       </div>
-      <div style="text-align: center; margin-top: 3rem;" class="reveal">
-        <a href="blog.html" class="btn btn--outline">閱讀更多文章</a>
+    </div>
+  </section>
+
+  <!-- Product Preview -->
+  <section class="preview">
+    <div class="preview-inner">
+      <div class="preview-header">
+        <span class="section-label">Products</span>
+        <h2 class="section-title">精選系列</h2>
+        <a href="products.html" class="preview-link">
+          View All
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="preview-grid">
+        <a href="products.html" class="preview-item large">
+          <div class="preview-img">
+            <div class="preview-img-placeholder" style="background: linear-gradient(135deg, #F5E6E8 0%, #E8E0F0 100%);"></div>
+          </div>
+          <div class="preview-info">
+            <h3 class="preview-name">Essential Grip Sock</h3>
+            <span class="preview-price">NT$ 680</span>
+          </div>
+        </a>
+        <a href="products.html" class="preview-item">
+          <div class="preview-img">
+            <div class="preview-img-placeholder" style="background: linear-gradient(135deg, #E8E0F0 0%, #F5E6E8 100%);"></div>
+          </div>
+          <div class="preview-info">
+            <h3 class="preview-name">Studio Grip Sock</h3>
+            <span class="preview-price">NT$ 780</span>
+          </div>
+        </a>
+        <a href="products.html" class="preview-item">
+          <div class="preview-img">
+            <div class="preview-img-placeholder" style="background: linear-gradient(135deg, #FDFBF7 0%, #F5E6E8 100%);"></div>
+          </div>
+          <div class="preview-info">
+            <h3 class="preview-name">Pro Performance</h3>
+            <span class="preview-price">NT$ 880</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Section -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="newsletter reveal">
-        <div class="newsletter__content">
-          <h2>加入 reform. 社群</h2>
-          <p>訂閱我們，獲得最新產品資訊與運動靈感</p>
-        </div>
-        <form class="newsletter__form">
-          <input type="email" placeholder="你的電子郵件" required>
-          <button type="submit" class="btn btn--primary">訂閱</button>
-        </form>
+  <!-- Journal Preview -->
+  <section class="journal">
+    <div class="journal-inner">
+      <div class="journal-header">
+        <span class="section-label">Journal</span>
+        <h2 class="section-title">故事</h2>
+      </div>
+      <div class="journal-list">
+        <a href="blog.html" class="journal-item">
+          <div class="journal-meta">
+            <span class="journal-date">2026.04.10</span>
+            <span class="journal-cat">Movement</span>
+          </div>
+          <h3 class="journal-title">找到你的節奏：如何建立每日的輕運動習慣</h3>
+          <p class="journal-excerpt">不需要熱血沸騰，只需要持續。今天的你可以比昨天多走一步。</p>
+        </a>
+        <a href="blog.html" class="journal-item">
+          <div class="journal-meta">
+            <span class="journal-date">2026.03.28</span>
+            <span class="journal-cat">Aesthetic</span>
+          </div>
+          <h3 class="journal-title">極簡主義：少即是多的運動穿搭</h3>
+          <p class="journal-excerpt">當你開始注意服裝的質感和剪裁，你會發現運動不再只是為了看起來怎樣。</p>
+        </a>
+        <a href="blog.html" class="journal-item">
+          <div class="journal-meta">
+            <span class="journal-date">2026.03.15</span>
+            <span class="journal-cat">Community</span>
+          </div>
+          <h3 class="journal-title">不只是襪子：reform. 的誕生故事</h3>
+          <p class="journal-excerpt">一個困擾，開啟了一個問題，最後成為我們的使命。</p>
+        </a>
+      </div>
+      <div class="journal-footer">
+        <a href="blog.html" class="btn-text">
+          More Stories
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">reform<span>.</span></div>
-          <p class="footer__desc">
-            重新定義你的運動日常。頂級防滑襪，為每一個動作而生。
-          </p>
-          <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="Facebook">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-              </svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="LINE">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63-.347 0-.629-.285-.629-.63 0-.346.282-.63.63-.63zm-19.73 5.948c-.596 0-1.08-.474-1.08-1.058 0-.587.484-1.06 1.08-1.06.595 0 1.079.473 1.079 1.06 0 .584-.484 1.058-1.08 1.058zm-2.35 5.11c-.596 0-1.08-.474-1.08-1.057 0-.586.484-1.06 1.08-1.06.595 0 1.078.474 1.078 1.06 0 .583-.483 1.057-1.078 1.057zm-2.35-5.303c-.596 0-1.08-.475-1.08-1.06 0-.585.484-1.057 1.08-1.057.595 0 1.078.472 1.078 1.057 0 .585-.483 1.06-1.078 1.06zm14.23-.184c-.347 0-.63-.285-.63-.63 0-.346.283-.631.63-.631.349 0 .63.285.63.631 0 .345-.281.63-.63.63zm-14.23.184c-.596 0-1.08-.474-1.08-1.058 0-.587.484-1.06 1.08-1.06.595 0 1.079.473 1.079 1.06 0 .584-.484 1.058-1.08 1.058zm-2.35 5.03c-.596 0-1.08-.475-1.08-1.057 0-.586.484-1.06 1.08-1.06.595 0 1.078.474 1.078 1.06 0 .583-.483 1.057-1.078 1.057z"/>
-              </svg>
-            </a>
-          </div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">reform.</span>
+        <p class="footer-tagline">be the reform</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <a href="products.html" class="footer-link">All Products</a>
+          <a href="products.html" class="footer-link">Grip Socks</a>
+          <a href="products.html" class="footer-link">Accessories</a>
         </div>
-        <div class="footer__column">
-          <h4>商店</h4>
-          <ul class="footer__links">
-            <li><a href="products.html">所有產品</a></li>
-            <li><a href="#">暢銷商品</a></li>
-            <li><a href="#">新品上市</a></li>
-            <li><a href="#">限時優惠</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4 class="footer-heading">About</h4>
+          <a href="about.html" class="footer-link">Our Story</a>
+          <a href="blog.html" class="footer-link">Journal</a>
+          <a href="contact.html" class="footer-link">Contact</a>
         </div>
-        <div class="footer__column">
-          <h4>幫助</h4>
-          <ul class="footer__links">
-            <li><a href="#">配送資訊</a></li>
-            <li><a href="#">退換貨政策</a></li>
-            <li><a href="#">尺寸指南</a></li>
-            <li><a href="contact.html">聯絡我們</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4>關於</h4>
-          <ul class="footer__links">
-            <li><a href="about.html">品牌故事</a></li>
-            <li><a href="blog.html">部落格</a></li>
-            <li><a href="#">永續發展</a></li>
-            <li><a href="#">招募中</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect</h4>
+          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
+          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 reform. All rights reserved.</p>
-        <p>made with care</p>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+        <p class="footer-location">Taipei, Taiwan</p>
       </div>
     </div>
   </footer>

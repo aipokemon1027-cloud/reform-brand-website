@@ -3,264 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>聯絡我們 | reform.</title>
+  <title>Contact — reform.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo">reform<span>.</span></a>
-      <nav class="nav" id="nav">
-        <a href="index.html" class="nav__link">首頁</a>
-        <a href="about.html" class="nav__link">品牌故事</a>
-        <a href="products.html" class="nav__link">產品</a>
-        <a href="blog.html" class="nav__link">部落格</a>
-        <a href="contact.html" class="nav__link">聯絡</a>
-        <a href="#" class="nav__link nav__link--cta">會員登入</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">reform.</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="blog.html" class="nav-link">Journal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
       </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="products.html" class="mobile-link">Products</a>
+      <a href="blog.html" class="mobile-link">Journal</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Contact</span>
+      <h1 class="page-title">聯絡我們</h1>
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero" style="
-    padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-xl);
-    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-primary) 100%);
-    text-align: center;
-  ">
-    <div class="container">
-      <span class="section__tag">Contact</span>
-      <h1 style="animation: none; opacity: 1; font-size: clamp(2.5rem, 6vw, 4rem);">
-        聯絡我們
-      </h1>
-      <p style="max-width: 60ch; margin: 1rem auto 0; color: var(--color-text-light);">
-        有任何問題或想法？我們很樂意聽到你的聲音
-      </p>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-inner">
+      <div class="contact-grid">
+        
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2 class="contact-info-title">有任何問題、建議，<br>或只是想打個招呼？</h2>
+          
+          <div class="contact-detail">
+            <p class="contact-detail-label">Email</p>
+            <p class="contact-detail-value">
+              <a href="mailto:hello@reform-brand.com">hello@reform-brand.com</a>
+            </p>
+          </div>
+          
+          <div class="contact-detail">
+            <p class="contact-detail-label">LINE</p>
+            <p class="contact-detail-value">@reform-tw</p>
+          </div>
+          
+          <div class="contact-detail">
+            <p class="contact-detail-label">Instagram</p>
+            <p class="contact-detail-value">
+              <a href="https://instagram.com/reform.tw" target="_blank">@reform.tw</a>
+            </p>
+          </div>
+          
+          <div class="contact-detail">
+            <p class="contact-detail-label">Service Hours</p>
+            <p class="contact-detail-value">
+              Monday — Friday<br>
+              10:00 — 18:00 GMT+8
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" name="message" class="form-textarea" required></textarea>
+          </div>
+          
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="section section--alt">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start;">
-
-        <!-- Contact Form -->
-        <div class="contact-form reveal">
-          <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">傳送訊息</h2>
-          <p style="margin-bottom: var(--space-lg); color: var(--color-text-light);">填寫表單，我們會在 24 小時內回覆你</p>
-
-          <form id="contactForm" style="display: flex; flex-direction: column; gap: var(--space-md);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
-              <div>
-                <label for="name" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem;">姓名</label>
-                <input type="text" id="name" name="name" required style="
-                  width: 100%;
-                  padding: 1rem;
-                  border: 1.5px solid var(--color-border);
-                  border-radius: 12px;
-                  font-size: 1rem;
-                  font-family: inherit;
-                  background: var(--color-white);
-                  transition: border-color 0.2s ease;
-                ">
-              </div>
-              <div>
-                <label for="email" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem;">電子郵件</label>
-                <input type="email" id="email" name="email" required style="
-                  width: 100%;
-                  padding: 1rem;
-                  border: 1.5px solid var(--color-border);
-                  border-radius: 12px;
-                  font-size: 1rem;
-                  font-family: inherit;
-                  background: var(--color-white);
-                  transition: border-color 0.2s ease;
-                ">
-              </div>
-            </div>
-            <div>
-              <label for="subject" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem;">主旨</label>
-              <select id="subject" name="subject" style="
-                width: 100%;
-                padding: 1rem;
-                border: 1.5px solid var(--color-border);
-                border-radius: 12px;
-                font-size: 1rem;
-                font-family: inherit;
-                background: var(--color-white);
-                cursor: pointer;
-              ">
-                <option value="">選擇主題</option>
-                <option value="general">一般詢問</option>
-                <option value="order">訂單相關</option>
-                <option value="product">產品諮詢</option>
-                <option value="wholesale">批發合作</option>
-                <option value="other">其他</option>
-              </select>
-            </div>
-            <div>
-              <label for="message" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem;">訊息內容</label>
-              <textarea id="message" name="message" rows="5" required style="
-                width: 100%;
-                padding: 1rem;
-                border: 1.5px solid var(--color-border);
-                border-radius: 12px;
-                font-size: 1rem;
-                font-family: inherit;
-                background: var(--color-white);
-                resize: vertical;
-                min-height: 150px;
-                transition: border-color 0.2s ease;
-              "></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary" style="align-self: flex-start;">
-              送出訊息
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-            </button>
-          </form>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="contact-info reveal">
-          <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">其他聯絡方式</h2>
-          <p style="margin-bottom: var(--space-lg); color: var(--color-text-light);">更喜歡即時對話？透過以下方式找到我們</p>
-
-          <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-            <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--color-white); border-radius: 16px;">
-              <div style="width: 48px; height: 48px; background: var(--color-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div>
-                <div style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 0.25rem;">Email</div>
-                <div style="font-weight: 500;">hello@reform-brand.com</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--color-white); border-radius: 16px;">
-              <div style="width: 48px; height: 48px; background: var(--color-lavender); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63-.347 0-.629-.285-.629-.63 0-.346.282-.63.63-.63zm-19.73 5.948c-.596 0-1.08-.474-1.08-1.058 0-.587.484-1.06 1.08-1.06.595 0 1.079.473 1.079 1.06 0 .584-.484 1.058-1.08 1.058zm-2.35 5.11c-.596 0-1.08-.474-1.08-1.057 0-.586.484-1.06 1.08-1.06.595 0 1.078.474 1.078 1.06 0 .583-.483 1.057-1.078 1.057zm-2.35-5.303c-.596 0-1.08-.475-1.08-1.06 0-.585.484-1.057 1.08-1.057.595 0 1.078.472 1.078 1.057 0 .585-.483 1.06-1.078 1.06zm14.23-.184c-.347 0-.63-.285-.63-.63 0-.346.283-.631.63-.631.349 0 .63.285.63.631 0 .345-.281.63-.63.63zm-14.23.184c-.596 0-1.08-.474-1.08-1.058 0-.587.484-1.06 1.08-1.06.595 0 1.079.473 1.079 1.06 0 .584-.484 1.058-1.08 1.058zm-2.35 5.03c-.596 0-1.08-.475-1.08-1.057 0-.586.484-1.06 1.08-1.06.595 0 1.078.474 1.078 1.06 0 .583-.483 1.057-1.078 1.057z"/>
-                </svg>
-              </div>
-              <div>
-                <div style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 0.25rem;">LINE</div>
-                <div style="font-weight: 500;">@reform-tw</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--color-white); border-radius: 16px;">
-              <div style="width: 48px; height: 48px; background: var(--color-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                </svg>
-              </div>
-              <div>
-                <div style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 0.25rem;">Instagram</div>
-                <div style="font-weight: 500;">@reform.tw</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--color-white); border-radius: 16px;">
-              <div style="width: 48px; height: 48px; background: var(--color-lavender); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <div>
-                <div style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 0.25rem;">服務時間</div>
-                <div style="font-weight: 500;">週一至週五 10:00 - 18:00</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ -->
-          <div style="margin-top: var(--space-lg); padding: var(--space-lg); background: var(--color-cream); border-radius: 20px;">
-            <h3 style="font-size: 1.1rem; margin-bottom: var(--space-md);">常見問題</h3>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);">
-              <li><a href="#" style="color: var(--color-text-light); text-decoration: none; font-size: 0.9rem;">如何購買？</a></li>
-              <li><a href="#" style="color: var(--color-text-light); text-decoration: none; font-size: 0.9rem;">運費與配送</a></li>
-              <li><a href="#" style="color: var(--color-text-light); text-decoration: none; font-size: 0.9rem;">退換貨政策</a></li>
-              <li><a href="#" style="color: var(--color-text-light); text-decoration: none; font-size: 0.9rem;">尺寸指南</a></li>
-            </ul>
-          </div>
-        </div>
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">常見問題</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">你們的運費如何計算？</summary>
+          <p class="faq-answer">全館滿 NT$ 1,000 免運。未達門檻，運費為 NT$ 80。港澳地區運費 NT$ 150。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">可以退換貨嗎？</summary>
+          <p class="faq-answer">收到商品後 7 天內可申請退換貨。請注意，襪子屬於個人衛生用品，拆封後恕不退換。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">如何選擇尺寸？</summary>
+          <p class="faq-answer">我們的尺寸分為 S/M/L。S 適合 36-38，M 適合 39-41，L 適合 42-44。如有疑問，歡迎聯絡我們。</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">你們支持批發或代 理嗎？</summary>
+          <p class="faq-answer">目前暫未開放批發。如有合作提案，歡迎來信說明。</p>
+        </details>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <div class="footer__logo">reform<span>.</span></div>
-          <p class="footer__desc">重新定義你的運動日常。</p>
-          <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-            </a>
-          </div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">reform.</span>
+        <p class="footer-tagline">be the reform</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <a href="products.html" class="footer-link">All Products</a>
+          <a href="products.html" class="footer-link">Grip Socks</a>
+          <a href="products.html" class="footer-link">Accessories</a>
         </div>
-        <div class="footer__column">
-          <h4>商店</h4>
-          <ul class="footer__links">
-            <li><a href="products.html">所有產品</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4 class="footer-heading">About</h4>
+          <a href="about.html" class="footer-link">Our Story</a>
+          <a href="blog.html" class="footer-link">Journal</a>
+          <a href="contact.html" class="footer-link">Contact</a>
         </div>
-        <div class="footer__column">
-          <h4>幫助</h4>
-          <ul class="footer__links">
-            <li><a href="contact.html">聯絡我們</a></li>
-          </ul>
-        </div>
-        <div class="footer__column">
-          <h4>關於</h4>
-          <ul class="footer__links">
-            <li><a href="about.html">品牌故事</a></li>
-            <li><a href="blog.html">部落格</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect</h4>
+          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
+          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 reform. All rights reserved.</p>
-        <p>made with care</p>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+        <p class="footer-location">Taipei, Taiwan</p>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    // Contact form handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      alert(`感謝 ${name}！我們會盡快回覆你。`);
-      this.reset();
-    });
-  </script>
 </body>
 </html>

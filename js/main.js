@@ -1,102 +1,65 @@
-// ========================================
-// reform. - Main JavaScript
-// Uses minimal vanilla JS (no frameworks)
-// ========================================
+/* ============================================
+   reform. — Minimal JavaScript
+   ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  let menuOpen = false;
 
-  // ========================================
-  // Mobile Navigation Toggle
-  // ========================================
-  const navToggle = document.getElementById('navToggle');
-  const nav = document.getElementById('nav');
-
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('active', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+      
+      // Animate hamburger to X
+      const spans = menuToggle.querySelectorAll('span');
+      if (menuOpen) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.transform = 'rotate(-45deg) translate(0, 0)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.transform = '';
+      }
     });
 
-    // Close mobile menu when clicking a link
-    nav.querySelectorAll('.nav__link').forEach(link => {
+    // Close menu on link click
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+    mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
-        nav.classList.remove('active');
+        menuOpen = false;
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.transform = '';
       });
     });
   }
 
-  // ========================================
-  // Header scroll behavior
-  // ========================================
-  const header = document.querySelector('.header');
+  // Navigation scroll behavior - hide/show on scroll
+  const nav = document.querySelector('.nav');
   let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
-      header.style.transform = currentScroll > lastScroll
-        ? 'translateY(-100%)'
-        : 'translateY(0)';
+    
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      nav.style.transform = 'translateY(-100%)';
     } else {
-      header.style.transform = 'translateY(0)';
+      nav.style.transform = 'translateY(0)';
     }
-
+    
     lastScroll = currentScroll;
-  });
+  }, { passive: true });
 
-  // ========================================
-  // Scroll Reveal Animation
-  // ========================================
-  const revealElements = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // ========================================
-  // Staggered animations for grids
-  // ========================================
-  const gridItems = document.querySelectorAll('.product-card, .blog-card');
-
-  gridItems.forEach((item, index) => {
-    item.style.transitionDelay = `${index * 100}ms`;
-  });
-
-  // ========================================
-  // Newsletter form handling
-  // ========================================
-  const newsletterForm = document.querySelector('.newsletter__form');
-
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = newsletterForm.querySelector('input[type="email"]').value;
-      alert(`感謝訂閱！我們會把最新資訊寄到 ${email}`);
-      newsletterForm.reset();
-    });
-  }
-
-  // ========================================
   // Smooth scroll for anchor links
-  // ========================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(href);
+      const target = document.querySelector(this.getAttribute('href'));
       if (target) {
         target.scrollIntoView({
           behavior: 'smooth',
@@ -105,62 +68,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // ========================================
-  // Parallax effect on hero
-  // ========================================
-  const hero = document.querySelector('.hero');
-
-  if (hero) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.3;
-
-      if (scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${rate}px)`;
-      }
-    });
-  }
-
-  // ========================================
-  // Button ripple effect
-  // ========================================
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      // Simple visual feedback
-      this.style.transform = 'scale(0.97)';
-      setTimeout(() => {
-        this.style.transform = '';
-      }, 150);
-    });
-  });
-
-  // ========================================
-  // Video autoplay on visibility
-  // ========================================
-  const video = document.getElementById('heroVideo');
-  if (video) {
-    // Check if video source exists, otherwise show gradient
-    video.addEventListener('error', () => {
-      video.style.display = 'none';
-    });
-
-    // Try to play (muted autoplay required for mobile)
-    video.play().catch(() => {
-      video.style.display = 'none';
-    });
-  }
-
-  // ========================================
-  // Lazy load images (if we add real images)
-  // ========================================
-  if ('loading' in HTMLImageElement.prototype) {
-    // Native lazy loading supported
-    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-      img.src = img.dataset.src;
-    });
-  }
-
 });
-
-console.log('reform. website loaded');

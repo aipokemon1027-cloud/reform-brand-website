@@ -30,3 +30,24 @@
 
 ### 狀態
 已被 v2 覆蓋
+
+---
+
+## v3 — 2026-04-17
+**主題：** Glossier 風格 Hover 互動優化
+
+### 變更內容
+- **導航連結：** hover 時底線從左側滑入（::after + scaleX）
+- **商品卡片 hover：** 卡片上浮 + 陰影加深 + 名稱變玫瑰色
+- **Journal 文章列表：** 滑鼠移入時底線加深 + 標題變色
+- **箭頭 icon：** hover 時向右滑動（translateX: 4px）
+- **Footer 連結：** opacity 過渡（0.7 → 1）
+- **Blog 卡片：** 陰影上浮 + 標題變色
+
+### 設計參考
+- Glossier.com — 乾淨的 hover 回饋、白色卡片陰影上浮效果
+
+### 版本管理
+- 同步更新 `current/` 資料夾
+- `main` branch 最新 commit: 3cc837a
+

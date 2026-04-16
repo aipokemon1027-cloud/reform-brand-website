@@ -107,11 +107,29 @@ button {
   text-transform: uppercase;
   color: var(--color-charcoal);
   opacity: 0.7;
+  position: relative;
   transition: opacity var(--transition-medium);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-charcoal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-medium);
 }
 
 .nav-link:hover {
   opacity: 1;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 .nav-menu-btn {
@@ -410,6 +428,10 @@ button {
   opacity: 1;
 }
 
+.preview-link:hover svg {
+  transform: translateX(4px);
+}
+
 .preview-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
@@ -418,6 +440,7 @@ button {
 
 .preview-item {
   display: block;
+  cursor: pointer;
 }
 
 .preview-item.large {
@@ -428,12 +451,17 @@ button {
   aspect-ratio: 3/4;
   overflow: hidden;
   margin-bottom: var(--space-md);
+  transition: box-shadow var(--transition-medium);
 }
 
 .preview-img-placeholder {
   width: 100%;
   height: 100%;
   transition: transform var(--transition-slow);
+}
+
+.preview-item:hover .preview-img {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .preview-item:hover .preview-img-placeholder {
@@ -445,6 +473,11 @@ button {
   font-size: 1.1rem;
   font-weight: 400;
   margin-bottom: var(--space-xs);
+  transition: color var(--transition-medium);
+}
+
+.preview-item:hover .preview-name {
+  color: var(--color-deep-rose);
 }
 
 .preview-price {
@@ -478,10 +511,23 @@ button {
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--color-light-gray);
   transition: border-color var(--transition-medium);
+  cursor: pointer;
 }
 
 .journal-item:first-child {
   border-top: 1px solid var(--color-light-gray);
+}
+
+.journal-item:hover {
+  border-color: var(--color-charcoal);
+}
+
+.journal-title {
+  transition: color var(--transition-medium);
+}
+
+.journal-item:hover .journal-title {
+  color: var(--color-deep-rose);
 }
 
 .journal-meta {
@@ -532,6 +578,14 @@ button {
 
 .btn-text:hover {
   opacity: 1;
+}
+
+.btn-text:hover svg {
+  transform: translateX(4px);
+}
+
+.btn-text svg {
+  transition: transform var(--transition-medium);
 }
 
 /* ============================================
@@ -595,6 +649,10 @@ button {
 
 .footer-link:hover {
   opacity: 1;
+}
+
+.footer-link {
+  transition: opacity var(--transition-medium);
 }
 
 .footer-bottom {
@@ -961,18 +1019,24 @@ button {
 
 .product-item {
   display: block;
+  cursor: pointer;
 }
 
 .product-img {
   aspect-ratio: 3/4;
   overflow: hidden;
   margin-bottom: var(--space-md);
+  transition: box-shadow var(--transition-medium);
 }
 
 .product-img-placeholder {
   width: 100%;
   height: 100%;
   transition: transform var(--transition-slow);
+}
+
+.product-item:hover .product-img {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .product-item:hover .product-img-placeholder {
@@ -991,6 +1055,7 @@ button {
   color: var(--color-mid-gray);
   display: block;
   margin-bottom: var(--space-xs);
+  transition: color var(--transition-medium);
 }
 
 .product-name {
@@ -998,6 +1063,11 @@ button {
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: var(--space-xs);
+  transition: color var(--transition-medium);
+}
+
+.product-item:hover .product-name {
+  color: var(--color-deep-rose);
 }
 
 .product-desc {
@@ -1049,12 +1119,14 @@ button {
 
 .blog-card {
   display: block;
+  cursor: pointer;
 }
 
 .blog-card-img {
   aspect-ratio: 16/10;
   overflow: hidden;
   margin-bottom: var(--space-md);
+  transition: box-shadow var(--transition-medium);
 }
 
 .blog-card-img-placeholder {
@@ -1065,6 +1137,10 @@ button {
 
 .blog-card:hover .blog-card-img-placeholder {
   transform: scale(1.03);
+}
+
+.blog-card:hover .blog-card-img {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .blog-card-meta {
@@ -1085,6 +1161,11 @@ button {
   font-weight: 400;
   line-height: 1.3;
   margin-bottom: var(--space-sm);
+  transition: color var(--transition-medium);
+}
+
+.blog-card:hover .blog-card-title {
+  color: var(--color-deep-rose);
 }
 
 .blog-card-excerpt {

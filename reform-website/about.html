@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>品牌故事 | reform.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">reform<span>.</span></a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav__link">首頁</a>
+        <a href="about.html" class="nav__link">品牌故事</a>
+        <a href="products.html" class="nav__link">產品</a>
+        <a href="blog.html" class="nav__link">部落格</a>
+        <a href="contact.html" class="nav__link">聯絡</a>
+        <a href="#" class="nav__link nav__link--cta">會員登入</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero" style="
+    padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-xl);
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-primary) 100%);
+    text-align: center;
+  ">
+    <div class="container">
+      <span class="section__tag">About Us</span>
+      <h1 class="hero__title" style="animation: none; opacity: 1; font-size: clamp(2.5rem, 6vw, 4rem);">
+        品牌故事
+      </h1>
+      <p style="max-width: 60ch; margin: 1rem auto 0; color: var(--color-text-light);">
+        從一雙襪子開始，重新定義你的運動日常
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Section 1 -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split-section reveal" style="gap: var(--space-xl);">
+        <div class="split-section__content" style="flex: 1;">
+          <span class="section__tag">起源</span>
+          <h2 class="section__title">為什麼是「reform.」？</h2>
+          <p>
+            reform. 的誕生，來自於一次普通的 Pilates 課。
+            那是個潮濕的下午，地板有點滑，教練不斷提醒我們要穿防滑襪。
+            但市場上找不到一雙既好看又專業的選項——要麼是醜陋的運動白襪，
+            要麼是好看但不防滑的時尚款式。
+          </p>
+          <p style="margin-top: 1.5rem;">
+            我們決定自己做一雙。一雙同時滿足專業防滑功能和當代審美的 Pilates 襪子。
+            這個出發點很簡單，但做起來一點都不簡單。
+          </p>
+        </div>
+        <div class="split-section__image" style="flex: 1; aspect-ratio: 4/5; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-lavender) 100%); border-radius: 24px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section 2 -->
+  <section class="section">
+    <div class="container">
+      <div class="split-section reveal" style="flex-direction: row-reverse; gap: var(--space-xl);">
+        <div class="split-section__content" style="flex: 1;">
+          <span class="section__tag">理念</span>
+          <h2 class="section__title">每一個動作<br>都值得被认真对待</h2>
+          <p>
+            我們相信，運動不只是身體的訓練，更是心靈的修行。
+            當你穿上一雙合適的裝備，你可以更專注、更自信、更享受當下。
+          </p>
+          <p style="margin-top: 1.5rem;">
+            reform. 的每一個產品，都經過這樣的思考：
+            它如何讓穿著者感覺更好？它如何支援他們的動作？
+            它如何在細節裡傳達我們對品質的堅持？
+          </p>
+        </div>
+        <div class="split-section__image" style="flex: 1; aspect-ratio: 4/5; background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-cream) 100%); border-radius: 24px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="section section--primary">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag">價值</span>
+        <h2 class="section__title">我們相信的事</h2>
+      </div>
+      <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg);">
+        <div class="value-card reveal" style="background: var(--color-white); padding: var(--space-lg); border-radius: 20px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-accent-deep);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">專業</h3>
+          <p style="font-size: 0.9rem;">防滑效果經過嚴格測試，確保每一個動作都安全穩固。</p>
+        </div>
+        <div class="value-card reveal" style="background: var(--color-white); padding: var(--space-lg); border-radius: 20px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-accent-deep);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">設計</h3>
+          <p style="font-size: 0.9rem;">不只是功能，我們更在乎你看起來感覺怎麼樣。</p>
+        </div>
+        <div class="value-card reveal" style="background: var(--color-white); padding: var(--space-lg); border-radius: 20px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-accent-deep);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">永續</h3>
+          <p style="font-size: 0.9rem;">從材料到包裝，我們選擇對環境更友善的方式。</p>
+        </div>
+        <div class="value-card reveal" style="background: var(--color-white); padding: var(--space-lg); border-radius: 20px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-accent-deep);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">用心</h3>
+          <p style="font-size: 0.9rem;">每個細節都是刻意選擇的，每個決策都有理由。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--alt">
+    <div class="container" style="text-align: center;">
+      <div class="reveal">
+        <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1.5rem;">
+          準備好開始你的 reform 了嗎？
+        </h2>
+        <a href="products.html" class="btn btn--primary" style="padding: 1rem 3rem;">
+          探索我們的產品
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">reform<span>.</span></div>
+          <p class="footer__desc">重新定義你的運動日常。</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__column">
+          <h4>商店</h4>
+          <ul class="footer__links">
+            <li><a href="products.html">所有產品</a></li>
+            <li><a href="#">暢銷商品</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4>幫助</h4>
+          <ul class="footer__links">
+            <li><a href="contact.html">聯絡我們</a></li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h4>關於</h4>
+          <ul class="footer__links">
+            <li><a href="about.html">品牌故事</a></li>
+            <li><a href="blog.html">部落格</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 reform. All rights reserved.</p>
+        <p>made with care</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

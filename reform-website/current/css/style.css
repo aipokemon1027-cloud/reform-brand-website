@@ -454,6 +454,17 @@ button {
   transition: box-shadow var(--transition-medium);
 }
 
+.preview-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.preview-item:hover .preview-img-src {
+  transform: scale(1.03);
+}
+
 .preview-img-placeholder {
   width: 100%;
   height: 100%;
@@ -773,6 +784,12 @@ button {
   overflow: hidden;
 }
 
+.about-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .about-img-placeholder {
   width: 100%;
   height: 100%;
@@ -907,6 +924,17 @@ button {
   overflow: hidden;
 }
 
+.about-team-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.about-team-member:hover .about-team-img-src {
+  transform: scale(1.03);
+}
+
 .about-team-placeholder {
   width: 100%;
   height: 100%;
@@ -1029,6 +1057,17 @@ button {
   transition: box-shadow var(--transition-medium);
 }
 
+.product-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product-item:hover .product-img-src {
+  transform: scale(1.03);
+}
+
 .product-img-placeholder {
   width: 100%;
   height: 100%;
@@ -1129,6 +1168,17 @@ button {
   transition: box-shadow var(--transition-medium);
 }
 
+.blog-card-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.blog-card:hover .blog-card-img-src {
+  transform: scale(1.03);
+}
+
 .blog-card-img-placeholder {
   width: 100%;
   height: 100%;
@@ -1197,6 +1247,17 @@ button {
 .blog-featured-img {
   aspect-ratio: 4/3;
   overflow: hidden;
+}
+
+.blog-featured-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.blog-featured-link:hover .blog-featured-img-src {
+  transform: scale(1.03);
 }
 
 .blog-featured-placeholder {

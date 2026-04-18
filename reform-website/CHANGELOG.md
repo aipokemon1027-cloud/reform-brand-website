@@ -33,6 +33,25 @@
 
 ---
 
+## v3.1 — 2026-04-19
+**主題：** 圖片填充優化
+
+### 變更內容
+- **Gemini Nano 2 生成品牌圖片：** 4張圖片填入所有頁面占位符
+- **首頁：** 3個 preview 圖片更新為真實產品照
+- **商品頁：** 6個商品圖片更新為真實產品照
+- **Blog：** 6個文章卡片圖片 + 1個 Featured 圖片更新
+- **About：** 團隊成員頭像更新
+- **新增 CSS：** `.preview-img-src`, `.product-img-src`, `.blog-card-img-src`, `.blog-featured-img-src`, `.about-img-src`, `.about-team-img-src`
+
+### 生成圖片
+- `reform-product-01.png` — 白色大理石背景產品照
+- `reform-gift-set.png` — 禮盒組生活風格照
+- `reform-lifestyle-hero.png` — 生活風格場景照
+- `reform-product-detail.png` — 產品細節特寫
+
+---
+
 ## v3 — 2026-04-17
 **主題：** Glossier 風格 Hover 互動優化
 

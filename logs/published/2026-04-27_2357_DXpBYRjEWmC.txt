@@ -1,0 +1,16 @@
+發布時間：2026-04-27 23:57
+文章ID：Fixa.dev
+Post ID：DXpBYRjEWmC
+來源：Product Hunt
+
+內容：
+💬 🚀 寫程式不再抓破頭！推坑大家這款雲端原生 AI Agent Fixa.dev ✨ 它不只是助手，更是能幫你「建構任何東西」的超強隊友！不管是開發專案還是自動化流程，丟給它處理就對了。這生產力簡直開外掛，快去 Product Hunt 挺一下，體驗動動嘴就把東西做出來的神奇感！⚡️ #FixaDev #AI開發 #生產力神器 🔗 https://www.producthunt.com/products/fixa-dev
+
+成功關鍵：
+1. 點 [16]（建立按鈕），不是 [49]
+2. 等4秒讓對話框出現
+3. 用 `opencli operate type`（真實鍵盤模擬），不是 JS eval/innerText
+4. 找 "發佈" 按鈕索引
+5. click 發布
+6. 等95秒
+7. 直接打開 post direct URL 驗證

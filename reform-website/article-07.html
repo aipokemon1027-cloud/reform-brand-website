@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 春季色彩趨勢：柔霧粉與中性灰 — reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-back-link {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #888;
+      text-decoration: none;
+      padding: 3rem 0 1rem 2rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .article-back-link::before { content: '← '; }
+    .article-back-link::after {
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      transition: opacity 0.3s ease;
+    }
+    .article-back-link:hover { color: #1a1a1a; }
+    .article-back-link:hover::after { opacity: 1; }
+
+    .article-header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      text-align: center;
+    }
+    .article-category-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #a89f91;
+      margin-bottom: 1rem;
+    }
+    .article-date {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #777;
+      font-style: italic;
+    }
+
+    .article-hero {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+    .article-hero img {
+      width: 100%;
+      height: 55vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .article-body p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a3a3a;
+      margin-bottom: 1.6rem;
+      font-weight: 300;
+    }
+    .article-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      margin: 3rem 0 1.2rem;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .article-author {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      padding: 3rem 0;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    .related-products {
+      background: #f9f7f4;
+      padding: 4rem 2rem;
+    }
+    .related-products-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .related-products-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #a89f91;
+      margin-bottom: 1rem;
+    }
+    .related-products-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-bottom: 2.5rem;
+    }
+    .related-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .related-product-card {
+      text-decoration: none;
+      display: block;
+    }
+    .related-product-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    .related-product-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+    }
+    .related-product-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">reform.</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
+        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
+        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+      </div>
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
+      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
+      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+    </div>
+  </div>
+
+  <a href="blog.html" class="article-back-link"><span class="en">← Back to Journal</span><span class="cn">← 返回日誌</span></a>
+
+  <header class="article-header">
+    <span class="article-category-tag"><span class="en">Aesthetic</span><span class="cn">美學</span></span>
+    <time class="article-date">2026.01.10</time>
+    <h1 class="article-title">2026 春季色彩趨勢：柔霧粉與中性灰</h1>
+    <p class="article-subtitle">從時裝週到運動場，今年的色彩語言是安靜而有力。柔霧粉說的是溫柔的力量，中性灰說的是不退潮的經典。</p>
+  </header>
+
+  <div class="article-hero">
+    <img src="assets/reform-gift-set.png" alt="2026 spring color palette" />
+  </div>
+
+  <article class="article-body">
+    <h3>色彩是一種訊息</h3>
+    <p>
+      每一季的色彩趨勢預測，通常是由幾個大的全球色彩機構——Pantone、 WGSN、Peclers——在深入研究社會、 文化、經濟資料之後發布的。但這些預測不只是一個美學方向的參考，它們是一個時代情緒的翻譯。當一個社會集體感到不安的時候，高飽和度的顏色往往會上升——它提供一種活力感和確定感。當一個社會處於過度刺激的時期，安靜的、低調的顏色開始勝出——它提供一種喘息感和可持續感。
+    </p>
+    <p>
+      2026年的春季色彩預測，告訴了我們一個很清楚的訊息：安靜。柔霧粉、燕麥白、淡薰衣草、暖灰——這些顏色不是突然冒出來的，它們是對過去幾年那種高強度、 高飽和度、資訊轟炸式生活的回應。當Instagram的帖子越來越色彩繽纷，你的神經已經習慣了被刺激，這個時候，一個柔霧粉的安靜反而更能被看見。
+    </p>
+    <p>
+      這個「安靜的顏色」的興起，不是軟弱的表現，恰恰相反。它是一種選擇性的結果：當我選擇一個不要求注意力的顏色，我的穿著就不再是一個「展示」，而是一個「表達」。這兩者之間的差異很微妙，但體驗過的人都懂。
+    </p>
+
+    <h3>為什麼這個時候安靜的顏色開始流行</h3>
+    <p>
+      過去三年間，我們經歷了一個全球性的「色彩復興」。在疫情後期，為了對抗封閉感和確定感的缺失，消费者集體傾向於購買充滿活力的顏色——鮮豔的橙、飽和的藍、跳躍的紫。這種選擇是一種情緒的出口，它讓人們感覺活力重新回到日常。
+    </p>
+    <p>
+      但當這種活力持續的時間夠長，它開始變成一種新的常態——然後它開始變成一個新的問題。你的神經被訓練得越來越習慣強刺激，低刺激的東西就開始讓你感到無聊。當所有品牌都在推出高飽和度的產品，你的衣櫥開始感覺越來越難以抉擇。每一件衣服都在呼喊「看我」，結果是沒有一件衣服真正被看見。
+    </p>
+    <p>
+      這個時候，「安靜」變成了一種新的吸引力。當所有東西都在要求被看見的時候，那個不要求任何東西的，反而鶴立雞群。這是一種反向心理學，只是不自覺。當你的衣服安靜了，你的存在感反而更強了。
+    </p>
+
+    <h3>reform.的顏色從來不是因為流行</h3>
+    <p>
+      當我們在選擇reform.的初始色彩時——米白、淡腮紅、暖薰衣草——我們沒有看任何一個季節的色彩趨勢報告。我們在做的，其實是一個更直覺的問題：什麼樣的顏色，存在於同一個情緒空間裡，但不是同一個情緒？什麼樣的顏色，讓你在穿著的時候感覺到「被照顧」而不是「被展示」？
+    </p>
+    <p>
+      結果出來之後，我們才發現它們和2026年的春季色彩趨勢驚人地吻合。這不是因為我們預測了趨勢，而是因為——我相信——趨勢從來不是被創造的，它們是被發現的。當你真誠地去尋找「什麼是對的」，而不是「什麼是現在流行的」，你往往會發現，你所找到的，恰恰也是時代正在呼喚的。
+    </p>
+    <p>
+      米白是我們最基礎的顏色。它不是一個「安全的選擇」——它是對我們的觸感的一種視覺延伸。當一種材料的質感是柔軟的、透氣的、自然的，它的顏色也應該是對這種質感的視覺承諾，而不是對時尚的承諾。淡腮紅是一個關於「溫柔的力量」的敘事。薰衣草是我們對「安静」這個概念最純粹的表達。
+    </p>
+
+    <h3>當顏色安靜了，質感就必須說話</h3>
+    <p>
+      這裡有一個重要的美學原則：當你選擇了安靜的顏色，你的服裝的質感就必須承擔更多的責任。在大膽的顏色下，質感問題可以被掩蓋——一個普通的棉質面料，染成一個飽和的藍色，看起來仍然可以接受。但當你選擇了一個淡薰衣草，質地的任何一個問題都會變得明顯——面料是否均勻，是否起毛，是否在洗滌後失去形狀。
+    </p>
+    <p>
+      這就是為什麼在選擇淡色調的服裝時，我們建議把「質感」優先於「顏色」。一個質感好的淡色面料，會在洗滌後仍然保持那種柔和的光澤；一個質感差的淡色面料，會在几次洗滌後呈現出一種暗淡的灰調，那是無論如何都無法彌補的。
+    </p>
+
+    <h3>實用指南：如何建立一個淡色調的運動衣櫥</h3>
+    <p>
+      如果你被這個春季的色彩趨勢打動，想要開始在運動衣櫥中加入更多安靜的顏色，有一個原則想分享：從中性色開始，再加一個跳色。中性灰或米白作為你的基礎，它們可以和其他所有淡色調搭配。淡腮紅或薰衣草作為點綴，它們讓整個衣櫥有了情緒，但不至於太過。
+    </p>
+    <p>
+      這個春季，如果你在市場上尋找新的運動服，試著把「質感優先」當作你的選擇標準。一件淡色的、質量好的運動服，比三件便宜的、顏色大膽的運動服，對你的衣櫥的長期價值更大。顏色會退潮，但質感會留下來。
+    </p>
+
+    <p class="article-author"><span class="en">By reform. Editorial Team</span><span class="cn">reform. 編輯團隊</span></p>
+  </article>
+
+  <section class="related-products">
+    <div class="related-products-inner">
+      <span class="related-products-label"><span class="en">Explore More</span><span class="cn">探索更多</span></span>
+      <h2 class="related-products-title"><span class="en">Featured Gear</span><span class="cn">精選裝備</span></h2>
+      <div class="related-products-grid">
+        <a href="products.html" class="related-product-card">
+          <img src="assets/reform-product-01.png" alt="Essential Grip Sock" class="related-product-img" />
+          <p class="related-product-name"><span class="en">Essential Grip Sock</span><span class="cn">Essential 防滑襪</span></p>
+          <span class="related-product-price">NT$ 680</span>
+        </a>
+        <a href="products.html" class="related-product-card">
+          <img src="assets/reform-gift-set.png" alt="Studio Grip Sock" class="related-product-img" />
+          <p class="related-product-name"><span class="en">Studio Grip Sock</span><span class="cn">Studio 防滑襪</span></p>
+          <span class="related-product-price">NT$ 780</span>
+        </a>
+        <a href="products.html" class="related-product-card">
+          <img src="assets/reform-product-01.png" alt="Limited Edition — Lavender" class="related-product-img" />
+          <p class="related-product-name">Limited Edition — Lavender</p>
+          <span class="related-product-price">NT$ 780</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">reform.</span>
+        <p class="footer-tagline">be the reform</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
+          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Accessories</span><span class="cn">配件</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
+          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
+          <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+          <a href="contact.html" class="footer-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
+          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
+          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

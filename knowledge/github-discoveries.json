@@ -1,0 +1,203 @@
+{
+  "discoveries": [
+    {
+      "name": "ohmyzsh/ohmyzsh",
+      "url": "https://github.com/ohmyzsh/ohmyzsh",
+      "description": "🙃   A delightful community-driven (with 2,400+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php, python,",
+      "summary": null,
+      "stars": 186320,
+      "language": "Shell",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "n8n-io/n8n",
+      "url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "summary": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with cus",
+      "stars": 184619,
+      "language": "TypeScript",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "affaan-m/everything-claude-code",
+      "url": "https://github.com/affaan-m/everything-claude-code",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "summary": null,
+      "stars": 160487,
+      "language": "JavaScript",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "f/prompts.chat",
+      "url": "https://github.com/f/prompts.chat",
+      "description": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+      "summary": null,
+      "stars": 160050,
+      "language": "HTML",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "langflow-ai/langflow",
+      "url": "https://github.com/langflow-ai/langflow",
+      "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+      "summary": null,
+      "stars": 147089,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "description": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, V",
+      "summary": null,
+      "stars": 135486,
+      "language": null,
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "langchain-ai/langchain",
+      "url": "https://github.com/langchain-ai/langchain",
+      "description": "The agent engineering platform",
+      "summary": null,
+      "stars": 133989,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "microsoft/PowerToys",
+      "url": "https://github.com/microsoft/PowerToys",
+      "description": "Microsoft PowerToys is a collection of utilities that supercharge productivity and customization on Windows",
+      "summary": null,
+      "stars": 131822,
+      "language": "C#",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "anthropics/claude-code",
+      "url": "https://github.com/anthropics/claude-code",
+      "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows ",
+      "summary": null,
+      "stars": 115602,
+      "language": "Shell",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "Shubhamsaboo/awesome-llm-apps",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "description": "100+ AI Agent & RAG apps you can actually run — clone, customize, ship.",
+      "summary": null,
+      "stars": 106300,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "google-gemini/gemini-cli",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "summary": null,
+      "stars": 101704,
+      "language": "TypeScript",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "home-assistant/core",
+      "url": "https://github.com/home-assistant/core",
+      "description": ":house_with_garden: Open source home automation that puts local control and privacy first.",
+      "summary": null,
+      "stars": 86091,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "AppFlowy-IO/AppFlowy",
+      "url": "https://github.com/AppFlowy-IO/AppFlowy",
+      "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
+      "summary": null,
+      "stars": 69810,
+      "language": "Dart",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "description": "An AI SKILL that provide design intelligence for building professional UI/UX multiple platforms",
+      "summary": null,
+      "stars": 67486,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "pi-hole/pi-hole",
+      "url": "https://github.com/pi-hole/pi-hole",
+      "description": "A black hole for Internet advertisements",
+      "summary": null,
+      "stars": 56589,
+      "language": "Shell",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "gogs/gogs",
+      "url": "https://github.com/gogs/gogs",
+      "description": "Gogs is a painless self-hosted Git service",
+      "summary": null,
+      "stars": 47513,
+      "language": "Go",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "PatrickJS/awesome-cursorrules",
+      "url": "https://github.com/PatrickJS/awesome-cursorrules",
+      "description": "📄  Configuration files that enhance Cursor AI editor experience with custom rules and behaviors",
+      "summary": null,
+      "stars": 39139,
+      "language": "MDX",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "IceWhaleTech/CasaOS",
+      "url": "https://github.com/IceWhaleTech/CasaOS",
+      "description": "CasaOS - A simple, easy-to-use, elegant open-source Personal Cloud system.",
+      "summary": null,
+      "stars": 33666,
+      "language": "Go",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "blakeblackshear/frigate",
+      "url": "https://github.com/blakeblackshear/frigate",
+      "description": "NVR with realtime local object detection for IP cameras",
+      "summary": null,
+      "stars": 31462,
+      "language": "TypeScript",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "arendst/Tasmota",
+      "url": "https://github.com/arendst/Tasmota",
+      "description": "Alternative firmware for ESP8266 and ESP32 based devices with easy configuration using webUI, OTA updates, automation using timers or rules, expandability and entirely local control over MQTT, HTTP, S",
+      "summary": null,
+      "stars": 24277,
+      "language": "C",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "XiaoMi/ha_xiaomi_home",
+      "url": "https://github.com/XiaoMi/ha_xiaomi_home",
+      "description": "Xiaomi Home Integration for Home Assistant",
+      "summary": null,
+      "stars": 21618,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    },
+    {
+      "name": "al-one/hass-xiaomi-miot",
+      "url": "https://github.com/al-one/hass-xiaomi-miot",
+      "description": "Automatic integrate all Xiaomi devices to HomeAssistant via miot-spec, support Wi-Fi, BLE, ZigBee devices. 小米米家智能家居设备接入Hass集成",
+      "summary": null,
+      "stars": 5830,
+      "language": "Python",
+      "discovered_at": "2026-04-19"
+    }
+  ],
+  "last_update": "2026-04-19 10:46"
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>為什麼我們只做一個產品線 — reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-back-link {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #888;
+      text-decoration: none;
+      padding: 3rem 0 1rem 2rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .article-back-link::before { content: '← '; }
+    .article-back-link::after {
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      transition: opacity 0.3s ease;
+    }
+    .article-back-link:hover { color: #1a1a1a; }
+    .article-back-link:hover::after { opacity: 1; }
+
+    .article-header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      text-align: center;
+    }
+    .article-category-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #a89f91;
+      margin-bottom: 1rem;
+    }
+    .article-date {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+    .article-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #777;
+      font-style: italic;
+    }
+
+    .article-hero {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+    .article-hero img {
+      width: 100%;
+      height: 55vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .article-body p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a3a3a;
+      margin-bottom: 1.6rem;
+      font-weight: 300;
+    }
+    .article-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      margin: 3rem 0 1.2rem;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .article-author {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      padding: 3rem 0;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    .related-products {
+      background: #f9f7f4;
+      padding: 4rem 2rem;
+    }
+    .related-products-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .related-products-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #a89f91;
+      margin-bottom: 1rem;
+    }
+    .related-products-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-bottom: 2.5rem;
+    }
+    .related-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .related-product-card {
+      text-decoration: none;
+      display: block;
+    }
+    .related-product-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    .related-product-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+    }
+    .related-product-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">reform.</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
+        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
+        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+      </div>
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
+      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
+      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+    </div>
+  </div>
+
+  <a href="blog.html" class="article-back-link"><span class="en">← Back to Journal</span><span class="cn">← 返回日誌</span></a>
+
+  <header class="article-header">
+    <span class="article-category-tag"><span class="en">Quality</span><span class="cn">品質</span></span>
+    <time class="article-date">2026.02.10</time>
+    <h1 class="article-title">為什麼我們只做一個產品線</h1>
+    <p class="article-subtitle">專注，是我們對品質的承諾。200 小時耐磨測試、50 次洗滌後，依然不變形。</p>
+  </header>
+
+  <div class="article-hero">
+    <img src="assets/reform-lifestyle-hero.png" alt="Quality focus" />
+  </div>
+
+  <article class="article-body">
+    <h3>為什麼可以更多，但選擇更少</h3>
+    <p>
+      商業邏輯告訴我們：擴張是成長的路徑。一個產品成功了，下一步自然是推出更多產品，覆蓋更多使用場景，占據更多貨架空間。電子商務的規則也支持這個邏輯：更多的產品頁面意味著更多的搜尋引擎流量；更多的SKU意味著更高的平均訂單價值；更多的選擇意味著更低的流失率到其他品牌。在大多數情況下，這套邏輯是對的。
+    </p>
+    <p>
+      但reform.選擇不走這條路。不是因為我們不懂商業邏輯，而是因為我們認為，在當下的消費環境裡，有另一種稀缺性比「更多的選擇」更有價值：真正好的東西。
+    </p>
+    <p>
+      我們看到的不是一個「產品線不足」的問題，而是一個「深度不足」的問題。市場上不缺運動襪子。市場缺的是一個真正把「墊上運動」場景吃透的團隊，把所有資源都拿來研究這個問題的團隊，把解決方案做到極致的決心。我們相信，如果你選擇在一件事上足夠深入，你創造的價值比淺淺地做很多件事要深刻得多。
+    </p>
+
+    <h3>專注的意義：不只是做更少，是關心每個決定</h3>
+    <p>
+      當我們說「專注」，我們的意思不只是「產品數量少」。我們的意思是「每一個決定的品質更高」。在大多數公司裡，一個產品經理可能需要同時管理五個產品線。每個產品的開發過程，每個材料的選擇，每個供應商的決策，都需要在不同的優先級之間平衡。在那種環境下，「足夠好」是一個合理的結果。
+    </p>
+    <p>
+      當只有一個產品線的時候，我們可以把所有的注意力放在這一個產品上。每一個材料選擇，都經過反復測試。不是因為「性價比合理」而選擇，是因為「這是對的」而選擇。每一個橡膠粒的排列圖案，都經過八次原型迭代。不是因為「時間到了必須決定」而選擇，是因為「還沒有找到最優解」所以繼續找。
+    </p>
+    <p>
+      這種密度的關注，在多產品線的環境下幾乎不可能實現。不是資源的問題，是注意力分配的本質問題。當你有十個產品要關心，你對每個產品的關心程度，數學上就會被稀釋。當你只有一個產品，那種關心的密度，就會轉化為你能明顯感受到的品質差異。
+    </p>
+
+    <h3>200小時耐磨測試：數字背後的故事</h3>
+    <p>
+      我們內部有一個測試標準，叫「200小時耐磨測試」。這個測試的名字很直白：把襪子放在一個模擬持續摩擦的機械環境裡，連續運行200小時，然後測量材料損耗的程度。為什麼是200小時？因為一個每週使用兩次、每次一小時的練習者，大約一年的使用量就是這個數字。
+    </p>
+    <p>
+      這個測試的設計，其實是我們哲學的一個具象化呈現。我們不是測試「最低標準」——也就是「這個襪子是否達到基本的使用壽命」。我們測試的是「極限標準」——「這個襪子在一年後，是否仍然保持和新的一樣的使用體驗」。
+    </p>
+    <p>
+      在第50小時的時候，大多數材料開始出現第一個微小的變化——細纖維開始斷裂，表面開始輕微起毛。但在這個階段，變化還沒有影響功能。在第150小時的時候，差異開始明顯：某些材料開始變薄，某些開始失去彈性，某些開始出現局部磨損。而在第200小時的時候，真正好的材料和普通材料的差距，就變得一目了然。
+    </p>
+    <p>
+      我們的目標，是讓一雙reform.的襪子在第200小時的時候，仍然保持接近新的狀態。不是「還能用」，是「感覺和新的一樣」。這個標準很難達到。但這是我們認為一個認真從事墊上運動的人，應該得到的回報。
+    </p>
+
+    <h3>50次洗滌測試</h3>
+    <p>
+      與耐磨測試相輔相成的，是洗滌測試。運動襪子的使用壽命，很大程度上取決於洗滌之後的性能保持。一雙棉含量高的襪子，洗過十次之後就會開始變硬、失去彈性，開始出現那種「聞起來有味道」的問題——因為棉是一個吸濕性很強的材料，但它不容易釋放水分，所以在潮濕的環境下容易滋生細菌。
+    </p>
+    <p>
+      我們選擇的材料，經過50次洗滌測試之後，仍然保持原有的彈性和形狀。這個測試不是我們自己實驗室做的，是送檢到第三方紡織實驗室進行的獨立的測試。為什麼送到外部？因為內部測試很難避免主觀偏差。獨立的第三方機構，沒有動機為了我們的產品美言，它只會報告數據。
+    </p>
+    <p>
+      在這個測試裡，我們選擇的不是「通過最低標準」的材料。我們選擇的是「在極限條件下仍然表現良好的」材料。這個標準更高，成本也更高。但它是我們認為「對得起信任」的唯一標準。
+    </p>
+
+    <h3>真實條件測試：為什麼不用模擬環境</h3>
+    <p>
+      很多品牌選擇用實驗室模擬來測試產品性能。實驗室模擬的好處是可控性高、成本低、一致性強。但實驗室模擬有一個根本性的缺陷：它不是真實世界。實驗室裡的溫度、濕度、摩擦方式、清洗方式，都是人為設定的，而真實使用者的情境遠比實驗室複雜得多。
+    </p>
+    <p>
+      reform.的襪子，在開發過程中經歷了23位真實測試者、三個月的實際使用測試。這23位測試者包括了專業舞者——她們對防滑性的要求最嚴格；資深瑜伽教師——她們對透氣性和舒適度的要求極高；完全的運動新手——她們沒有既有的期望，所以能夠提供最真實的「第一天使用」的回饋。
+    </p>
+    <p>
+      最寶貴的回饋，其實來自於新手。她們不知道「應該」有什麼樣的體驗，所以當某件事不對的時候，她們會直接說出來。而這些直接的不滿意，往往是我們在實驗室裡想不到的問題。
+    </p>
+
+    <h3>反內捲原則</h3>
+    <p>
+      在一篇談「專注」的文章結尾，我想提出一個在我們內部討論過很多次的概念：「反內捲原則」。內捲在商業環境裡的一個常見表現是：每一個品牌都在擴展產品線，互相競爭誰能提供更多的選擇，最後導致整個市場的平均品質下降——因為每個人都在忙於擴展，而沒有人真正在優化。
+    </p>
+    <p>
+      reform.不想參與這場內捲。我們不想成為那個「有40種產品的品牌」。我們想成為的是那個「當你想買一雙墊上運動襪子的時候，第一個想到的品牌」——不是因為我們的產品線最長，而是因為我們的產品最可靠。
+    </p>
+    <p>
+      這個定位，需要一種和大多數消費品牌不同的耐心。它需要我們拒絕「快速擴展」的吸引力，把注意力放在「這件事是否真的好」上。它需要我們在每一個決定上問：這是否讓這個產品更好？還是只是讓它看起來更豐富？
+    </p>
+    <p>
+      我們到現在仍然不確定這條路是否正確。但我們知道，這是我們願意走的路。因為在我們看來，這是唯一能讓我們在每天早上醒來的時候，真正相信自己在做正確的事的方式。
+    </p>
+
+    <p class="article-author"><span class="en">By reform. Editorial Team</span><span class="cn">reform. 編輯團隊</span></p>
+  </article>
+
+  <section class="related-products">
+    <div class="related-products-inner">
+      <span class="related-products-label"><span class="en">Explore More</span><span class="cn">探索更多</span></span>
+      <h2 class="related-products-title"><span class="en">Featured Gear</span><span class="cn">精選裝備</span></h2>
+      <div class="related-products-grid">
+        <a href="products.html" class="related-product-card">
+          <img src="assets/reform-product-01.png" alt="Essential Grip Sock" class="related-product-img" />
+          <p class="related-product-name"><span class="en">Essential Grip Sock</span><span class="cn">Essential 防滑襪</span></p>
+          <span class="related-product-price">NT$ 680</span>
+        </a>
+        <a href="products.html" class="related-product-card">
+          <img src="assets/reform-gift-set.png" alt="Studio Grip Sock" class="related-product-img" />
+          <p class="related-product-name"><span class="en">Studio Grip Sock</span><span class="cn">Studio 防滑襪</span></p>
+          <span class="related-product-price">NT$ 780</span>
+        </a>
+        <a href="products.html" class="related-product-card">
+          <img src="assets/reform-lifestyle-hero.png" alt="Pro Performance" class="related-product-img" />
+          <p class="related-product-name"><span class="en">Pro Performance</span><span class="cn">Pro Performance</span></p>
+          <span class="related-product-price">NT$ 880</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">reform.</span>
+        <p class="footer-tagline">be the reform</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
+          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Accessories</span><span class="cn">配件</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
+          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
+          <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+          <a href="contact.html" class="footer-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
+          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
+          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>reform. — be the reform</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    background: #FDFBF7;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Soft pink geometric accent — top right */
+  .accent-ring {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: #F5E6E8;
+    opacity: 0.7;
+  }
+
+  /* Lavender geometric — bottom left */
+  .accent-shape {
+    position: absolute;
+    bottom: 120px;
+    left: -60px;
+    width: 320px;
+    height: 320px;
+    background: #E8E0F0;
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+
+  /* Subtle dot pattern — top left area */
+  .dot-pattern {
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #E8E0F0;
+    opacity: 0.6;
+  }
+
+  /* Brand name — serif, weighted, centered */
+  .brand-name {
+    position: absolute;
+    top: 340px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 96px;
+    font-weight: 500;
+    letter-spacing: 12px;
+    color: #1a1a1a;
+    /* Subtle tracking to feel hand-placed */
+    margin-left: 12px; /* optical compensation for letter-spacing */
+  }
+
+  /* Thin horizontal rule */
+  .divider {
+    position: absolute;
+    top: 490px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: #C5B8D0;
+  }
+
+  /* Tagline — whisper, not announce */
+  .tagline {
+    position: absolute;
+    top: 520px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: #8A7F96;
+    text-transform: uppercase;
+  }
+
+  /* Central visual element — stylized sock silhouette using geometric shapes */
+  .product-visual {
+    position: absolute;
+    top: 620px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+  }
+
+  .sock-shape {
+    position: relative;
+    width: 180px;
+    height: 280px;
+  }
+
+  /* Abstract sock form — rectangle body */
+  .sock-body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 220px;
+    background: linear-gradient(160deg, #F5E6E8 0%, #E8D5DC 100%);
+    border-radius: 70px 70px 30px 30px;
+    box-shadow: 0 20px 60px rgba(200,180,200,0.25);
+  }
+
+  /* Grip sole line — horizontal bands */
+  .sock-grip {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grip-line {
+    width: 100%;
+    height: 2px;
+    background: rgba(180,150,170,0.3);
+    border-radius: 1px;
+  }
+
+  /* Cuff detail */
+  .sock-cuff {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 50px;
+    background: linear-gradient(180deg, #E8E0F0 0%, #F5E6E8 100%);
+    border-radius: 80px 80px 0 0;
+    opacity: 0.8;
+  }
+
+  /* Floating accent dots */
+  .float-dot-1 {
+    position: absolute;
+    top: 700px;
+    right: 200px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #E8E0F0;
+    opacity: 0.8;
+  }
+
+  .float-dot-2 {
+    position: absolute;
+    top: 760px;
+    left: 180px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F5E6E8;
+    opacity: 0.9;
+  }
+
+  .float-dot-3 {
+    position: absolute;
+    top: 680px;
+    left: 240px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #C5B8D0;
+    opacity: 0.7;
+  }
+
+  /* Bottom anchor text */
+  .anchor-phrase {
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: #9B8FA8;
+    letter-spacing: 2px;
+  }
+
+  /* Small product descriptor */
+  .product-label {
+    position: absolute;
+    bottom: 76px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    color: #C5B8D0;
+    text-transform: uppercase;
+  }
+
+  /* Subtle corner accent — bottom right */
+  .corner-mark {
+    position: absolute;
+    bottom: 60px;
+    right: 80px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #D8D0E0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+</style>
+</head>
+<body>
+  <!-- Geometric accents -->
+  <div class="accent-ring"></div>
+  <div class="accent-shape"></div>
+
+  <!-- Dot pattern -->
+  <div class="dot-pattern"></div>
+
+  <!-- Brand name -->
+  <div class="brand-name">reform.</div>
+
+  <!-- Divider -->
+  <div class="divider"></div>
+
+  <!-- Tagline -->
+  <div class="tagline">be the reform</div>
+
+  <!-- Product visual -->
+  <div class="product-visual">
+    <div class="sock-shape">
+      <div class="sock-cuff"></div>
+      <div class="sock-body">
+        <div class="sock-grip">
+          <div class="grip-line"></div>
+          <div class="grip-line"></div>
+          <div class="grip-line"></div>
+          <div class="grip-line"></div>
+          <div class="grip-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating dots -->
+  <div class="float-dot-1"></div>
+  <div class="float-dot-2"></div>
+  <div class="float-dot-3"></div>
+
+  <!-- Anchor phrase -->
+  <div class="anchor-phrase">movement as a quiet practice</div>
+
+  <!-- Product label -->
+  <div class="product-label">Pilates Grip Socks · Handcrafted</div>
+
+  <!-- Corner mark -->
+  <div class="corner-mark">reform.</div>
+</body>
+</html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reform. — be the reform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --canvas: #FDFBF7;
+      --hairline: #E8E0F0;
+      --hairline-soft: #F0EBF5;
+      --surface-soft: #F5E6E8;
+      --block-pink: #F5E6E8;
+      --block-lavender: #E8E0F0;
+      --block-cream: #FDFBF7;
+      --block-mint: #E8F0EC;
+      --accent-dusty-rose: #D4A5A5;
+      --success: #6B9E7A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background-color: var(--canvas);
+      color: var(--ink);
+      font-weight: 300;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Language Toggle ─── */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      border: 1px solid var(--hairline);
+      border-radius: 50px;
+      padding: 4px;
+      cursor: pointer;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--ink);
+      transition: background 0.2s;
+      user-select: none;
+    }
+
+    .lang-toggle:hover {
+      background-color: var(--hairline-soft);
+    }
+
+    .lang-toggle .lang-btn {
+      padding: 4px 10px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+
+    .lang-toggle .lang-btn.active {
+      background-color: var(--ink);
+      color: #ffffff;
+    }
+
+    .lang-toggle .lang-sep {
+      font-size: 11px;
+      opacity: 0.4;
+    }
+
+    /* ─── Bilingual text system ─── */
+    .zh { display: none; }
+    .en { display: inline; }
+
+    html.lang-en .zh { display: inline; }
+    html.lang-en .en { display: none; }
+
+    /* ─── Navigation ─── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background-color: var(--canvas);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 100;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--ink);
+      color: #ffffff;
+      padding: 14px 28px;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--ink);
+      padding: 12px 24px;
+      border: 1px solid var(--hairline);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--hairline-soft);
+    }
+
+    /* ─── Hero Section ─── */
+    .hero {
+      min-height: 100vh;
+      background-color: var(--block-pink);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 96px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/reform-hero.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.6;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      font-weight: 300;
+      line-height: 1.00;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.60;
+      max-width: 540px;
+      margin: 0 auto 40px;
+      opacity: 0.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Marquee ─── */
+    .marquee {
+      background-color: var(--ink);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .marquee-inner {
+      display: flex;
+      gap: 48px;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .marquee span {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── Products ─── */
+    .products {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header h2 {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.10;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      font-weight: 300;
+      opacity: 0.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background-color: var(--canvas);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .product-card:hover {
+      border-color: var(--accent-dusty-rose);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .product-card .color-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--ink);
+      opacity: 0.55;
+      margin-bottom: 14px;
+    }
+
+    .product-price {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* ─── Lifestyle Split ─── */
+    .lifestyle-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+
+    .lifestyle-image {
+      background-image: url('assets/reform-lifestyle-hero.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+    }
+
+    .lifestyle-text {
+      background-color: var(--block-lavender);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+    }
+
+    .lifestyle-text h2 {
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .lifestyle-text p {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.65;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    /* ─── Gift Set Banner ─── */
+    .gift-banner {
+      background-color: var(--block-pink);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .gift-banner-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .gift-banner-image {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 0 auto 40px;
+      display: block;
+    }
+
+    .gift-banner h2 {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.10;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .gift-banner p {
+      font-size: 18px;
+      font-weight: 300;
+      opacity: 0.8;
+      margin-bottom: 40px;
+      line-height: 1.60;
+    }
+
+    /* ─── Features ─── */
+    .features {
+      padding: 120px 48px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background-color: var(--surface-soft);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .feature-item h3 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .feature-item p {
+      font-size: 16px;
+      font-weight: 300;
+      opacity: 0.7;
+      line-height: 1.65;
+    }
+
+    /* ─── Mint Block ─── */
+    .color-block-mint {
+      background-color: var(--block-mint);
+      padding: 96px 48px;
+      text-align: center;
+    }
+
+    .color-block-mint .color-block-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .color-block-mint h2 {
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .color-block-mint p {
+      font-size: 18px;
+      font-weight: 300;
+      opacity: 0.8;
+      line-height: 1.65;
+    }
+
+    /* ─── Detail Section ─── */
+    .detail-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+    }
+
+    .detail-image {
+      background-image: url('assets/reform-product-detail.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .detail-text {
+      background-color: var(--canvas);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+    }
+
+    .detail-text h2 {
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .detail-text p {
+      font-size: 17px;
+      font-weight: 300;
+      opacity: 0.8;
+      line-height: 1.70;
+      margin-bottom: 40px;
+    }
+
+    .detail-text .detail-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .detail-text .detail-points li {
+      font-size: 16px;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .detail-text .detail-points li::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--accent-dusty-rose);
+      flex-shrink: 0;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      padding: 120px 48px;
+      text-align: center;
+      background-color: var(--canvas);
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.10;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      font-weight: 300;
+      opacity: 0.7;
+      margin-bottom: 40px;
+      line-height: 1.60;
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      padding: 64px 48px;
+      border-top: 1px solid var(--hairline-soft);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      .top-nav {
+        padding: 0 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 24px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        letter-spacing: -1px;
+      }
+
+      .section-header h2 {
+        font-size: 36px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .lifestyle-split,
+      .detail-section {
+        grid-template-columns: 1fr;
+      }
+
+      .lifestyle-image {
+        min-height: 300px;
+      }
+
+      .lifestyle-text,
+      .detail-text {
+        padding: 48px 24px;
+      }
+
+      .lifestyle-text h2,
+      .detail-text h2,
+      .color-block-mint h2,
+      .gift-banner h2,
+      .cta h2 {
+        font-size: 36px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navigation ─── -->
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <a href="#contact" class="btn btn-secondary"><span class="zh">聯繫我們</span><span class="en">Contact</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="eyebrow"><span class="zh">Reform 专业防滑袜</span><span class="en">Pilates Grip Socks</span></p>
+      <h1><span class="zh">成为 reform</span><span class="en">be the reform</span></h1>
+      <p>
+        <span class="zh">安静的自信。目的驱动的设计。每一个细节都被认真对待——因为你的态度很重要。</span>
+        <span class="en">Quiet confidence. Purposeful design. Every detail considered — because the way you show up matters.</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="products.html" class="btn btn-primary"><span class="zh">选购系列</span><span class="en">Shop Collection</span></a>
+        <a href="about.html" class="btn btn-secondary"><span class="zh">了解我们</span><span class="en">Our Story</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Marquee ─── -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <div class="marquee-item">
+        <span class="zh">防滑抓地科技</span><span class="en">Anti-slip grip technology</span>
+        <span>•</span>
+        <span class="zh">优质棉质混纺</span><span class="en">Premium cotton blend</span>
+        <span>•</span>
+        <span class="zh">为动而生</span><span class="en">Designed for movement</span>
+        <span>•</span>
+        <span class="zh">极简美学</span><span class="en">Minimal aesthetic</span>
+        <span>•</span>
+      </div>
+      <div class="marquee-item">
+        <span class="zh">防滑抓地科技</span><span class="en">Anti-slip grip technology</span>
+        <span>•</span>
+        <span class="zh">优质棉质混纺</span><span class="en">Premium cotton blend</span>
+        <span>•</span>
+        <span class="zh">为动而生</span><span class="en">Designed for movement</span>
+        <span>•</span>
+        <span class="zh">极简美学</span><span class="en">Minimal aesthetic</span>
+        <span>•</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Products ─── -->
+  <section class="products" id="products">
+    <div class="section-header">
+      <h2><span class="zh">系列</span><span class="en">The Collection</span></h2>
+      <p>
+        <span class="zh">形能兼备。为追求两者的人设计。</span>
+        <span class="en">Form meets function. Designed for those who demand both.</span>
+      </p>
+    </div>
+    <div class="product-grid">
+      <!-- Card 1 -->
+      <div class="product-card">
+        <img class="product-image" src="assets/reform-product-01.png" alt="Essential Grip Sock">
+        <div class="product-info">
+          <h3><span class="zh">基础防滑袜</span><span class="en">Essential Grip Sock</span></h3>
+          <p class="color-label"><span class="zh">浅粉色</span><span class="en">Light pink</span></p>
+          <div class="product-price">$38</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="product-card">
+        <img class="product-image" src="assets/reform-product-detail.png" alt="Essential Grip Sock Lavender">
+        <div class="product-info">
+          <h3><span class="zh">基础防滑袜</span><span class="en">Essential Grip Sock</span></h3>
+          <p class="color-label"><span class="zh">淡紫色</span><span class="en">Lavender</span></p>
+          <div class="product-price">$38</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="product-card">
+        <img class="product-image" src="assets/reform-gift-set.png" alt="Essential Grip Sock Cream">
+        <div class="product-info">
+          <h3><span class="zh">基础防滑袜</span><span class="en">Essential Grip Sock</span></h3>
+          <p class="color-label"><span class="zh">米白色</span><span class="en">Cream white</span></p>
+          <div class="product-price">$38</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Lifestyle Split ─── -->
+  <div class="lifestyle-split" id="story">
+    <div class="lifestyle-image"></div>
+    <div class="lifestyle-text">
+      <h2><span class="zh">安静的自信，是它自己的力量</span><span class="en">Quiet confidence is its own kind of power</span></h2>
+      <p>
+        <span class="zh">我们相信细节至关重要——你的装备感觉如何，它表现如何，以及它是否让你感到准备好。这就是 reform. 的意义。</span>
+        <span class="en">We believe the details matter — the way your gear feels, how it performs, whether it makes you feel ready. That's what reform. is about.</span>
+      </p>
+      <a href="about.html" class="btn btn-primary"><span class="zh">了解更多</span><span class="en">Learn More</span></a>
+    </div>
+  </div>
+
+  <!-- ─── Gift Set Banner ─── -->
+  <div class="gift-banner">
+    <div class="gift-banner-inner">
+      <img class="gift-banner-image" src="assets/reform-gift-set.png" alt="Reform Gift Set">
+      <h2><span class="zh">送礼佳选</span><span class="en">The Perfect Gift</span></h2>
+      <p>
+        <span class="zh">reform. 礼盒套装 — 精心包装，适合每一位值得被重视的人。无论是生日、节日，还是简单的"我想到了你"，都是完美的选择。</span>
+        <span class="en">reform. gift sets — thoughtfully packaged for someone who deserves the best. Birthdays, holidays, or just because. The perfect choice.</span>
+      </p>
+      <a href="#products" class="btn btn-primary"><span class="zh">选购礼盒</span><span class="en">Shop Gift Sets</span></a>
+    </div>
+  </div>
+
+  <!-- ─── Features ─── -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <h2><span class="zh">为什么选择 reform.</span><span class="en">Why reform.</span></h2>
+      <p>
+        <span class="zh">每一个选择都经过深思熟虑。</span>
+        <span class="en">Every choice, considered.</span>
+      </p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">◇</div>
+        <h3><span class="zh">优质面料</span><span class="en">Premium Materials</span></h3>
+        <p>
+          <span class="zh">柔软的棉质混纺，配合恰到好处的压力感。透气、耐用、舒适，恨不得全天穿着。</span>
+          <span class="en">Soft cotton blend with just the right amount of compression. Breathable, durable, comfortable enough to wear all day.</span>
+        </p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">◆</div>
+        <h3><span class="zh">抓地科技</span><span class="en">Grip Technology</span></h3>
+        <p>
+          <span class="zh">鞋底战略抓地区域——不多不少。给你专注练习的信心。</span>
+          <span class="en">Strategic grip zones on the sole — not too much, not too little. Just the confidence to focus on your practice.</span>
+        </p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">△</div>
+        <h3><span class="zh">极简设计</span><span class="en">Minimal Design</span></h3>
+        <p>
+          <span class="zh">没有张扬的标志，没有多余的细节。干净的线条和经过推敲的比例，让品质说话。</span>
+          <span class="en">No loud logos, no unnecessary details. Clean lines and considered proportions that let the quality speak.</span>
+        </p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">□</div>
+        <h3><span class="zh">贴心细节</span><span class="en">Thoughtful Details</span></h3>
+        <p>
+          <span class="zh">足弓支撑、后跟拉口、透气网眼区域。每一个元素都服务于一个目的——被精简到本质的设计。</span>
+          <span class="en">Arch support, heel tab, breathable mesh zones. Every element serves a purpose in a design stripped to the essential.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Detail / Story Section ─── -->
+  <div class="detail-section">
+    <div class="detail-image"></div>
+    <div class="detail-text">
+      <h2><span class="zh">reform. 的方式</span><span class="en">The reform. way</span></h2>
+      <p>
+        <span class="zh">这不是关于大声。这是关于存在。这是关于知道安静的工作——出现、保持一致、信任过程——才是创造真正改变的东西。</span>
+        <span class="en">It's not about being loud. It's about being present. It's about knowing that the quiet work — showing up, staying consistent, trusting the process — is what creates real change.</span>
+      </p>
+      <ul class="detail-points">
+        <li><span class="zh">优质棉质混纺面料</span><span class="en">Premium cotton blend</span></li>
+        <li><span class="zh">战略防滑抓地区</span><span class="en">Strategic anti-slip zones</span></li>
+        <li><span class="zh">透气网眼设计</span><span class="en">Breathable mesh zones</span></li>
+        <li><span class="zh">足弓支撑结构</span><span class="en">Arch support structure</span></li>
+      </ul>
+      <a href="#products" class="btn btn-primary"><span class="zh">立即选购</span><span class="en">Shop Now</span></a>
+    </div>
+  </div>
+
+  <!-- ─── Mint Block ─── -->
+  <div class="color-block-mint">
+    <div class="color-block-inner">
+      <h2><span class="zh">安静地，持久地</span><span class="en">Quietly. Consistently.</span></h2>
+      <p>
+        <span class="zh">reform. 是一种日常练习。每一个细节都被认真对待，每一件产品都为你的下一次练习而设计。</span>
+        <span class="en">reform. is a daily practice. Every detail considered, every product built for your next session.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta" id="contact">
+    <h2><span class="zh">准备开始 reform？</span><span class="en">Ready to reform?</span></h2>
+    <p>
+      <span class="zh">加入这个运动，成为更安静、更专注的一部分。</span>
+      <span class="en">Join the movement. Be part of something quieter, more intentional.</span>
+    </p>
+    <a href="#products" class="btn btn-primary"><span class="zh">立即选购</span><span class="en">Shop Now</span></a>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">reform.</div>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="about.html"><span class="zh">关于</span><span class="en">About</span></a>
+        <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+        <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+        <a href="#"><span class="zh">隐私</span><span class="en">Privacy</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Language Toggle Script ─── -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('langToggle');
+      var body = document.body;
+
+      // Restore language preference from localStorage
+      if (localStorage.getItem('reform-lang') === 'en') {
+        body.classList.add('lang-en');
+        document.documentElement.classList.add('lang-en');
+      }
+
+      // Initialize active states
+      var btns = toggle.querySelectorAll('.lang-btn');
+      var isEN = body.classList.contains('lang-en');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+
+      toggle.addEventListener('click', function () {
+        body.classList.toggle('lang-en');
+        var isEN = body.classList.contains('lang-en');
+
+        // Sync html.lang-en so all pages use consistent selector
+        document.documentElement.classList.toggle('lang-en', isEN);
+        localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+
+        var btns = toggle.querySelectorAll('.lang-btn');
+        btns[0].classList.toggle('active', !isEN);
+        btns[1].classList.toggle('active', isEN);
+
+        document.documentElement.lang = isEN ? 'en' : 'zh-TW';
+      });
+    })();
+  </script>
+
+</body>
+</html>

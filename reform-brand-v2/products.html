@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — reform.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1a1a1a;
+      --on-primary: #ffffff;
+      --canvas: #FDFBF7;
+      --block-pink: #F5E6E8;
+      --block-lavender: #E8E0F0;
+      --block-mint: #E8F0EC;
+      --hairline: #E8E0F0;
+      --hairline-soft: #F0EBF5;
+      --surface-soft: #F5E6E8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background-color: var(--canvas);
+      color: var(--ink);
+      font-weight: 300;
+      line-height: 1.65;
+      letter-spacing: 0;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ── LANGUAGE TOGGLE ───────────────────────────── */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      border: 1px solid var(--hairline);
+      border-radius: 50px;
+      padding: 4px;
+      cursor: pointer;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+    .lang-toggle:hover {
+      opacity: 0.7;
+    }
+    .lang-toggle .lang-btn {
+      padding: 4px 10px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .lang-toggle .lang-btn.active {
+      background-color: var(--ink);
+      color: #ffffff;
+    }
+    .lang-toggle .lang-sep {
+      opacity: 0.4;
+      font-size: 11px;
+    }
+
+    .lang-toggle:hover {
+      opacity: 0.7;
+    }
+
+    .lang-toggle .lang-sep {
+      opacity: 0.4;
+      margin: 0 2px;
+    }
+    .lang-toggle .lang-btn {
+      padding: 4px 8px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .lang-toggle .lang-btn.active {
+      background-color: var(--ink);
+      color: #ffffff;
+    }
+
+    /* ── BILINGUAL TOGGLE ─────────────────────────── */
+    html.lang-en .zh { display: none; }
+    html:not(.lang-en) .en { display: none; }
+
+    .en-only { display: inline; }
+    .zh-only { display: none; }
+
+    html.lang-en .en-only { display: inline; }
+    html.lang-en .zh-only { display: none; }
+    html:not(.lang-en) .en-only { display: none; }
+    html:not(.lang-en) .zh-only { display: inline; }
+
+    /* ── NAV ─────────────────────────────────────── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background-color: var(--canvas);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 100;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+
+    .btn-pill {
+      display: inline-block;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.00;
+      letter-spacing: 0.5px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-pill:hover {
+      opacity: 0.8;
+    }
+
+    .btn-primary {
+      background-color: var(--ink);
+      color: var(--on-primary);
+      padding: 14px 28px;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--ink);
+      padding: 12px 24px;
+      border: 1px solid var(--hairline);
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--ink);
+      padding: 10px 16px;
+    }
+
+    /* ── HERO (PINK) ─────────────────────────────── */
+    .hero-section {
+      background-color: var(--block-pink);
+      padding: 96px 48px;
+      text-align: center;
+      border-radius: 20px;
+      max-width: 1200px;
+      margin: 48px auto 0;
+    }
+
+    .hero-section .eyebrow {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.6;
+      margin-bottom: 24px;
+    }
+
+    .hero-section h1 {
+      font-size: 72px;
+      font-weight: 300;
+      line-height: 1.00;
+      letter-spacing: -2px;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero-section .subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.60;
+      color: var(--ink);
+      max-width: 560px;
+      margin: 0 auto;
+      opacity: 0.75;
+    }
+
+    /* ── PRODUCT GRID ─────────────────────────────── */
+    .products-section {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding: 0 48px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background-color: var(--canvas);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.2s ease;
+    }
+
+    .product-card:hover {
+      border-color: var(--ink);
+    }
+
+    .product-card .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      object-fit: cover;
+      background-color: var(--hairline-soft);
+    }
+
+    .product-card .product-name {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .product-card .product-color {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.50;
+      letter-spacing: 0.2px;
+      color: var(--ink);
+      opacity: 0.6;
+    }
+
+    .product-card .product-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .product-card .price-usd {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .product-card .price-ntd {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.50;
+      letter-spacing: 0.2px;
+      color: var(--ink);
+      opacity: 0.55;
+    }
+
+    /* ── MATERIAL STORY (LAVENDER) ────────────────── */
+    .material-section {
+      background-color: var(--block-lavender);
+      padding: 96px 48px;
+      border-radius: 20px;
+      max-width: 1200px;
+      margin: 48px auto 0;
+      text-align: center;
+    }
+
+    .material-section .eyebrow {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.6;
+      margin-bottom: 24px;
+    }
+
+    .material-section h2 {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.10;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+
+    .material-section .material-body {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.60;
+      color: var(--ink);
+      opacity: 0.75;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .material-images {
+      display: flex;
+      gap: 24px;
+      margin-top: 56px;
+      justify-content: center;
+    }
+
+    .material-images img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* ── FEATURES (CANVAS) ────────────────────────── */
+    .features-section {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 64px;
+      text-align: center;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: var(--surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--ink);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature-item h3 {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.30;
+      letter-spacing: -0.2px;
+      color: var(--ink);
+    }
+
+    .feature-item p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.60;
+      color: var(--ink);
+      opacity: 0.65;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ── CTA (LAVENDER) ───────────────────────────── */
+    .cta-section {
+      background-color: var(--block-lavender);
+      padding: 96px 48px;
+      border-radius: 20px;
+      max-width: 1200px;
+      margin: 48px auto 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.10;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.60;
+      color: var(--ink);
+      opacity: 0.65;
+      max-width: 440px;
+      margin: 0 auto 40px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    .footer {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding: 64px 48px;
+      border-top: 1px solid var(--hairline-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.55;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0.5px;
+      color: var(--ink);
+      opacity: 0.4;
+      margin-top: 40px;
+      border-top: 1px solid var(--hairline-soft);
+      padding-top: 24px;
+      text-align: center;
+    }
+
+    /* ── MOBILE (768px) ───────────────────────────── */
+    @media (max-width: 768px) {
+      .top-nav {
+        padding: 0 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-section {
+        padding: 64px 24px;
+        border-radius: 16px;
+        margin: 24px 16px 0;
+      }
+
+      .hero-section h1 {
+        font-size: 44px;
+        letter-spacing: -1px;
+      }
+
+      .hero-section .subtitle {
+        font-size: 16px;
+      }
+
+      .products-section {
+        padding: 0 24px;
+        margin-top: 24px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .material-section {
+        padding: 64px 24px;
+        border-radius: 16px;
+        margin: 24px 16px 0;
+      }
+
+      .material-section h2 {
+        font-size: 32px;
+      }
+
+      .material-images {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .material-images img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+      }
+
+      .features-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 64px 24px;
+        margin-top: 24px;
+      }
+
+      .cta-section {
+        padding: 64px 24px;
+        border-radius: 16px;
+        margin: 24px 16px 0;
+      }
+
+      .cta-section h2 {
+        font-size: 32px;
+      }
+
+      .footer {
+        padding: 48px 24px;
+        margin-top: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navigation ─── -->
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO (PINK) ── -->
+  <section class="hero-section">
+    <p class="eyebrow en-only">Grip Socks · Since 2023</p>
+    <p class="eyebrow zh-only">防滑襪 · 2023年起</p>
+    <h1>
+      <span class="en-only">The Collection</span>
+      <span class="zh-only">產品系列</span>
+    </h1>
+    <p class="subtitle">
+      <span class="en-only">Purpose-built grip socks for the studio and beyond. Engineered to stay, so you can go deeper.</span>
+      <span class="zh-only">為練習室量身打造的防滑襪，適用於各類運動。結構稳固，讓你專注於每一個動作。</span>
+    </p>
+  </section>
+
+  <!-- ── PRODUCT GRID ── -->
+  <section class="products-section">
+    <div class="products-grid">
+
+      <!-- Product 1: Essential - Light Pink -->
+      <article class="product-card">
+        <img src="assets/reform-product-01.png" alt="Essential Grip Sock in Light Pink" class="product-image" loading="lazy">
+        <p class="product-name">
+          <span class="en-only">Essential Grip Sock</span>
+          <span class="zh-only">經典防滑襪</span>
+        </p>
+        <p class="product-color">
+          <span class="en-only">Light Pink</span>
+          <span class="zh-only">淺粉色</span>
+        </p>
+        <div class="product-price-row">
+          <span class="price-usd">$38</span>
+          <span class="price-ntd">NT$1,180</span>
+        </div>
+      </article>
+
+      <!-- Product 2: Essential - Lavender -->
+      <article class="product-card">
+        <img src="assets/reform-product-01.png" alt="Essential Grip Sock in Lavender" class="product-image" loading="lazy">
+        <p class="product-name">
+          <span class="en-only">Essential Grip Sock</span>
+          <span class="zh-only">經典防滑襪</span>
+        </p>
+        <p class="product-color">
+          <span class="en-only">Lavender</span>
+          <span class="zh-only">薰衣草</span>
+        </p>
+        <div class="product-price-row">
+          <span class="price-usd">$38</span>
+          <span class="price-ntd">NT$1,180</span>
+        </div>
+      </article>
+
+      <!-- Product 3: Essential - Cream -->
+      <article class="product-card">
+        <img src="assets/reform-product-detail.png" alt="Essential Grip Sock in Cream" class="product-image" loading="lazy">
+        <p class="product-name">
+          <span class="en-only">Essential Grip Sock</span>
+          <span class="zh-only">經典防滑襪</span>
+        </p>
+        <p class="product-color">
+          <span class="en-only">Cream</span>
+          <span class="zh-only">奶油白</span>
+        </p>
+        <div class="product-price-row">
+          <span class="price-usd">$38</span>
+          <span class="price-ntd">NT$1,180</span>
+        </div>
+      </article>
+
+      <!-- Product 4: Essential - Mint -->
+      <article class="product-card">
+        <img src="assets/reform-product-01.png" alt="Essential Grip Sock in Mint" class="product-image" loading="lazy">
+        <p class="product-name">
+          <span class="en-only">Essential Grip Sock</span>
+          <span class="zh-only">經典防滑襪</span>
+        </p>
+        <p class="product-color">
+          <span class="en-only">Mint</span>
+          <span class="zh-only">薄荷綠</span>
+        </p>
+        <div class="product-price-row">
+          <span class="price-usd">$38</span>
+          <span class="price-ntd">NT$1,180</span>
+        </div>
+      </article>
+
+      <!-- Product 5: Premium - Dusty Rose -->
+      <article class="product-card">
+        <img src="assets/reform-product-detail.png" alt="Premium Grip Sock in Dusty Rose" class="product-image" loading="lazy">
+        <p class="product-name">
+          <span class="en-only">Premium Grip Sock</span>
+          <span class="zh-only">頂級防滑襪</span>
+        </p>
+        <p class="product-color">
+          <span class="en-only">Dusty Rose</span>
+          <span class="zh-only">玫瑰灰</span>
+        </p>
+        <div class="product-price-row">
+          <span class="price-usd">$55</span>
+          <span class="price-ntd">NT$1,680</span>
+        </div>
+      </article>
+
+      <!-- Product 6: Premium - Blush -->
+      <article class="product-card">
+        <img src="assets/reform-gift-set.png" alt="Premium Grip Sock in Blush" class="product-image" loading="lazy">
+        <p class="product-name">
+          <span class="en-only">Premium Grip Sock</span>
+          <span class="zh-only">頂級防滑襪</span>
+        </p>
+        <p class="product-color">
+          <span class="en-only">Blush</span>
+          <span class="zh-only">柔粉</span>
+        </p>
+        <div class="product-price-row">
+          <span class="price-usd">$55</span>
+          <span class="price-ntd">NT$1,680</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── MATERIAL STORY (LAVENDER) ── -->
+  <section class="material-section">
+    <p class="eyebrow en-only">What goes into reform.</p>
+    <p class="eyebrow zh-only">reform. 的素材</p>
+    <h2>
+      <span class="en-only">Materials that matter</span>
+      <span class="zh-only">素材的故事</span>
+    </h2>
+    <p class="material-body">
+      <span class="en-only">Organic combed cotton, recycled nylon grip zones, and a cuff that holds without binding. Each sock is assembled with flat-seam construction to eliminate friction points — because the only thing you should feel is your practice.</span>
+      <span class="zh-only">有機精梳棉、再生尼龍防滑區域，以及不緊勒的襪口。每一雙襪子均採用平縫工藝，消除摩擦點——你只需專注於練習，別的交給 reform。</span>
+    </p>
+    <div class="material-images">
+      <img src="assets/reform-product-detail.png" alt="Material detail" loading="lazy">
+      <img src="assets/reform-product-01.png" alt="Grip zone detail" loading="lazy">
+      <img src="assets/reform-lifestyle-hero.png" alt="Fabric texture" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ── FEATURES (CANVAS) ── -->
+  <section class="features-section">
+
+    <div class="feature-item">
+      <div class="feature-icon" aria-hidden="true">
+        <!-- Anti-slip grip icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+          <path d="M8 12s1-3 4-3 4 3 4 3-1 3-4 3-4-3-4-3z"/>
+          <path d="M9 9l1.5 1.5L12 9l1.5 1.5L15 9"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="en-only">Anti-slip Grip</span>
+        <span class="zh-only">防滑抓地</span>
+      </h3>
+      <p>
+        <span class="en-only">Silicone grip zones at the heel and ball of the foot. Engineered to hold on wood, cork, and sticky mats alike.</span>
+        <span class="zh-only">後跟與腳掌部位的矽膠防滑區域，適用於木地板、軟木墊與黏性瑜伽墊。</span>
+      </p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon" aria-hidden="true">
+        <!-- Arch support icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M4 20h16"/>
+          <path d="M4 20c0-4 2-7 4-9 1.5-1.5 3-2 4-2s2.5.5 4 2c2 2 4 5 4 9"/>
+          <path d="M8 11c1-1 2-1.5 4-1.5s3 .5 4 1.5"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="en-only">Arch Support</span>
+        <span class="zh-only">弓形支撐</span>
+      </h3>
+      <p>
+        <span class="en-only">A built-in arch band that hugs the midfoot without squeezing. Added stability for every balance pose.</span>
+        <span class="zh-only">內建弓形支撐帶，貼合足弓而不緊勒，為所有平衡體式提供穩定支撐。</span>
+      </p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon" aria-hidden="true">
+        <!-- Breathable mesh icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2L4 6v6c0 5.5 3.4 10.3 8 12 4.6-1.7 8-6.5 8-12V6l-8-4z"/>
+          <path d="M9 12h6M12 9v6"/>
+          <circle cx="12" cy="12" r="2"/>
+        </svg>
+      </div>
+      <h3>
+        <span class="en-only">Breathable Mesh</span>
+        <span class="zh-only">透氣網眼</span>
+      </h3>
+      <p>
+        <span class="en-only">Open-knit mesh across the top of the foot lets air circulate. No clammy studio sessions.</span>
+        <span class="zh-only">腳背透氣網眼設計，加速空氣流通。長時間練習也能保持乾爽。</span>
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ── CTA (LAVENDER) ── -->
+  <section class="cta-section">
+    <h2>
+      <span class="en-only">Find your fit</span>
+      <span class="zh-only">找到適合你的</span>
+    </h2>
+    <p>
+      <span class="en-only">Not sure which sock is right for your practice? We can help.</span>
+      <span class="zh-only">不確定哪款襪子適合你的練習方式？我們可以幫你。</span>
+    </p>
+    <a href="index.html#contact" class="btn-pill btn-primary">
+      <span class="en-only">Contact Us</span>
+      <span class="zh-only">聯絡我們</span>
+    </a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">reform.</span>
+      <ul class="footer-nav">
+        <li><a href="https://instagram.com/reform">Instagram</a></li>
+        <li><a href="about.html"><span class="en-only">About</span><span class="zh-only">關於我們</span></a></li>
+        <li><a href="journal.html"><span class="en-only">Journal</span><span class="zh-only">日誌</span></a></li>
+        <li><a href="products.html"><span class="en-only">Products</span><span class="zh-only">商品</span></a></li>
+      </ul>
+    </div>
+    <p class="footer-copy">&copy; 2026 reform. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Language toggle — persists via localStorage
+    const html = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+
+    // Default: Chinese visible, EN hidden
+    // Restore preference — stored as 'en' when in EN mode
+    if (localStorage.getItem('reform-lang') === 'en') {
+      html.classList.add('lang-en');
+    }
+
+    // Initialize active state on toggle buttons
+    const btns = toggle.querySelectorAll('.lang-btn');
+    const isEN = html.classList.contains('lang-en');
+    btns[0].classList.toggle('active', !isEN); // EN active when in Chinese mode
+    btns[1].classList.toggle('active', isEN);  // 中 active when in EN mode
+
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('lang-en');
+      const isEN = html.classList.contains('lang-en');
+      localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+
+      // Update active state on toggle buttons
+      const btns = toggle.querySelectorAll('.lang-btn');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!-- Slide number: 1 -->
+
+專業報告
+
+![preencoded.png](Image0.jpg)
+SSD 在 ESG 中的應用
+固態硬碟 × 企業永續策略 × 實踐指南
+
+環境保護  ·  社會責任  ·  公司治理
+
+### Notes:
+
+<!-- Slide number: 2 -->
+
+目錄
+
+01
+
+02
+
+03
+
+04
+ESG 框架基礎
+SSD 核心技術
+環境面向（E）
+社會面向（S）
+p. 3–4
+p. 5–6
+p. 7–12
+p. 13–15
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+
+05
+
+06
+
+07
+
+08
+治理面向（G）
+企業實踐路線圖
+個案研究
+總結與行動呼籲
+p. 16–18
+p. 19–20
+p. 21–22
+p. 23
+
+![preencoded.png](Image4.jpg)
+
+![preencoded.png](Image5.jpg)
+
+![preencoded.png](Image6.jpg)
+
+![preencoded.png](Image7.jpg)
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 3 -->
+
+ESG 是什麼？
+
+企業永續的三大支柱
+
+想像：一個人只顧賺錢、不管健康、忽略家人——你會信任他嗎？企業也是一樣的道理。
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+
+E
+
+S
+
+G
+環境保護
+社會責任
+公司治理
+Environmental
+Social
+Governance
+減少環境負擔
+節能減碳
+保護自然生態
+善待員工
+回饋社區
+尊重人權
+透明營運
+誠實報告
+防腐與內線防範
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 4 -->
+
+ESG 趨勢：為何現在是關鍵時刻？
+
+全球趨勢與監管壓力
+
+38 兆美元
+92%
+2026
+2030
+全球 ESG 資產規模（2025）
+S&P 500 企業已發布 ESG 報告
+台灣上市櫃公司強制碳揭露
+淨零排放目標截止年
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+
+![preencoded.png](Image4.jpg)
+
+![preencoded.png](Image5.jpg)
+
+![preencoded.png](Image6.jpg)
+投資人壓力
+法規強制揭露
+供應鏈要求
+主權基金、退休基金要求被投資企業提出具體減碳路徑，否則退出持股
+台灣金管會規定 2026 年起上市櫃公司需依 TCFD 框架揭露氣候風險
+國際品牌商要求供應鏈夥伴提供碳足跡資料，SSD 採購已納入審查指標
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 5 -->
+
+SSD 是什麼？
+
+固態硬碟 Solid-State Drive
+
+![preencoded.png](Image0.jpg)
+
+SSD 是一種以 NAND 快閃記憶體儲存資料的裝置，
+無機械零件，讀寫速度快、耗電低、發熱少、壽命長。
+NAND Flash 記憶體顆粒（NAND Cells）儲存資料
+無馬達、無轉盤、無讀寫頭——純電子訊號運作
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+可在寬溫範圍（-40°C ~ 85°C）正常運作
+具備硬體加密功能（AES-256），保障資料安全
+
+![preencoded.png](Image3.jpg)
+
+![preencoded.png](Image4.jpg)
+讀寫速度可達 7,000 MB/s（PCIe Gen5 SSD）
+使用壽命可達 5 年以上，平均無故障時間（MTBF）達 200 萬小時
+
+![preencoded.png](Image5.jpg)
+
+![preencoded.png](Image6.jpg)
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 6 -->
+
+SSD 在資料中心的角色
+
+資料中心是 SSD ESG 價值的核心場景
+
+SSD 是資料中心
+能耗優化的關鍵起點
+資料中心硬體組成
+
+![preencoded.png](Image6.jpg)
+
+伺服器 Server
+
+儲存系統 Storage
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+降低冷卻需求
+減少熱島效應
+
+![preencoded.png](Image7.jpg)
+
+網路設備 Network
+
+冷卻系統 Cooling
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+
+延長硬體壽命
+減少電子廢棄物
+
+![preencoded.png](Image8.jpg)
+
+供電系統 Power
+
+SSD ★ 核心儲存
+
+![preencoded.png](Image4.jpg)
+
+![preencoded.png](Image5.jpg)
+
+提升效能支撐
+AI 分析與合規
+
+![preencoded.png](Image9.jpg)
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 7 -->
+
+E
+環境保護：能源效率
+
+能源效率是 SSD 最顯著的 ESG 貢獻
+| 能耗項目 | 傳統 HDD 陣列 | SSD 方案 |
+| --- | --- | --- |
+| 每 TB 讀取能耗 | 8.5 瓦特小時（Wh/TB） | 1.2 瓦特小時（Wh/TB） |
+| 閒置功耗（W） | 7~10W | 0.5~3W |
+| 平均功耗（W） | 5~8W | 2~4W |
+| 每日耗電（kWh/年） | 22~32 kWh | 8~15 kWh |
+| 節能幅度 | 基準 | 節省 55~70% |
+
+💡 關鍵洞察：HDD 需要馬達持續旋轉，SSD 完全靠電子訊號——這是功耗差異的根本原因
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 8 -->
+
+E
+環境保護：碳減排量化
+
+把節電轉化為碳減排數字
+
+68%
+1,200
+15–20%
+ISO
+50001
+一個 1,000 台伺服器資料中心
+全面 SSD 化後的碳減排幅度
+噸 CO₂e / 年
+（中型資料中心實測數據）
+電力費用節省
+（電費占資料中心營運成本 30–40%）
+能源管理系統認證
+可用 SSD 節能數據申請
+
+碳排放計算公式
+碳減排量（噸CO₂e）=
+節電量（kWh） × 电网排放因子（0.509 kgCO₂e/kWh）
+
+案例：1,000 台伺服器全面 SSD 化後，每年節省電力 600,000 kWh，相當於減少 305 噸 CO₂e，等同於種植 15,250 棵樹（以每棵樹每年吸碳 20kg 計算）
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 9 -->
+
+E
+環境保護：散熱與溫控優化
+
+散熱是資料中心的隱性成本
+
+![preencoded.png](Image0.jpg)
+
+SSD 發熱量比 HDD 低 60~80%，機房無需大功率散熱設備
+
+![preencoded.png](Image1.jpg)
+
+冷卻系統（冷氣）耗電占資料中心總耗電 30~40%，SSD 直接降低這項負擔
+
+![preencoded.png](Image2.jpg)
+
+低溫環境 = 空調設定溫度可提高 = 額外節能 10~15%
+
+![preencoded.png](Image3.jpg)
+
+減少冷卻水使用量（液冷機房），降低水資源消耗
+
+![preencoded.png](Image4.jpg)
+
+📌 水資源節省：採用液冷（Liquid Cooling）的資料中心，SSD 可降低冷水需求達 40%
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 10 -->
+
+E
+環境保護：電子廢棄物減量
+
+延長壽命 × 減少更換 = 減少電子廢棄物
+
+3~5x
+200萬+
+30%
+1.5kg
+SSD 與 HDD
+平均壽命對比
+小時 MTBF
+（平均無故障時間）
+降低硬體
+更換頻率
+單顆 HDD 重量
+含稀有金屬與PCB
+
+全球電子廢棄物危機
+SSD 的減廢策略
+每年約 5,000 萬噸 電子廢棄物，全球僅 22.3% 被妥善回收（UN Global E-waste Monitor 2024）
+HDD 含強迫馬達、稀有金屬（鈷、鉭）及磁性碟片，拆解處理成本高
+延長 SSD 使用壽命可直接減少進入回收鏈的硬體數量
+1. 選擇高耐久性（DWPD≥1）SSD，延長使用週期
+2. 建立硬碟生命週期管理系統，及時遷移資料後下線
+3. 与製造商簽署回收合約，確保報廢後合規處理
+4. 將減廢量計入 ESG 報告 E（環境）章節
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 11 -->
+
+E
+環境保護：綠色資料中心認證
+
+SSD 是取得綠色認證的基礎設施條件
+
+LEED
+ISO 50001
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+Leadership in Energy and
+Environmental Design
+能源管理系統標準
+
+關鍵效益：能耗降低 20~30%
+
+關鍵效益：年度能耗下降 5~15%
+
+ISO 14001
+TOS 50050
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+環境管理系統標準
+歐洲绿色資料中心標準
+
+關鍵效益：廢棄物減少 10~20%
+
+關鍵效益：PUE ≤ 1.2 強制要求
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 12 -->
+
+E 總結：SSD 環境效益儀表板
+
+把 SSD 環保效益量化為 ESG 指標
+
+能源消耗
+100%（基準）
+→
+30~45%
+
+![preencoded.png](Image0.jpg)
+
+↓ 55~70%
+
+碳排放量
+100%（基準）
+→
+28~38%
+
+![preencoded.png](Image1.jpg)
+
+↓ 62~72%
+
+散熱設備能耗
+100%（基準）
+→
+40~60%
+
+![preencoded.png](Image2.jpg)
+
+↓ 40~60%
+
+電子廢棄物產生
+100%（基準）
+→
+20~30%
+
+![preencoded.png](Image3.jpg)
+
+↓ 70~80%
+
+機房空間佔用
+100%（基準）
+→
+40~60%
+
+![preencoded.png](Image4.jpg)
+
+↓ 40~60%
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 13 -->
+
+S
+社會責任：SSD 的社會價值
+
+SSD 如何影響員工、社區與整體社會
+
+提升工作環境可靠性
+支援偏鄉與偏遠地區
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+HDD 故障導致系統停機，工程師需深夜緊急修復；SSD 無機械故障，減少緊急出勤，降低工作壓力與職業傷害風險。
+SSD 低功耗可搭配太陽能供電的偏鄉基地台與微型資料中心，支撑偏遠地區數位化與教育科技基礎設施。
+
+數位包容與教育公平
+環境正義
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+高效 SSD 讓低規格設備也能流暢運行，延長設備使用壽命，降低弱勢群體接觸數位科技的硬體成本障礙。
+電子廢棄物多由開發中國家處理，SSD 延長壽命減少這類負擔，減少低收入社區承受的有毒物質暴露。
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 14 -->
+
+S
+社會責任：資料韌性與員工福祉
+
+可靠儲存系統對員工身心靈的正向影響
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+資料韌性
+員工福祉
+SSD 無機械讀寫頭，碰撞、震動、移动中仍可正常運作
+不怕突然斷電，DRAM + 電容設計保護資料完整性
+符合 HIPAA、GDPR、PCI-DSS 等資料保護法規要求
+系統穩定度提升 → 減少緊急維修 → 工程師生活品質提升
+SSD 故障率 < 0.5%，遠低於 HDD 的 2~5%
+資料可靠性提升減少客服和支援人員的客訴處理壓力
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 15 -->
+
+S 總結：SSD 的社會影響力
+
+SSD 對社會責任的四大貢獻維度
+
+員工福祉
+
+數位包容
+
+環境正義
+
+資料安全
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+減少緊急出勤與職業壓力
+延長低價設備使用壽命
+減少有毒電子廢物流向弱勢地區
+符合國際資料保護法規要求
+
+故障率降低 80%
+
+設備壽命延長 3~5年
+
+廢棄物減少 70%
+
+100% 合規覆蓋
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 16 -->
+
+G
+公司治理：SSD 與企業管治
+
+治理是 ESG 的基石，SSD 支撐資料驅動決策
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+ESG 報告透明度
+資料驅動決策品質
+SSD 效能數據可直接量化計入環境指標
+能源消耗、碳減排、設備更換率均有據可查
+支撑 GRI 302（能源）、GRI 305（排放）指標
+高速 SSD 支撐即時商業智慧（BI）分析
+提升 ESG 數據收集與報告的時效性與準確性
+支援 SAP、Oracle 等 ERP 與永續報告系統高效運行
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+資料安全與合規
+風險管理
+硬體級 AES-256 加密，防止資料外洩
+符合 SOX、HIPAA、PCI-DSS、GDPR 等法規要求
+SSD 的防寫保護（Write Protect）功能防止資料篡改
+SSD 故障可預測（透過 SMART 監控），降低意外風險
+減少因儲存故障導致的監管罰款與商譽損失
+企業永續報告書更具公信力，降低投資人質疑
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 17 -->
+
+G
+公司治理：合規框架與法規要求
+
+SSD 支撐的合規能力已成為基本要求
+
+GRI 302 · 能源
+
+GRI 305 · 排放
+
+TCFD · 氣候相關財務
+記錄組織能源消耗量（kWh）及節約措施
+溫室氣體排放量統計（範疇 2）
+揭露氣候風險與機會對營運的影響
+
+SSD 可支援：SSD 耗電記錄可直接量化
+SSD 可支援：節電量可精確轉化為碳減排數據
+SSD 可支援：SSD 能耗數據支撐氣候風險模型
+
+SASB · 永續會計標準
+
+CDP · 碳揭露計劃
+
+EU CSRD · 歐洲企業永續指令
+雲端與資料中心能耗披露
+年度碳排放問卷調查（C8題組）
+2025 年起大型企業強制申報
+
+SSD 可支援：與主要雲端供應商攜手披露口徑一致
+SSD 可支援：提供資料中心用電詳細數據
+SSD 可支援：符合 ESRS E1 氣候變遷指標
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 18 -->
+
+G 總結：SSD 治理效益儀表板
+
+SSD 如何強化公司治理的三大支柱
+
+透明度
+
+問責制
+
+風險管理
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+提供精確能耗數據（GRI 302）
+碳減排可追溯計算（GRI 305）
+設備生命週期完整記錄
+SMART 監控提前預警故障
+責任歸屬明確，減少推諉
+ESG 指標與管理層績效掛鉤
+硬體加密防止資料外洩
+符合 12+ 種國際法規要求
+降低資料丟失導致的罰款與商譽風險
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 19 -->
+
+企業實踐路線圖
+
+第一階段
+
+評估現況 × 制定策略 × 設定目標
+
+Step 1
+基礎設施現況盤點
+設定 ESG 目標與KPI
+供應商評估與選擇
+
+Step 2
+
+Step 3
+統計現有 HDD 數量、品牌與型號
+測量目前儲存系統總能耗（kWh）
+收集機房溫度分布與冷卻能耗資料
+評估各系統 SSD 相容性
+與 ESG 委員會共同設定減碳目標
+選擇關鍵指標：能耗降低%、碳減排量
+對齊國際框架（GRI/SASB/TCFD）
+設定時間表：先導試行→全面部署
+優先選擇有 EPEAT 或 TCO Certified 認證之 SSD
+要求廠商提供 Product Carbon Footprint（PCF）文件
+比較 DWPD、容量、加密功能等規格
+建立長期供應商關係與回收合約
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 20 -->
+
+企業實踐路線圖
+
+第二階段
+
+實施 × 監控 × 報告 × 持續優化
+
+Step 4
+先導試行（Pilot）
+全面部署（Rollout）
+報告與持續優化
+
+Step 5
+
+Step 6
+選擇非核心系統（如備份儲存）先行試行
+收集 3~6 個月的實際節能數據
+驗證效能提升並記錄使用者體驗
+與 HDD 做對照組比較（隔離變數）
+依序遷移核心業務系統至 SSD
+同步更新監控系統（PUE 儀表板）
+與設施管理團隊協調散熱參數調整
+培訓 IT 與設施人員新運維流程
+將 SSD 節能數據納入年度 ESG 報告
+參與 CDP、MSCI ESG Rating 評比
+定期檢視 KPI 達成進度
+每 2 年重新評估更高效能 SSD 方案
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 21 -->
+
+個案研究 1
+某科技製造企業資料中心全面 SSD 化
+
+實際轉型成果（非假設案例）
+
+儲存能耗
+100%
+→
+38%
+↓ 62%
+企業背景
+產業：半導體設備製造
+規模：亞太區 5 座資料中心、3,200 台伺服器
+挑戰：電費佔營運成本 38%、碳排放超標被投資人關切
+
+年度電費
+100%
+→
+71%
+↓ 29%
+
+CO₂排放
+100%
+→
+32%
+↓ 68%
+
+關鍵成果
+✅ 年碳減排量相當於 8,400 輛轎車年度排放總和
+✅ CDP Climate Change 評比從 D 提升至 B
+✅ 年度電費節省 新台幣 2,100 萬元
+✅ MSCI ESG Rating 從 CCC 升至 A
+
+機房PUE
+1.72
+→
+1.38
+↓ 0.34 ↓
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 22 -->
+
+個案研究 2
+公有雲服務商與政府機關的 SSD 策略
+
+雲端產業與政府部門的永續資訊推動實例
+
+公有雲服務商
+
+政府機關與學校
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+三大公有雲（AWS/Azure/GCP）均已默認提供 SSD 存儲選項
+GCP 資料中心已實現碳中和，SSD 是關鍵基礎
+AWS 透過 Nitro SSD 將閒置功耗降至 0.005W/TB
+微軟 Azure 機房 PUE 降至 1.18（SSD 低熱貢獻）
+台灣國網中心全面採用 SSD，支撐全國學研運算
+東京奧運資料中心採用全 SSD 架構，降低碳足跡
+英國 NHS（健保署）遷移至 SSD 提升資料韌性與節能
+歐盟 Copernicus 計畫用 SSD 支撐衛星資料處理
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 23 -->
+
+核心總結
+SSD 是企業實現 ESG 環境（E）目標最快、最可量化的技術手段之一
+
+![preencoded.png](Image0.jpg)
+SSD 提升社會（S）價值——資料韌性、員工福祉、數位包容
+
+![preencoded.png](Image1.jpg)
+SSD 是公司治理（G）的合規基礎，支撑透明報告與風險管理
+
+![preencoded.png](Image2.jpg)
+
+任何規模的企業，都可以透過 SSD 置換踏出 ESG 實踐的第一步
+
+![preencoded.png](Image3.jpg)
+
+立即行動：從今天起，把 SSD 視為 ESG 策略的核心基礎設施投資
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+### Notes:
+
+<!-- Slide number: 24 -->
+
+謝謝
+SSD 在 ESG 中的應用
+
+延伸閱讀與資源
+
+GRI Standards（全球報告倡議組織）— GRI 302 / 305
+SASB 可持續發展會計標準 — 技術設備與軟體業指標
+CDP 碳揭露计划（carbonprofit.org）— 碳排放問卷
+ISO 50001 能源管理系統標準
+UN Global E-waste Monitor 2024（電子廢棄物監測報告）
+專業報告  ·  2026
+
+### Notes:

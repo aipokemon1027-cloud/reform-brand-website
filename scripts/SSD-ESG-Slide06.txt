@@ -1,0 +1,56 @@
+=== 第 6 頁 ===
+
+
+SSD 在資料中心的角色
+
+資料中心是 SSD ESG 價值的核心場景
+
+SSD 是資料中心
+能耗優化的關鍵起點
+資料中心硬體組成
+
+![preencoded.png](Image6.jpg)
+
+伺服器 Server
+
+儲存系統 Storage
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+
+降低冷卻需求
+減少熱島效應
+
+![preencoded.png](Image7.jpg)
+
+網路設備 Network
+
+冷卻系統 Cooling
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+
+延長硬體壽命
+減少電子廢棄物
+
+![preencoded.png](Image8.jpg)
+
+供電系統 Power
+
+SSD ★ 核心儲存
+
+![preencoded.png](Image4.jpg)
+
+![preencoded.png](Image5.jpg)
+
+提升效能支撐
+AI 分析與合規
+
+![preencoded.png](Image9.jpg)
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+
+--- 備註 ---

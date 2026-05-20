@@ -1,0 +1,28 @@
+=== 第 22 頁 ===
+
+
+個案研究 2
+公有雲服務商與政府機關的 SSD 策略
+
+雲端產業與政府部門的永續資訊推動實例
+
+公有雲服務商
+
+政府機關與學校
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+三大公有雲（AWS/Azure/GCP）均已默認提供 SSD 存儲選項
+GCP 資料中心已實現碳中和，SSD 是關鍵基礎
+AWS 透過 Nitro SSD 將閒置功耗降至 0.005W/TB
+微軟 Azure 機房 PUE 降至 1.18（SSD 低熱貢獻）
+台灣國網中心全面採用 SSD，支撐全國學研運算
+東京奧運資料中心採用全 SSD 架構，降低碳足跡
+英國 NHS（健保署）遷移至 SSD 提升資料韌性與節能
+歐盟 Copernicus 計畫用 SSD 支撐衛星資料處理
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+
+--- 備註 ---

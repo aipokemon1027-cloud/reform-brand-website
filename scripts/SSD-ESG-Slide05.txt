@@ -1,0 +1,34 @@
+=== 第 5 頁 ===
+
+
+SSD 是什麼？
+
+固態硬碟 Solid-State Drive
+
+![preencoded.png](Image0.jpg)
+
+SSD 是一種以 NAND 快閃記憶體儲存資料的裝置，
+無機械零件，讀寫速度快、耗電低、發熱少、壽命長。
+NAND Flash 記憶體顆粒（NAND Cells）儲存資料
+無馬達、無轉盤、無讀寫頭——純電子訊號運作
+
+![preencoded.png](Image1.jpg)
+
+![preencoded.png](Image2.jpg)
+可在寬溫範圍（-40°C ~ 85°C）正常運作
+具備硬體加密功能（AES-256），保障資料安全
+
+![preencoded.png](Image3.jpg)
+
+![preencoded.png](Image4.jpg)
+讀寫速度可達 7,000 MB/s（PCIe Gen5 SSD）
+使用壽命可達 5 年以上，平均無故障時間（MTBF）達 200 萬小時
+
+![preencoded.png](Image5.jpg)
+
+![preencoded.png](Image6.jpg)
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+
+--- 備註 ---

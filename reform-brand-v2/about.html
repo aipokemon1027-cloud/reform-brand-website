@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — reform.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a1a;
+      --on-primary: #ffffff;
+      --canvas: #FDFBF7;
+      --hairline: #E8E0F0;
+      --hairline-soft: #F0EBF5;
+      --surface-soft: #F5E6E8;
+      --block-pink: #F5E6E8;
+      --block-lavender: #E8E0F0;
+      --block-mint: #E8F0EC;
+      --accent-dusty-rose: #D4A5A5;
+    }
+
+    html {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--canvas);
+      scroll-behavior: smooth;
+    }
+
+    body { overflow-x: hidden; }
+
+    /* ── Lang toggle ── */
+    html.lang-en .zh { display: none; }
+    html:not(.lang-en) .en { display: none; }
+
+    /* ── Nav ── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background-color: var(--canvas);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 100;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      border: 1px solid var(--hairline);
+      border-radius: 50px;
+      padding: 4px;
+      cursor: pointer;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+    .lang-toggle:hover {
+      opacity: 0.7;
+    }
+    .lang-toggle .lang-btn {
+      padding: 4px 10px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .lang-toggle .lang-btn.active {
+      background-color: var(--ink);
+      color: #ffffff;
+    }
+    .lang-toggle .lang-sep {
+      opacity: 0.4;
+      font-size: 11px;
+    }
+    .lang-toggle:hover { background: var(--surface-soft); border-color: var(--accent-dusty-rose); }
+    .lang-toggle .lang-btn {
+      padding: 4px 10px;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .lang-toggle .lang-btn.active {
+      background-color: var(--ink);
+      color: #ffffff;
+    }
+    .lang-toggle .lang-sep {
+      font-size: 11px;
+      opacity: 0.4;
+    }
+
+    /* ── Section base ── */
+    .section { padding: 96px 48px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Display type ── */
+    .display-lg {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.10;
+      letter-spacing: -1px;
+    }
+    .headline {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.30;
+      letter-spacing: -0.3px;
+    }
+    .subhead {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.50;
+    }
+    .body-lg {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.60;
+    }
+    .body { font-size: 16px; font-weight: 300; line-height: 1.65; }
+    .caption {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.40;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--on-primary);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 14px 28px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 12px 24px;
+      border: 1px solid var(--hairline);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { background: var(--surface-soft); border-color: var(--accent-dusty-rose); }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 10px 16px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-ghost:hover { opacity: 0.7; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--block-pink);
+      border-radius: 20px;
+      margin: 48px 48px 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+    .hero-text {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-text .eyebrow {
+      margin-bottom: 24px;
+      color: var(--accent-dusty-rose);
+    }
+    .hero-text .display-lg { margin-bottom: 24px; }
+    .hero-text .body-lg { opacity: 0.75; max-width: 400px; }
+    .hero-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Story ── */
+    .story {
+      background: var(--block-lavender);
+      border-radius: 20px;
+      margin: 0 48px;
+      padding: 80px 64px;
+      text-align: center;
+    }
+    .story .eyebrow { margin-bottom: 24px; color: var(--accent-dusty-rose); }
+    .story .display-lg { margin-bottom: 32px; }
+    .story .body-lg { max-width: 560px; margin: 0 auto; opacity: 0.75; }
+
+    /* ── Two-col ── */
+    .two-col {
+      background: var(--canvas);
+      padding: 96px 48px;
+    }
+    .two-col-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .two-col-text .eyebrow { margin-bottom: 24px; color: var(--accent-dusty-rose); }
+    .two-col-text .display-lg { margin-bottom: 24px; }
+    .two-col-text .body-lg { opacity: 0.72; }
+    .two-col-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .two-col-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Values ── */
+    .values {
+      background: var(--block-mint);
+      border-radius: 20px;
+      margin: 0 48px;
+      padding: 80px 64px;
+    }
+    .values .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .values .eyebrow { margin-bottom: 16px; color: #6B9E7A; display: block; }
+    .values .display-lg { }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .value-card { text-align: center; }
+    .value-card .value-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(26,26,26,0.06);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .value-card .value-title {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+    .value-card .value-sub {
+      font-size: 15px;
+      font-weight: 300;
+      opacity: 0.68;
+      line-height: 1.6;
+    }
+
+    /* ── Founder ── */
+    .founder {
+      background: var(--block-pink);
+      border-radius: 20px;
+      margin: 0 48px;
+      padding: 96px 64px;
+      text-align: center;
+    }
+    .founder-quote {
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.50;
+      max-width: 720px;
+      margin: 0 auto 32px;
+      letter-spacing: -0.3px;
+    }
+    .founder-quote em { font-style: normal; }
+    .founder-byline {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--canvas);
+      padding: 96px 48px;
+      text-align: center;
+    }
+    .cta .display-lg { margin-bottom: 16px; }
+    .cta .body-lg { opacity: 0.65; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--canvas);
+      border-top: 1px solid var(--hairline-soft);
+      padding: 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo { font-size: 16px; font-weight: 400; text-decoration: none; color: var(--ink); }
+    .footer-logo span { font-weight: 300; }
+    .footer-copy { font-size: 12px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.45; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    .footer-links a:hover { opacity: 1; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; margin: 24px 24px 0; }
+      .hero-img { height: 300px; order: -1; }
+      .hero-text { padding: 48px 32px; }
+      .story { margin: 0 24px; padding: 56px 32px; }
+      .two-col { padding: 64px 24px; }
+      .two-col-inner { grid-template-columns: 1fr; gap: 40px; }
+      .values { margin: 0 24px; padding: 56px 32px; }
+      .values-grid { grid-template-columns: 1fr; gap: 40px; }
+      .founder { margin: 0 24px; padding: 64px 32px; }
+      .cta { padding: 64px 24px; }
+      .nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navigation ─── -->
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════ HERO ════ -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="caption eyebrow">
+        <span class="zh">品牌故事</span><span class="en">Brand Story</span>
+      </p>
+      <h1 class="display-lg">
+        <span class="zh">我們的故事</span><span class="en">Our Story</span>
+      </h1>
+      <p class="body-lg">
+        <span class="zh">reform. 的起點，是一個關於「足夠」的問題。我們相信，真正好的設計，是不需要解釋的。</span>
+        <span class="en">reform. began with a question about "enough." We believe the best design needs no explanation.</span>
+      </p>
+    </div>
+    <div class="hero-img">
+      <img src="assets/reform-lifestyle-hero.png" alt="reform. lifestyle" />
+    </div>
+  </section>
+
+  <!-- ════ STORY ════ -->
+  <section class="story">
+    <p class="caption eyebrow">
+      <span class="zh">起點</span><span class="en">The Beginning</span>
+    </p>
+    <h2 class="display-lg">
+      <span class="zh">一切始於一個簡單的問題</span>
+      <span class="en">We started with a simple question</span>
+    </h2>
+    <p class="body-lg" style="margin-top:28px;">
+      <span class="zh">我們問自己：什麼是真正需要的？什麼只是想要的？這兩者之間，有沒有一個安靜的空間？reform. 就是那個空間。</span>
+      <span class="en">We asked ourselves: what do we truly need, and what do we merely want? Is there a quiet space between them? That's where reform. lives.</span>
+    </p>
+  </section>
+
+  <!-- ════ TWO COLUMN ════ -->
+  <section class="two-col">
+    <div class="two-col-inner">
+      <div class="two-col-text">
+        <p class="caption eyebrow">
+          <span class="zh">理念</span><span class="en">Philosophy</span>
+        </p>
+        <h2 class="display-lg">
+          <span class="zh">reform. 的理念</span>
+          <span class="en">The reform. way</span>
+        </h2>
+        <p class="body-lg">
+          <span class="zh">安靜不是沉默。安靜是一種選擇。當世界越來越嘈雜，我們選擇精挑細選。每一件作品，都是我們對「少而更好」的反覆思考。</span>
+          <span class="en">Quiet is not silence. Quiet is a choice. As the world grows louder, we choose carefully. Each piece is our meditation on "less but better."</span>
+        </p>
+      </div>
+      <div class="two-col-img">
+        <img src="assets/reform-lifestyle-hero.png" alt="reform. way" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ VALUES ════ -->
+  <section class="values">
+    <div class="section-header">
+      <span class="caption eyebrow">
+        <span class="zh">核心價值</span><span class="en">Core Values</span>
+      </span>
+      <h2 class="display-lg">
+        <span class="zh">我們相信的事</span>
+        <span class="en">What we believe</span>
+      </h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">◐</div>
+        <h3 class="value-title">
+          <span class="zh">沉靜的自信</span>
+          <span class="en">Quiet Confidence</span>
+        </h3>
+        <p class="value-sub">
+          <span class="zh">真正的力量，不需要證明。我們的設計，是留給知道自己要什麼的人。</span>
+          <span class="en">Real strength needs no proof. Our design is for those who know what they want.</span>
+        </p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">◎</div>
+        <h3 class="value-title">
+          <span class="zh">有目的的設計</span>
+          <span class="en">Purposeful Design</span>
+        </h3>
+        <p class="value-sub">
+          <span class="zh">每一個細節都有理由。沒有裝飾，只有選擇。</span>
+          <span class="en">Every detail has a reason. No decoration, only intention.</span>
+        </p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">◑</div>
+        <h3 class="value-title">
+          <span class="zh">用心的細節</span>
+          <span class="en">Intentional Details</span>
+        </h3>
+        <p class="value-sub">
+          <span class="zh">從針腳到布料，從版型到包裝，我們在乎那些看不見的部分。</span>
+          <span class="en">From stitching to fabric, from cut to packaging — we care about what you don't see.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOUNDER'S NOTE ════ -->
+  <section class="founder">
+    <p class="caption" style="margin-bottom:32px; opacity:0.5;">
+      <span class="zh">創辦人的話</span><span class="en">Founder's Note</span>
+    </p>
+    <blockquote class="founder-quote">
+      <em>
+        <span class="zh">「我不想要時尚。我想要的是一個可以穿十年的東西，一個在雜亂中讓人冷靜下來的東西，一個不需要Logo就能說話的東西。reform. 就是這樣開始的。」</span>
+        <span class="en">"I didn't want fashion. I wanted something I could wear for ten years. Something calming in the noise. Something that speaks without a logo. That's how reform. began."</span>
+      </em>
+    </blockquote>
+    <p class="founder-byline">
+      <span class="zh">— 創辦人</span><span class="en">— The Founder</span>
+    </p>
+  </section>
+
+  <!-- ════ CTA ════ -->
+  <section class="cta">
+    <h2 class="display-lg">
+      <span class="zh">加入我們</span>
+      <span class="en">Join the movement</span>
+    </h2>
+    <p class="body-lg">
+      <span class="zh">精挑細選，而非多多益善。</span>
+      <span class="en">Chosen carefully, not collected endlessly.</span>
+    </p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="products.html" class="btn-primary">
+        <span class="zh">選購系列</span><span class="en">Shop Collection</span>
+      </a>
+      <a href="#" class="btn-secondary">
+        <span class="zh">了解更多</span><span class="en">Learn More</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">reform<span>.</span></a>
+      <div class="footer-links">
+        <a href="about.html"><span class="zh">關於</span><span class="en">About</span></a>
+        <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+        <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      </div>
+      <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Language toggle — persists via localStorage
+    const html = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+
+    // Default: Chinese visible, EN hidden
+    // Restore preference — stored as 'en' when in EN mode
+    if (localStorage.getItem('reform-lang') === 'en') {
+      html.classList.add('lang-en');
+    }
+
+    // Initialize active state on toggle buttons
+    const btns = toggle.querySelectorAll('.lang-btn');
+    const isEN = html.classList.contains('lang-en');
+    btns[0].classList.toggle('active', !isEN);
+    btns[1].classList.toggle('active', isEN);
+
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('lang-en');
+      const isEN = html.classList.contains('lang-en');
+      localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+
+      // Update active state on toggle buttons
+      const btns = toggle.querySelectorAll('.lang-btn');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+    });
+  </script>
+
+</body>
+</html>

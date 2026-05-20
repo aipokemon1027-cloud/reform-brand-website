@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Design Matters in Fitness Gear — reform. Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a; --canvas: #FDFBF7; --on-primary: #ffffff;
+      --hairline: #E8E0F0; --hairline-soft: #F0EBF5;
+      --block-pink: #F5E6E8; --block-lavender: #E8E0F0;
+      --block-mint: #E8F0EC; --accent-dusty-rose: #D4A5A5;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    html { font-family: var(--font); background: var(--canvas); color: var(--ink); scroll-behavior: smooth; }
+    body { min-height: 100vh; }
+    html.lang-en [class="zh"], html:not(.lang-en) [class="en"] { display: none; }
+
+    .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 64px; background-color: var(--canvas); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; z-index: 100; border-bottom: 1px solid var(--hairline-soft); }
+    .logo { font-size: 18px; font-weight: 500; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 400; color: var(--ink); text-decoration: none; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 0.6; }
+    .lang-toggle { display: flex; align-items: center; gap: 2px; border: 1px solid var(--hairline); border-radius: 50px; padding: 4px; cursor: pointer; background: transparent; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.5px; color: var(--ink); }
+    .lang-toggle .lang-btn { padding: 4px 10px; border-radius: 50px; transition: background 0.2s, color 0.2s; line-height: 1; }
+    .lang-toggle .lang-btn.active { background-color: var(--ink); color: #ffffff; }
+    .lang-toggle .lang-sep { opacity: 0.4; font-size: 11px; }
+    .lang-btn { font-family: var(--font); font-size: 12px; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; border: none; background: transparent; color: var(--ink); padding: 6px 14px; border-radius: 50px; cursor: pointer; }
+    .lang-toggle .lang-btn.active { background: var(--ink); color: var(--on-primary); }
+
+    .article-hero { margin-top: 64px; position: relative; height: 520px; overflow: hidden; }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(26,26,26,0.6) 100%); }
+    .article-hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 48px 80px; }
+    .article-hero-eyebrow { font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+    .article-hero h1 { font-size: 48px; font-weight: 300; line-height: 1.1; letter-spacing: -1px; color: #ffffff; max-width: 800px; margin-bottom: 20px; }
+    .article-hero-meta { display: flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 400; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); }
+    .article-hero-meta .category-tag { color: var(--accent-dusty-rose); }
+
+    .article-body { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+    .article-lead { font-size: 20px; font-weight: 300; line-height: 1.65; color: var(--ink); margin-bottom: 48px; opacity: 0.85; }
+    .article-section-label { font-size: 11px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dusty-rose); margin: 56px 0 24px; }
+    .article-section-label:first-of-type { margin-top: 0; }
+    .article-p { font-size: 16px; font-weight: 300; line-height: 1.80; color: var(--ink); margin-bottom: 28px; opacity: 0.82; }
+    .article-pullquote { border-left: 3px solid var(--accent-dusty-rose); padding: 24px 32px; margin: 48px 0; background: var(--block-mint); border-radius: 0 12px 12px 0; }
+    .article-pullquote p { font-size: 18px; font-weight: 300; line-height: 1.65; color: var(--ink); font-style: italic; }
+    .lang-divider { border: none; border-top: 1px solid var(--hairline); margin: 80px 0; }
+
+    .related-section { background: var(--hairline-soft); padding: 80px 48px; }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .related-label { font-size: 12px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; opacity: 0.5; margin-bottom: 40px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .related-card { background: var(--canvas); border-radius: 12px; overflow: hidden; border: 1px solid var(--hairline); text-decoration: none; color: var(--ink); transition: transform 0.2s, box-shadow 0.2s; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,26,26,0.08); }
+    .related-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .related-card-body { padding: 20px 24px; }
+    .related-card-cat { font-size: 11px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-dusty-rose); margin-bottom: 8px; }
+    .related-card-title { font-size: 15px; font-weight: 400; line-height: 1.40; color: var(--ink); }
+    .related-card-date { font-size: 11px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.4; margin-top: 8px; }
+
+    .footer { border-top: 1px solid var(--hairline-soft); padding: 64px 48px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 48px; }
+    .footer-brand { font-size: 18px; font-weight: 400; letter-spacing: -0.3px; }
+    .footer-brand span { font-weight: 300; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-link { font-size: 12px; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.5; transition: opacity 0.2s; }
+    .footer-link:hover { opacity: 1; }
+    .footer-copy { grid-column: 1 / -1; font-size: 12px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.4; padding-top: 32px; border-top: 1px solid var(--hairline-soft); }
+
+    @media (max-width: 768px) {
+      .top-nav { padding: 0 24px; }
+      .article-hero { height: 380px; }
+      .article-hero-content { padding: 32px 24px; }
+      .article-hero h1 { font-size: 34px; }
+      .article-body { padding: 48px 24px 80px; }
+      .related-section { padding: 48px 24px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer { padding: 48px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="article-hero">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=85" alt="Fitness gear design">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-content">
+      <p class="article-hero-eyebrow">
+        <span class="zh">設計</span>
+        <span class="en">Design</span>
+      </p>
+      <h1>
+        <span class="zh">為什麼健身裝備的設計很重要</span>
+        <span class="en">Why Design Matters in Fitness Gear</span>
+      </h1>
+      <div class="article-hero-meta">
+        <span class="category-tag"><span class="zh">設計</span><span class="en">Design</span></span>
+        <span>2026.03.15</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-body">
+
+    <p class="article-lead">
+      <span class="zh">當你專注於動作時，你不會注意到一雙襪子的抓地力——直到它失敗的那一刻。</span>
+      <span class="en">You don't think about the grip of your socks when you're deep in a pose — until it fails you.</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">摩擦是注意力的小偷</span>
+      <span class="en">Friction Is an Attention Thief</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">設計不良的裝備會在你最需要專注的時候強迫你分心。當你的襪子在墊子上滑了一下，你的內心開始計算——我是不是站歪了？這個姿勢還能維持嗎？教練會注意到嗎？一個物理的小失誤，撬動了一連串的心理噪音。而好設計，是讓這些噪音消失。你繼續動作，你的設備安靜地配合，彷彿它根本不存在。</span>
+      <span class="en">Poorly designed gear forces you to divide your attention at the precise moment you need it most. When your socks slip on the mat, your mind starts calculating — am I standing wrong? Can I hold this pose? Will the instructor notice? One small physical failure triggers a cascade of mental noise. Good design makes that noise disappear. You keep moving, your equipment cooperates quietly, as if it isn't there at all.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">這個原理不只在瑜伽墊上成立。當一個啞鈴的手柄太粗或太滑，當一件運動内衣的支撐度不足，當一雙鞋的鞋底讓你在某個角度站立時不自覺地調整——這些都是設計失誤。它們不會讓你完全無法運動，但它們在你心裡占據了一個小小的位置，消耗你本來可以用來專注的頻寬。</span>
+      <span class="en">This principle extends far beyond the yoga mat. When a dumbbell's handle is too thick or too slick, when a sports bra doesn't provide enough support, when a shoe's sole forces you to不自觉地 adjust your stance — these are all design failures. They don't stop you from exercising entirely, but they occupy a small space in your mind, consuming bandwidth you could otherwise use for focus.</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>
+        <span class="zh">「當形式與功能達成和解，產品就不只是工具，而是一種 statement。」</span>
+        <span class="en">"When form and function reconcile, a product becomes more than a tool — it becomes a statement."</span>
+      </p>
+    </div>
+
+    <span class="article-section-label">
+      <span class="zh">形式與功能的寧靜和解</span>
+      <span class="en">The Quiet Reconciliation of Form and Function</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">我們經常把「功能性」和「美學」當作兩個需要妥協的極端。要麼選擇好看的，要麼選擇好用的。但這個框架本身是錯誤的。真正的設計對話不是「我願意犧牲多少美感來換取功能」，而是「這個物件的完整體驗是什麼？」</span>
+      <span class="en">We often treat "functionality" and "aesthetics" as two extremes that require compromise. Either choose beauty or choose utility. But this framework is itself wrong. The real design conversation isn't "how much beauty am I willing to sacrifice for function" — it's "what is the complete experience of this object?"</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">當你拿起一隻精心設計的水壶——手感溫潤，重量均衡，開合只需一個手指的幅度——你感受到的不只是「工具很好用」，而是「有人認真想过這件事」。這種感受會改變你和這個物件之間的關係。它成為你日常的一部分，而不是需要管理的工具。</span>
+      <span class="en">When you pick up a well-designed water bottle — warm to the touch, balanced in weight, opening with a single-finger motion — you don't just feel "this tool works well." You feel "someone thought carefully about this." This experience changes the relationship between you and the object. It becomes part of your daily life, rather than a tool to be managed.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">同樣的道理應用於健身裝備。一雙防滑襪的設計，如果只考慮防滑效果，它可能會看起來像醫療輔具。但如果設計師願意多走一步，想一想織物的紋路如何與視覺的安靜感協調，想一想邊緣的處理如何傳遞「溫柔但坚定」的品牌個性——那麼這雙襪子就不只是功能產品，它開始說話。</span>
+      <span class="en">The same principle applies to fitness gear. If an anti-slip sock is designed with only grip in mind, it might look like a medical device. But if the designer goes one step further — thinking about how the fabric texture coordinates with a visually quiet aesthetic, how the edge treatment communicates "gentle but firm" brand personality — then these socks aren't just a functional product anymore. They start to speak.</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">設計是一種誠實的形式</span>
+      <span class="en">Design as a Form of Honesty</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">設計師通常不喜歡被稱為「藝術家」，因為藝術可以只為自己存在，而設計必須服務於他人。一件設計不良的產品，是對使用者的不誠實——它說「我為你設計」，但實際上只考慮了製造的便利或成本的最小化。當使用者發現這一點，信任就消失了。</span>
+      <span class="en">Designers often dislike being called "artists," because art can exist for its own sake while design must serve others. A poorly designed product is a form of dishonesty toward the user — it says "I was made for you," when in reality it only considered manufacturing convenience or cost minimization. When users discover this, trust evaporates.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">當一件裝備被好好設計，它不只是工具，而是夥伴。當你在墊子上，你的設備不會製造任何噪音——它讓你專注於運動本身，而不是分心於不順手的細節。這種專注帶來的不只是更好的練習表現，而是一種更深的尊重：這個世界願意在你專注的時刻，安靜地配合你。</span>
+      <span class="en">When gear is designed well, it's not just a tool — it's a partner. When you're on the mat, your equipment creates no noise — it lets you focus on the movement itself, not distracted by friction. This focus brings not just better practice performance, but a deeper kind of respect: the world is willing to quietly cooperate with your专注 in those moments.</span>
+    </p>
+
+    <hr class="lang-divider">
+
+    <span class="article-section-label">
+      <span class="zh">中文翻譯</span>
+      <span class="en">中文版</span>
+    </span>
+
+    <p class="article-lead">
+      <span class="en">當你專注於動作時，你不會注意到一雙襪子的抓地力——直到它失敗的那一刻。</span>
+      <span class="zh">當你專注於動作時，你不會注意到一雙襪子的抓地力——直到它失敗的那一刻。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">設計不良的裝備會在你最需要專注的時候強迫你分心。當你的襪子在墊子上滑了一下，你的內心開始計算——我是不是站歪了？這個姿勢還能維持嗎？教練會注意到嗎？一個物理的小失誤，撬動了一連串的心理噪音。而好設計，是讓這些噪音消失。你繼續動作，你的設備安靜地配合，彷彿它根本不存在。</span>
+      <span class="zh">設計不良的裝備會在你最需要專注的時候強迫你分心。當你的襪子在墊子上滑了一下，你的內心開始計算——我是不是站歪了？這個姿勢還能維持嗎？教練會注意到嗎？一個物理的小失誤，撬動了一連串的心理噪音。而好設計，是讓這些噪音消失。你繼續動作，你的設備安靜地配合，彷彿它根本不存在。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">這個原理不只在瑜伽墊上成立。當一個啞鈴的手柄太粗或太滑，當一件運動内衣的支撐度不足，當一雙鞋的鞋底讓你在某個角度站立時不自覺地調整——這些都是設計失誤。它們不會讓你完全無法運動，但它們在你心裡占據了一個小小的位置，消耗你本來可以用來專注的頻寬。</span>
+      <span class="zh">這個原理不只在瑜伽墊上成立。當一個啞鈴的手柄太粗或太滑，當一件運動内衣的支撐度不足，當一雙鞋的鞋底讓你在某個角度站立時不自覺地調整——這些都是設計失誤。它們不會讓你完全無法運動，但它們在你心裡占據了一個小小的位置，消耗你本來可以用來專注的頻寬。</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>「當形式與功能達成和解，產品就不只是工具，而是一種 statement。」</p>
+    </div>
+
+    <p class="article-p">
+      <span class="en">我們經常把「功能性」和「美學」當作兩個需要妥協的極端。要麼選擇好看的，要麼選擇好用的。但這個框架本身是錯誤的。真正的設計對話不是「我願意犧牲多少美感來換取功能」，而是「這個物件的完整體驗是什麼？」</span>
+      <span class="zh">我們經常把「功能性」和「美學」當作兩個需要妥協的極端。要麼選擇好看的，要麼選擇好用的。但這個框架本身是錯誤的。真正的設計對話不是「我願意犧牲多少美感來換取功能」，而是「這個物件的完整體驗是什麼？」</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">當你拿起一隻精心設計的水壶——手感溫潤，重量均衡，開合只需一個手指的幅度——你感受到的不只是「工具很好用」，而是「有人認真想过這件事」。這種感受會改變你和這個物件之間的關係。它成為你日常的一部分，而不是需要管理的工具。</span>
+      <span class="zh">當你拿起一隻精心設計的水壶——手感溫潤，重量均衡，開合只需一個手指的幅度——你感受到的不只是「工具很好用」，而是「有人認真想过這件事」。這種感受會改變你和這個物件之間的關係。它成為你日常的一部分，而不是需要管理的工具。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">同樣的道理應用於健身裝備。一雙防滑襪的設計，如果只考慮防滑效果，它可能會看起來像醫療輔具。但如果設計師願意多走一步，想一想織物的紋路如何與視覺的安靜感協調，想一想邊緣的處理如何傳遞「溫柔但坚定」的品牌個性——那麼這雙襪子就不只是功能產品，它開始說話。</span>
+      <span class="zh">同樣的道理應用於健身裝備。一雙防滑襪的設計，如果只考慮防滑效果，它可能會看起來像醫療輔具。但如果設計師願意多走一步，想一想織物的紋路如何與視覺的安靜感協調，想一想邊緣的處理如何傳遞「溫柔但坚定」的品牌個性——那麼這雙襪子就不只是功能產品，它開始說話。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">設計師通常不喜歡被稱為「藝術家」，因為藝術可以只為自己存在，而設計必須服務於他人。一件設計不良的產品，是對使用者的不誠實——它說「我為你設計」，但實際上只考慮了製造的便利或成本的最小化。當使用者發現這一點，信任就消失了。</span>
+      <span class="zh">設計師通常不喜歡被稱為「藝術家」，因為藝術可以只為自己存在，而設計必須服務於他人。一件設計不良的產品，是對使用者的不誠實——它說「我為你設計」，但實際上只考慮了製造的便利或成本的最小化。當使用者發現這一點，信任就消失了。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">當一件裝備被好好設計，它不只是工具，而是夥伴。當你在墊子上，你的設備不會製造任何噪音——它讓你專注於運動本身，而不是分心於不順手的細節。這種專注帶來的不只是更好的練習表現，而是一種更深的尊重：這個世界願意在你專注的時刻，安靜地配合你。</span>
+      <span class="zh">當一件裝備被好好設計，它不只是工具，而是夥伴。當你在墊子上，你的設備不會製造任何噪音——它讓你專注於運動本身，而不是分心於不順手的細節。這種專注帶來的不只是更好的練習表現，而是一種更深的尊重：這個世界願意在你專注的時刻，安靜地配合你。</span>
+    </p>
+
+  </main>
+
+  <section class="related-section">
+    <div class="related-inner">
+      <p class="related-label"><span class="zh">更多文章</span><span class="en">More Articles</span></p>
+      <div class="related-grid">
+        <a href="article-consistency.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e067?w=600&q=80" alt="The Art of Consistency" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat"><span class="zh">運動</span><span class="en">Movement</span></p>
+            <p class="related-card-title"><span class="zh">持續的藝術</span><span class="en">The Art of Consistency</span></p>
+            <p class="related-card-date">2026.04.12</p>
+          </div>
+        </a>
+        <a href="article-center.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="Finding Your Center" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat"><span class="zh">運動</span><span class="en">Movement</span></p>
+            <p class="related-card-title"><span class="zh">找到你的重心</span><span class="en">Finding Your Center</span></p>
+            <p class="related-card-date">2026.03.28</p>
+          </div>
+        </a>
+        <a href="article-mindset.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="The Quiet Power of Daily Practice" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat"><span class="zh">心態</span><span class="en">Mindset</span></p>
+            <p class="related-card-title"><span class="zh">日常練習的安靜力量</span><span class="en">The Quiet Power of Daily Practice</span></p>
+            <p class="related-card-date">2026.02.22</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">reform<span>.</span></div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="products.html" class="footer-link">Products</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="journal.html" class="footer-link">Journal</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 reform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+    if (localStorage.getItem('reform-lang') === 'en') { html.classList.add('lang-en'); }
+    const btns = toggle.querySelectorAll('.lang-btn');
+    const isEN = html.classList.contains('lang-en');
+    btns[0].classList.toggle('active', !isEN);
+    btns[1].classList.toggle('active', isEN);
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('lang-en');
+      const isEN = html.classList.contains('lang-en');
+      localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+      const btns = toggle.querySelectorAll('.lang-btn');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+=== 第 9 頁 ===
+
+
+E
+環境保護：散熱與溫控優化
+
+散熱是資料中心的隱性成本
+
+![preencoded.png](Image0.jpg)
+
+SSD 發熱量比 HDD 低 60~80%，機房無需大功率散熱設備
+
+![preencoded.png](Image1.jpg)
+
+冷卻系統（冷氣）耗電占資料中心總耗電 30~40%，SSD 直接降低這項負擔
+
+![preencoded.png](Image2.jpg)
+
+低溫環境 = 空調設定溫度可提高 = 額外節能 10~15%
+
+![preencoded.png](Image3.jpg)
+
+減少冷卻水使用量（液冷機房），降低水資源消耗
+
+![preencoded.png](Image4.jpg)
+
+📌 水資源節省：採用液冷（Liquid Cooling）的資料中心，SSD 可降低冷水需求達 40%
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+
+--- 備註 ---

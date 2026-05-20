@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Space Between Moves — reform. Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a;
+      --canvas: #FDFBF7;
+      --on-primary: #ffffff;
+      --hairline: #E8E0F0;
+      --hairline-soft: #F0EBF5;
+      --block-pink: #F5E6E8;
+      --block-lavender: #E8E0F0;
+      --block-mint: #E8F0EC;
+      --accent-dusty-rose: #D4A5A5;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    html { font-family: var(--font); background: var(--canvas); color: var(--ink); scroll-behavior: smooth; }
+    body { min-height: 100vh; }
+    html.lang-en [class="zh"],
+    html:not(.lang-en) [class="en"] { display: none; }
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 64px;
+      background-color: var(--canvas);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; z-index: 100;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+    .logo { font-size: 18px; font-weight: 500; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 400; color: var(--ink); text-decoration: none; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 0.6; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 2px;
+      border: 1px solid var(--hairline); border-radius: 50px; padding: 4px;
+      cursor: pointer; background: transparent; font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.5px; color: var(--ink);
+    }
+    .lang-toggle .lang-btn { padding: 4px 10px; border-radius: 50px; transition: background 0.2s, color 0.2s; line-height: 1; }
+    .lang-toggle .lang-btn.active { background-color: var(--ink); color: #ffffff; }
+    .lang-toggle .lang-sep { opacity: 0.4; font-size: 11px; }
+    .article-hero {
+      position: relative; height: 480px; overflow: hidden; margin-top: 64px;
+    }
+    .article-hero img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .article-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(26,26,26,0.55) 100%);
+    }
+    .article-hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px 64px;
+    }
+    .article-hero-eyebrow {
+      font-size: 12px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
+      opacity: 0.7; margin-bottom: 12px; display: block;
+    }
+    .article-hero h1 {
+      font-size: 48px; font-weight: 300; line-height: 1.10; letter-spacing: -1px;
+      max-width: 700px;
+    }
+    .article-hero-meta {
+      display: flex; align-items: center; gap: 16px; margin-top: 16px;
+    }
+    .category-tag { font-size: 12px; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; color: var(--accent-dusty-rose); }
+    .article-body { max-width: 680px; margin: 0 auto; padding: 64px 24px 96px; }
+    .article-lead {
+      font-size: 20px; font-weight: 300; line-height: 1.60; margin-bottom: 48px;
+      color: var(--ink); opacity: 0.8;
+    }
+    .article-section-label {
+      display: block; font-size: 12px; font-weight: 400; letter-spacing: 1px;
+      text-transform: uppercase; opacity: 0.5; margin: 56px 0 24px;
+    }
+    .article-p {
+      font-size: 16px; font-weight: 300; line-height: 1.75; margin-bottom: 28px;
+      color: var(--ink); opacity: 0.85;
+    }
+    .article-pullquote {
+      background: var(--block-lavender); border-radius: 12px; padding: 40px 48px;
+      margin: 48px 0;
+    }
+    .article-pullquote p {
+      font-size: 22px; font-weight: 300; line-height: 1.45; letter-spacing: -0.3px;
+      font-style: italic;
+    }
+    .lang-divider { border: none; border-top: 1px solid var(--hairline); margin: 80px 0; }
+    .related-section { background: var(--hairline-soft); padding: 80px 48px; }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .related-label { font-size: 12px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; opacity: 0.5; margin-bottom: 40px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .related-card { background: var(--canvas); border-radius: 12px; overflow: hidden; border: 1px solid var(--hairline); text-decoration: none; color: var(--ink); transition: transform 0.2s, box-shadow 0.2s; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,26,26,0.08); }
+    .related-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .related-card-body { padding: 20px 24px; }
+    .related-card-cat { font-size: 11px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-dusty-rose); margin-bottom: 8px; }
+    .related-card-title { font-size: 15px; font-weight: 400; line-height: 1.40; color: var(--ink); }
+    .related-card-date { font-size: 11px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.4; margin-top: 8px; }
+    .footer { border-top: 1px solid var(--hairline-soft); padding: 64px 48px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 48px; }
+    .footer-brand { font-size: 18px; font-weight: 400; letter-spacing: -0.3px; }
+    .footer-brand span { font-weight: 300; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-link { font-size: 12px; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.5; transition: opacity 0.2s; }
+    .footer-link:hover { opacity: 1; }
+    .footer-copy { grid-column: 1 / -1; font-size: 12px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.4; padding-top: 32px; border-top: 1px solid var(--hairline-soft); }
+    @media (max-width: 768px) {
+      .top-nav { padding: 0 24px; }
+      .article-hero { height: 380px; }
+      .article-hero-content { padding: 32px 24px; }
+      .article-hero h1 { font-size: 34px; }
+      .article-body { padding: 48px 24px 80px; }
+      .related-section { padding: 48px 24px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer { padding: 48px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="article-hero">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=85" alt="Serene movement, a dancer in mid-pose">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-content">
+      <p class="article-hero-eyebrow">
+        <span class="zh">運動</span>
+        <span class="en">Movement</span>
+      </p>
+      <h1>
+        <span class="zh">呼吸的節奏</span>
+        <span class="en">The Rhythm of Breath</span>
+      </h1>
+      <div class="article-hero-meta">
+        <span class="category-tag"><span class="zh">運動</span><span class="en">Movement</span></span>
+        <span>2026.04.28</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-body">
+
+    <p class="article-lead">
+      <span class="zh">每個動作之間，都有一個被忽略的暫停。那才是改變發生的時刻。</span>
+      <span class="en">Between every movement, there is a pause we overlook. That is where change actually happens.</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">專注在之間</span>
+      <span class="en">Focus on the Between</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">大多數人在墊子上專注於姿勢本身——這個動作該怎麼做，那個體式要做到什麼程度。但真正改變練習質量的，其實是動作與動作之間的過渡。那些不被計算的Moment——吸氣轉向呼氣的那一秒，身體重心轉移的那一個節拍，肌肉短暫卻完全靜止的那一個幀——那些才是你的練習真正存在的地方。</span>
+      <span class="en">Most people on the mat focus on the postures themselves — how to execute this movement, how deep to go in that pose. But what actually changes the quality of your practice is the transition between movements. Those uncalculated moments — the second between inhaling and exhaling, the beat when your center of gravity shifts, the frame when your muscles are briefly but completely still — that's where your practice actually lives.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">呼吸是我們最容易忽略的工具，也是最強大的工具。當你在某個困難的姿勢中感到想要放棄，深吸一口氣不是為了讓你繼續撐下去——而是讓你有機會真正感受到那個姿勢。你的身體在那一刻不是你的敵人，它只是缺氧。當你給它空氣，你給了它一個選擇的機會。</span>
+      <span class="en">Breath is both the tool we most easily overlook and the most powerful one. When you're in a difficult pose and feel like giving up, taking a deep breath isn't about helping you hold on — it's about giving you the chance to actually feel the pose. Your body at that moment isn't your enemy; it's simply lacking oxygen. When you give it air, you give it a choice.</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>
+        <span class="zh">「呼吸是身體唯一可以自己掌握的槓桿。它不需要力量，不需要柔軟度，只需要意識。」</span>
+        <span class="en">"Breath is the only lever your body can control on its own. It requires no strength, no flexibility — only awareness."</span>
+      </p>
+    </div>
+
+    <span class="article-section-label">
+      <span class="zh">節奏不是速度</span>
+      <span class="en">Rhythm Is Not Speed</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">我們被社交媒體訓練成喜歡快節奏的影片、瞬間的成果、快速的見效。健身產業也在強化這一點——每個人都在告訴你「今天開始，七天見效」。但練習的真實節奏不是這樣的。它是慢的，是重複的，是看起來毫無變化的。你不會在第一天感覺好很多，你甚至不會在第十天感覺好很多。但在某個不確定是哪一天的時刻，你會突然發現——那個曾經讓你害怕的姿勢，已經成為你的一部分。</span>
+      <span class="en">We're conditioned by social media to love fast-paced videos, instant results, quick fixes. The fitness industry reinforces this — everyone tells you "start today, see results in seven days." But the real rhythm of practice isn't like that. It's slow, it's repetitive, it looks like nothing is changing. You won't feel much better on day one, and you won't feel much better on day ten. But on some unspecified day, you'll suddenly notice — that pose that once frightened you has become part of you.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">這個過程沒有戲劇性，沒有觀眾，沒有掌聲。它只屬於你和墊子之間。而這正是它的價值所在。</span>
+      <span class="en">This process has no drama, no audience, no applause. It belongs only to you and the mat. And that is precisely its value.</span>
+    </p>
+
+    <hr class="lang-divider">
+
+    <span class="article-section-label">
+      <span class="zh">中文版</span>
+      <span class="en">中文版</span>
+    </span>
+
+    <p class="article-lead">
+      <span class="en">每個動作之間，都有一個被忽略的暫停。那才是改變發生的時刻。</span>
+      <span class="zh">每個動作之間，都有一個被忽略的暫停。那才是改變發生的時刻。</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="en">專注在之間</span>
+      <span class="zh">專注在之間</span>
+    </span>
+
+    <p class="article-p">
+      <span class="en">大多數人在墊子上專注於姿勢本身——這個動作該怎麼做，那個體式要做到什麼程度。但真正改變練習質量的，其實是動作與動作之間的過渡。那些不被計算的Moment——吸氣轉向呼氣的那一秒，身體重心轉移的那一個節拍，肌肉短暫卻完全靜止的那一個幀——那些才是你的練習真正存在的地方。</span>
+      <span class="zh">大多數人在墊子上專注於姿勢本身——這個動作該怎麼做，那個體式要做到什麼程度。但真正改變練習質量的，其實是動作與動作之間的過渡。那些不被計算的Moment——吸氣轉向呼氣的那一秒，身體重心轉移的那一個節拍，肌肉短暫卻完全靜止的那一個幀——那些才是你的練習真正存在的地方。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">呼吸是我們最容易忽略的工具，也是最強大的工具。當你在某個困難的姿勢中感到想要放棄，深吸一口氣不是為了讓你繼續撐下去——而是讓你有機會真正感受到那個姿勢。你的身體在那一刻不是你的敵人，它只是缺氧。當你給它空氣，你給了它一個選擇的機會。</span>
+      <span class="zh">呼吸是我們最容易忽略的工具，也是最強大的工具。當你在某個困難的姿勢中感到想要放棄，深吸一口氣不是為了讓你繼續撐下去——而是讓你有機會真正感受到那個姿勢。你的身體在那一刻不是你的敵人，它只是缺氧。當你給它空氣，你給了它一個選擇的機會。</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>
+        <span class="en">「呼吸是身體唯一可以自己掌握的槓桿。它不需要力量，不需要柔軟度，只需要意識。」</span>
+        <span class="zh">「呼吸是身體唯一可以自己掌握的槓桿。它不需要力量，不需要柔軟度，只需要意識。」</span>
+      </p>
+    </div>
+
+    <span class="article-section-label">
+      <span class="en">節奏不是速度</span>
+      <span class="zh">節奏不是速度</span>
+    </span>
+
+    <p class="article-p">
+      <span class="en">我們被社交媒體訓練成喜歡快節奏的影片、瞬間的成果、快速的見效。健身產業也在強化這一點——每個人都在告訴你「今天開始，七天見效」。但練習的真實節奏不是這樣的。它是慢的，是重複的，是看起來毫無變化的。你不會在第一天感覺好很多，你甚至不會在第十天感覺好很多。但在某個不確定是哪一天的時刻，你會突然發現——那個曾經讓你害怕的姿勢，已經成為你的一部分。</span>
+      <span class="zh">我們被社交媒體訓練成喜歡快節奏的影片、瞬間的成果、快速的見效。健身產業也在強化這一點——每個人都在告訴你「今天開始，七天見效」。但練習的真實節奏不是這樣的。它是慢的，是重複的，是看起來毫無變化的。你不會在第一天感覺好很多，你甚至不會在第十天感覺好很多。但在某個不確定是哪一天的時刻，你會突然發現——那個曾經讓你害怕的姿勢，已經成為你的一部分。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">這個過程沒有戲劇性，沒有觀眾，沒有掌聲。它只屬於你和墊子之間。而這正是它的價值所在。</span>
+      <span class="zh">這個過程沒有戲劇性，沒有觀眾，沒有掌聲。它只屬於你和墊子之間。而這正是它的價值所在。</span>
+    </p>
+
+  </main>
+
+  <section class="related-section">
+    <div class="related-inner">
+      <p class="related-label">
+        <span class="zh">更多文章</span>
+        <span class="en">More to Read</span>
+      </p>
+      <div class="related-grid">
+        <a href="article-consistency.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e067?w=600&q=80" alt="The Art of Consistency" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat"><span class="zh">運動</span><span class="en">Movement</span></p>
+            <p class="related-card-title"><span class="zh">持續的藝術</span><span class="en">The Art of Consistency</span></p>
+            <p class="related-card-date">2026.04.12</p>
+          </div>
+        </a>
+        <a href="article-center.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="Finding Your Center" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat"><span class="zh">運動</span><span class="en">Movement</span></p>
+            <p class="related-card-title"><span class="zh">找到你的重心</span><span class="en">Finding Your Center</span></p>
+            <p class="related-card-date">2026.03.28</p>
+          </div>
+        </a>
+        <a href="article-design.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Why Design Matters" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat"><span class="zh">設計</span><span class="en">Design</span></p>
+            <p class="related-card-title"><span class="zh">為什麼健身裝備的設計很重要</span><span class="en">Why Design Matters in Fitness Gear</span></p>
+            <p class="related-card-date">2026.03.15</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">reform<span>.</span></div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="products.html" class="footer-link">Products</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="journal.html" class="footer-link">Journal</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 reform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+    if (localStorage.getItem('reform-lang') === 'en') { html.classList.add('lang-en'); }
+    const btns = toggle.querySelectorAll('.lang-btn');
+    const isEN = html.classList.contains('lang-en');
+    btns[0].classList.toggle('active', !isEN);
+    btns[1].classList.toggle('active', isEN);
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('lang-en');
+      const isEN = html.classList.contains('lang-en');
+      localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+      const btns = toggle.querySelectorAll('.lang-btn');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+    });
+  </script>
+</body>
+</html>

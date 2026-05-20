@@ -1,0 +1,11 @@
+發布時間：2026-05-07 00:23:45
+來源：Product Hunt 今日第1名
+產品：Magic Studio by Once UI
+Post ID：DYAPfq
+
+內容：
+💬 💬 工程師跟設計師們注意！這款 Magic Studio 真的是效率救星 ✨
+它直接把 Once UI 變成你的個人 AI 代工廠，強調「Turn Once UI into a 0k agency」，讓你在家也能擁有頂級 Agency 的產出品質。不管是介面設計還是組件開發，只要動動口，AI 就幫你把繁瑣的細節處理到位，完全是新手友善的生產力外掛！
+如果你也想體驗那種「一鍵完成」的快感，絕對要試試看這款剛在 Product Hunt 登場的黑馬工具。
+#AI #UI設計 #Productivity #前端開發
+🔗 完整文章：https://www.producthunt.com/products/magic-studio-by-once-ui

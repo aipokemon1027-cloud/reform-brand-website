@@ -1,0 +1,36 @@
+=== 第 16 頁 ===
+
+
+G
+公司治理：SSD 與企業管治
+
+治理是 ESG 的基石，SSD 支撐資料驅動決策
+
+![preencoded.png](Image0.jpg)
+
+![preencoded.png](Image1.jpg)
+ESG 報告透明度
+資料驅動決策品質
+SSD 效能數據可直接量化計入環境指標
+能源消耗、碳減排、設備更換率均有據可查
+支撑 GRI 302（能源）、GRI 305（排放）指標
+高速 SSD 支撐即時商業智慧（BI）分析
+提升 ESG 數據收集與報告的時效性與準確性
+支援 SAP、Oracle 等 ERP 與永續報告系統高效運行
+
+![preencoded.png](Image2.jpg)
+
+![preencoded.png](Image3.jpg)
+資料安全與合規
+風險管理
+硬體級 AES-256 加密，防止資料外洩
+符合 SOX、HIPAA、PCI-DSS、GDPR 等法規要求
+SSD 的防寫保護（Write Protect）功能防止資料篡改
+SSD 故障可預測（透過 SMART 監控），降低意外風險
+減少因儲存故障導致的監管罰款與商譽損失
+企業永續報告書更具公信力，降低投資人質疑
+
+SSD 在 ESG 中的應用  ·  專業報告
+
+
+--- 備註 ---

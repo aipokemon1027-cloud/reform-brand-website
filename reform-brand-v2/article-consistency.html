@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Art of Consistency — reform. Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a;
+      --canvas: #FDFBF7;
+      --on-primary: #ffffff;
+      --hairline: #E8E0F0;
+      --hairline-soft: #F0EBF5;
+      --block-pink: #F5E6E8;
+      --block-lavender: #E8E0F0;
+      --block-mint: #E8F0EC;
+      --accent-dusty-rose: #D4A5A5;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    html { font-family: var(--font); background: var(--canvas); color: var(--ink); scroll-behavior: smooth; }
+    body { min-height: 100vh; }
+    html.lang-en [class="zh"],
+    html:not(.lang-en) [class="en"] { display: none; }
+
+    /* ─── Navigation ─── */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 64px;
+      background-color: var(--canvas);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; z-index: 100;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+    .logo { font-size: 18px; font-weight: 500; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 400; color: var(--ink); text-decoration: none; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 0.6; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 2px;
+      border: 1px solid var(--hairline); border-radius: 50px; padding: 4px;
+      cursor: pointer; background: transparent; font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.5px; color: var(--ink);
+    }
+    .lang-toggle .lang-btn { padding: 4px 10px; border-radius: 50px; transition: background 0.2s, color 0.2s; line-height: 1; }
+    .lang-toggle .lang-btn.active { background-color: var(--ink); color: #ffffff; }
+    .lang-toggle .lang-sep { opacity: 0.4; font-size: 11px; }
+    .lang-btn {
+      font-family: var(--font); font-size: 12px; font-weight: 400; letter-spacing: 0.5px;
+      text-transform: uppercase; border: none; background: transparent; color: var(--ink);
+      padding: 6px 14px; border-radius: 50px; cursor: pointer;
+    }
+    .lang-toggle .lang-btn.active { background: var(--ink); color: var(--on-primary); }
+
+    /* ─── Hero ─── */
+    .article-hero {
+      margin-top: 64px;
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+    }
+    .article-hero img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .article-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(26,26,26,0.6) 100%);
+    }
+    .article-hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px 80px;
+    }
+    .article-hero-eyebrow {
+      font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); margin-bottom: 16px;
+    }
+    .article-hero h1 {
+      font-size: 56px; font-weight: 300; line-height: 1.1; letter-spacing: -1px;
+      color: #ffffff; max-width: 800px; margin-bottom: 20px;
+    }
+    .article-hero-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 13px; font-weight: 400; letter-spacing: 0.5px; color: rgba(255,255,255,0.6);
+    }
+    .article-hero-meta .category-tag { color: var(--accent-dusty-rose); }
+
+    /* ─── Article Body ─── */
+    .article-body {
+      max-width: 720px; margin: 0 auto; padding: 80px 48px 120px;
+    }
+    .article-lead {
+      font-size: 20px; font-weight: 300; line-height: 1.65;
+      color: var(--ink); margin-bottom: 48px; opacity: 0.85;
+    }
+    .article-section-label {
+      font-size: 11px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent-dusty-rose); margin: 56px 0 24px;
+    }
+    .article-section-label:first-of-type { margin-top: 0; }
+    .article-p {
+      font-size: 16px; font-weight: 300; line-height: 1.80;
+      color: var(--ink); margin-bottom: 28px; opacity: 0.82;
+    }
+    .article-pullquote {
+      border-left: 3px solid var(--accent-dusty-rose);
+      padding: 24px 32px; margin: 48px 0;
+      background: var(--block-pink); border-radius: 0 12px 12px 0;
+    }
+    .article-pullquote p {
+      font-size: 18px; font-weight: 300; line-height: 1.65;
+      color: var(--ink); font-style: italic;
+    }
+    .article-divider {
+      text-align: center; margin: 64px 0;
+      font-size: 20px; opacity: 0.3; letter-spacing: 8px;
+    }
+
+    /* ─── Language Separator ─── */
+    .lang-divider {
+      border: none; border-top: 1px solid var(--hairline);
+      margin: 80px 0;
+    }
+
+    /* ─── Related Articles ─── */
+    .related-section {
+      background: var(--hairline-soft);
+      padding: 80px 48px;
+    }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .related-label {
+      font-size: 12px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
+      opacity: 0.5; margin-bottom: 40px;
+    }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .related-card {
+      background: var(--canvas); border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--hairline); text-decoration: none; color: var(--ink);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,26,26,0.08); }
+    .related-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .related-card-body { padding: 20px 24px; }
+    .related-card-cat {
+      font-size: 11px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--accent-dusty-rose); margin-bottom: 8px;
+    }
+    .related-card-title {
+      font-size: 15px; font-weight: 400; line-height: 1.40; color: var(--ink);
+    }
+    .related-card-date {
+      font-size: 11px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.4;
+      margin-top: 8px;
+    }
+
+    /* ─── Footer ─── */
+    .footer { border-top: 1px solid var(--hairline-soft); padding: 64px 48px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 48px; }
+    .footer-brand { font-size: 18px; font-weight: 400; letter-spacing: -0.3px; }
+    .footer-brand span { font-weight: 300; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-link {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; opacity: 0.5; transition: opacity 0.2s;
+    }
+    .footer-link:hover { opacity: 1; }
+    .footer-copy {
+      grid-column: 1 / -1; font-size: 12px; font-weight: 400; letter-spacing: 0.5px;
+      opacity: 0.4; padding-top: 32px; border-top: 1px solid var(--hairline-soft);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav { padding: 0 24px; }
+      .article-hero { height: 380px; }
+      .article-hero-content { padding: 32px 24px; }
+      .article-hero h1 { font-size: 36px; }
+      .article-body { padding: 48px 24px 80px; }
+      .related-section { padding: 48px 24px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer { padding: 48px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="article-hero">
+    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e067?w=1400&q=85" alt="Yoga mat and serene studio space">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-content">
+      <p class="article-hero-eyebrow">
+        <span class="zh">運動</span>
+        <span class="en">Movement</span>
+      </p>
+      <h1>
+        <span class="zh">持續的藝術</span>
+        <span class="en">The Art of Consistency</span>
+      </h1>
+      <div class="article-hero-meta">
+        <span class="category-tag">
+          <span class="zh">運動</span>
+          <span class="en">Movement</span>
+        </span>
+        <span>2026.04.12</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-body">
+
+    <p class="article-lead">
+      <span class="zh">我們都曾經歷那一刻——下定決心改變，然後兩週後一切恢復如常。改變的欲望從不匱乏，匱乏的是重複的勇氣。</span>
+      <span class="en">We've all been there — the moment of resolve, the new beginning, and then the quiet return to what it was. The desire to change is never in short supply. It's the repetition that we struggle with.</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">習慣不是重複，是一種選擇</span>
+      <span class="en">Habit Is Not Repetition — It's a Choice</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">心理學家 Phillippa Lally 的研究告訴我們，一個新習慣的形成平均需要 18 到 254 天——平均值是 66 天。不是 21 天，不是任何捷徑數字，而是真正的時間沉澱。這意味著什麼？意味著你必須在看不到結果的時候依然選擇出現。沒有人保證你第 33 天會比第 1 天感覺更好。事實上，你很可能感覺更差：更累、更懷疑、更有理由放棄。</span>
+      <span class="en">Research by psychologist Phillippa Lally tells us that forming a new habit takes anywhere from 18 to 254 days — with an average of 66 days. Not 21. Not any shortcut number. Real time. What does this mean? It means you have to show up when you can't see the results. No one guarantees that day 33 will feel better than day 1. In fact, it probably won't — you'll likely feel more tired, more doubtful, more justified in quitting.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">持續的關鍵不是熱情，而是系統。你不需要在第 66 天依然有動力，你只需要一個足夠簡單的鉤子，讓你在動力消失之後依然能行動。可能是同一個時間起床，可能是同一雙襪子，可能是同一個墊子攤開時的味道。這些微小的不變，是對抗混亂的堡壘。</span>
+      <span class="en">The key to consistency isn't passion — it's systems. You don't need to still feel motivated on day 66. You just need a hook simple enough to keep you moving after the motivation fades. Maybe it's the same time you wake up. Maybe it's the same socks. Maybe it's the smell of your mat as you unroll it. These tiny constants are the fortress against chaos.</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>
+        <span class="zh">「偉大不是某一天的爆發，而是每天優雅的持續。」</span>
+        <span class="en">"Greatness isn't a single explosion — it's the quiet, elegant continuation of showing up."</span>
+      </p>
+    </div>
+
+    <span class="article-section-label">
+      <span class="zh">墜落之後再次出現</span>
+      <span class="en">Showing Up After Falling Off</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">每個持續練習的人都有過「中斷」的經驗。度假回來、感冒一週、家庭危機——生活會插入來。問題從來不是你什麼時候停下來，而是停下來之後你如何回來。我見過太多人因為一次中斷就全面放棄：「算了，反正我已經破功了。」但真正的練習者知道：破功不是終點，是下一個開始的契機。</span>
+      <span class="en">Every consistent practitioner has experienced a break. A vacation, a week of flu, a family crisis — life intervenes. The question is never when you stopped, but how you return. I've seen too many people give up entirely after one interruption: "Well, I've already broken it." But the real practitioners know: breaking the streak isn't the end — it's the invitation to begin again.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">研究顯示，「剛好漏了一天」的心理殺傷力遠比連續休息一週更大。因為大腦會把那一天當作「證據」：你果然不是認真的人。但如果你的框架是「我是一個有持續力的人，只是最近有一些挑戰」——那麼中斷就只是旅程中的一個彎，而不是路線的終點。</span>
+      <span class="en">Research shows that missing just one day feels psychologically worse than taking a planned week off. Because your brain uses that single day as "evidence" — see, you weren't serious after all. But if your narrative is "I'm a consistent person who's facing some challenges recently" — then the break is just a curve in the road, not the end of the route.</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">練習是給自己的禮物</span>
+      <span class="en">Practice as a Gift to Yourself</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">這是最容易被忽視的面向：持續練習不是為了達到任何目的地，是為了反覆確認你存在於自己的身體裡。在墊子上，你會反覆遇到那個「不夠好」的版本——太僵硬、太疲憊、注意力太渙散。但正是在那些你「狀態最差」的時刻，你的練習最深。因為你選擇了出現，而不是因為感覺好。</span>
+      <span class="en">The most overlooked dimension: consistency isn't about reaching any destination — it's about repeatedly confirming that you exist within your own body. On the mat, you'll repeatedly meet the "not good enough" version of yourself — too stiff, too tired, too scattered. But it's precisely in those "worst condition" moments that your practice goes deepest. Because you showed up not because you felt good, but because you chose to.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">偉大不是某一天的爆發，而是每天優雅的持續。優雅，不是因為動作完美，而是因為你在感覺最不完美的時候，依然選擇了出現。</span>
+      <span class="en">Greatness isn't a single explosion — it's the quiet, elegant continuation of showing up. Elegant, not because the movement was perfect, but because you chose to show up at your least perfect moment and stayed anyway.</span>
+    </p>
+
+    <hr class="lang-divider">
+
+    <!-- Chinese Version -->
+    <span class="article-section-label">
+      <span class="zh">中文翻譯</span>
+      <span class="en">中文版</span>
+    </span>
+
+    <p class="article-lead">
+      <span class="en">我們都曾經歷那一刻——下定決心改變，然後兩週後一切恢復如常。改變的欲望從不匱乏，匱乏的是重複的勇氣。</span>
+      <span class="zh">我們都曾經歷那一刻——下定決心改變，然後兩週後一切恢復如常。改變的欲望從不匱乏，匱乏的是重複的勇氣。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">心理學家 Phillippa Lally 的研究告訴我們，一個新習慣的形成平均需要 18 到 254 天——平均值是 66 天。不是 21 天，不是任何捷徑數字，而是真正的時間沉澱。這意味著什麼？意味著你必須在看不到結果的時候依然選擇出現。沒有人保證你第 33 天會比第 1 天感覺更好。事實上，你很可能感覺更差：更累、更懷疑、更有理由放棄。</span>
+      <span class="zh">心理學家 Phillippa Lally 的研究告訴我們，一個新習慣的形成平均需要 18 到 254 天——平均值是 66 天。不是 21 天，不是任何捷徑數字，而是真正的時間沉澱。這意味著什麼？意味著你必須在看不到結果的時候依然選擇出現。沒有人保證你第 33 天會比第 1 天感覺更好。事實上，你很可能感覺更差：更累、更懷疑、更有理由放棄。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">持續的關鍵不是熱情，而是系統。你不需要在第 66 天依然有動力，你只需要一個足夠簡單的鉤子，讓你在動力消失之後依然能行動。可能是同一個時間起床，可能是同一雙襪子，可能是同一個墊子攤開時的味道。這些微小的不變，是對抗混亂的堡壘。</span>
+      <span class="zh">持續的關鍵不是熱情，而是系統。你不需要在第 66 天依然有動力，你只需要一個足夠簡單的鉤子，讓你在動力消失之後依然能行動。可能是同一個時間起床，可能是同一雙襪子，可能是同一個墊子攤開時的味道。這些微小的不變，是對抗混亂的堡壘。</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>「偉大不是某一天的爆發，而是每天優雅的持續。」</p>
+    </div>
+
+    <p class="article-p">
+      <span class="en">每個持續練習的人都有過「中斷」的經驗。度假回來、感冒一週、家庭危機——生活會插入來。問題從來不是你什麼時候停下來，而是停下來之後你如何回來。我見過太多人因為一次中斷就全面放棄：「算了，反正我已經破功了。」但真正的練習者知道：破功不是終點，是下一個開始的契機。</span>
+      <span class="zh">每個持續練習的人都有過「中斷」的經驗。度假回來、感冒一週、家庭危機——生活會插入來。問題從來不是你什麼時候停下來，而是停下來之後你如何回來。我見過太多人因為一次中斷就全面放棄：「算了，反正我已經破功了。」但真正的練習者知道：破功不是終點，是下一個開始的契機。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">研究顯示，「剛好漏了一天」的心理殺傷力遠比連續休息一週更大。因為大腦會把那一天當作「證據」：你果然不是認真的人。但如果你的框架是「我是一個有持續力的人，只是最近有一些挑戰」——那麼中斷就只是旅程中的一個彎，而不是路線的終點。</span>
+      <span class="zh">研究顯示，「剛好漏了一天」的心理殺傷力遠比連續休息一週更大。因為大腦會把那一天當作「證據」：你果然不是認真的人。但如果你的框架是「我是一個有持續力的人，只是最近有一些挑戰」——那麼中斷就只是旅程中的一個彎，而不是路線的終點。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">這是最容易被忽視的面向：持續練習不是為了達到任何目的地，是為了反覆確認你存在於自己的身體裡。在墊子上，你會反覆遇到那個「不夠好」的版本——太僵硬、太疲憊、注意力太渙散。但正是在那些你「狀態最差」的時刻，你的練習最深。因為你選擇了出現，而不是因為感覺好。</span>
+      <span class="zh">這是最容易被忽視的面向：持續練習不是為了達到任何目的地，是為了反覆確認你存在於自己的身體裡。在墊子上，你會反覆遇到那個「不夠好」的版本——太僵硬、太疲憊、注意力太渙散。但正是在那些你「狀態最差」的時刻，你的練習最深。因為你選擇了出現，而不是因為感覺好。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">偉大不是某一天的爆發，而是每天優雅的持續。優雅，不是因為動作完美，而是因為你在感覺最不完美的時候，依然選擇了出現。</span>
+      <span class="zh">偉大不是某一天的爆發，而是每天優雅的持續。優雅，不是因為動作完美，而是因為你在感覺最不完美的時候，依然選擇了出現。</span>
+    </p>
+
+  </main>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="related-inner">
+      <p class="related-label">
+        <span class="zh">更多文章</span>
+        <span class="en">More Articles</span>
+      </p>
+      <div class="related-grid">
+        <a href="article-center.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="Finding Your Center" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat">
+              <span class="zh">運動</span>
+              <span class="en">Movement</span>
+            </p>
+            <p class="related-card-title">
+              <span class="zh">找到你的重心</span>
+              <span class="en">Finding Your Center</span>
+            </p>
+            <p class="related-card-date">2026.03.28</p>
+          </div>
+        </a>
+        <a href="article-design.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Why Design Matters" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat">
+              <span class="zh">設計</span>
+              <span class="en">Design</span>
+            </p>
+            <p class="related-card-title">
+              <span class="zh">為什麼健身裝備的設計很重要</span>
+              <span class="en">Why Design Matters in Fitness Gear</span>
+            </p>
+            <p class="related-card-date">2026.03.15</p>
+          </div>
+        </a>
+        <a href="article-mindset.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="The Quiet Power of Daily Practice" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat">
+              <span class="zh">心態</span>
+              <span class="en">Mindset</span>
+            </p>
+            <p class="related-card-title">
+              <span class="zh">日常練習的安靜力量</span>
+              <span class="en">The Quiet Power of Daily Practice</span>
+            </p>
+            <p class="related-card-date">2026.02.22</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">reform<span>.</span></div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="products.html" class="footer-link">Products</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="journal.html" class="footer-link">Journal</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 reform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+    if (localStorage.getItem('reform-lang') === 'en') {
+      html.classList.add('lang-en');
+    }
+    const btns = toggle.querySelectorAll('.lang-btn');
+    const isEN = html.classList.contains('lang-en');
+    btns[0].classList.toggle('active', !isEN);
+    btns[1].classList.toggle('active', isEN);
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('lang-en');
+      const isEN = html.classList.contains('lang-en');
+      localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+      const btns = toggle.querySelectorAll('.lang-btn');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+發布時間：2026-05-10 23:04:26
+來源：Product Hunt 今日第1名
+產品：AgentPeek
+URL：https://www.producthunt.com/products/agentpeek
+Post ID：DYCxTDVEf5j
+
+內容：
+💬 💬 工程師朋友們，你們的 Mac 「瀏海」終於有正經用途了！🍎
+最近發現這個 AgentPeek 超狂，直接把 Claude Code 和 Codex 塞進螢幕上方的 Notch 裡。不用在那邊切換視窗切到頭暈，滑鼠輕輕一刷就能呼叫 AI 幫你 Debug 或寫 Code，這種「隨傳隨到」的開發體驗真的會上癮！
+如果你也是追求極致工作流的人，這顆瀏海一定要裝點東西進去吧？快去 Product Hunt 瞧瞧這個酷工具！🚀
+#AI #工程師 #AgentPeek #效率工具
+🔗 完整文章：https://www.producthunt.com/products/agentpeek

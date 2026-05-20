@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finding Your Center — reform. Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a;
+      --canvas: #FDFBF7;
+      --on-primary: #ffffff;
+      --hairline: #E8E0F0;
+      --hairline-soft: #F0EBF5;
+      --block-pink: #F5E6E8;
+      --block-lavender: #E8E0F0;
+      --block-mint: #E8F0EC;
+      --accent-dusty-rose: #D4A5A5;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    html { font-family: var(--font); background: var(--canvas); color: var(--ink); scroll-behavior: smooth; }
+    body { min-height: 100vh; }
+    html.lang-en [class="zh"],
+    html:not(.lang-en) [class="en"] { display: none; }
+
+    /* ─── Navigation ─── */
+    .top-nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 64px;
+      background-color: var(--canvas);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; z-index: 100;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+    .logo { font-size: 18px; font-weight: 500; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 400; color: var(--ink); text-decoration: none; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 0.6; }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 2px;
+      border: 1px solid var(--hairline); border-radius: 50px; padding: 4px;
+      cursor: pointer; background: transparent; font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.5px; color: var(--ink);
+    }
+    .lang-toggle .lang-btn { padding: 4px 10px; border-radius: 50px; transition: background 0.2s, color 0.2s; line-height: 1; }
+    .lang-toggle .lang-btn.active { background-color: var(--ink); color: #ffffff; }
+    .lang-toggle .lang-sep { opacity: 0.4; font-size: 11px; }
+    .lang-btn {
+      font-family: var(--font); font-size: 12px; font-weight: 400; letter-spacing: 0.5px;
+      text-transform: uppercase; border: none; background: transparent; color: var(--ink);
+      padding: 6px 14px; border-radius: 50px; cursor: pointer;
+    }
+    .lang-toggle .lang-btn.active { background: var(--ink); color: var(--on-primary); }
+
+    /* ─── Hero ─── */
+    .article-hero {
+      margin-top: 64px;
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+    }
+    .article-hero img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .article-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(26,26,26,0.6) 100%);
+    }
+    .article-hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px 80px;
+    }
+    .article-hero-eyebrow {
+      font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); margin-bottom: 16px;
+    }
+    .article-hero h1 {
+      font-size: 56px; font-weight: 300; line-height: 1.1; letter-spacing: -1px;
+      color: #ffffff; max-width: 800px; margin-bottom: 20px;
+    }
+    .article-hero-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 13px; font-weight: 400; letter-spacing: 0.5px; color: rgba(255,255,255,0.6);
+    }
+    .article-hero-meta .category-tag { color: var(--accent-dusty-rose); }
+
+    /* ─── Article Body ─── */
+    .article-body {
+      max-width: 720px; margin: 0 auto; padding: 80px 48px 120px;
+    }
+    .article-lead {
+      font-size: 20px; font-weight: 300; line-height: 1.65;
+      color: var(--ink); margin-bottom: 48px; opacity: 0.85;
+    }
+    .article-section-label {
+      font-size: 11px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent-dusty-rose); margin: 56px 0 24px;
+    }
+    .article-section-label:first-of-type { margin-top: 0; }
+    .article-p {
+      font-size: 16px; font-weight: 300; line-height: 1.80;
+      color: var(--ink); margin-bottom: 28px; opacity: 0.82;
+    }
+    .article-pullquote {
+      border-left: 3px solid var(--accent-dusty-rose);
+      padding: 24px 32px; margin: 48px 0;
+      background: var(--block-lavender); border-radius: 0 12px 12px 0;
+    }
+    .article-pullquote p {
+      font-size: 18px; font-weight: 300; line-height: 1.65;
+      color: var(--ink); font-style: italic;
+    }
+    .lang-divider {
+      border: none; border-top: 1px solid var(--hairline);
+      margin: 80px 0;
+    }
+
+    /* ─── Related Articles ─── */
+    .related-section {
+      background: var(--hairline-soft);
+      padding: 80px 48px;
+    }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .related-label {
+      font-size: 12px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
+      opacity: 0.5; margin-bottom: 40px;
+    }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .related-card {
+      background: var(--canvas); border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--hairline); text-decoration: none; color: var(--ink);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,26,26,0.08); }
+    .related-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .related-card-body { padding: 20px 24px; }
+    .related-card-cat {
+      font-size: 11px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--accent-dusty-rose); margin-bottom: 8px;
+    }
+    .related-card-title {
+      font-size: 15px; font-weight: 400; line-height: 1.40; color: var(--ink);
+    }
+    .related-card-date {
+      font-size: 11px; font-weight: 400; letter-spacing: 0.5px; opacity: 0.4;
+      margin-top: 8px;
+    }
+
+    /* ─── Footer ─── */
+    .footer { border-top: 1px solid var(--hairline-soft); padding: 64px 48px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 48px; }
+    .footer-brand { font-size: 18px; font-weight: 400; letter-spacing: -0.3px; }
+    .footer-brand span { font-weight: 300; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-link {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; opacity: 0.5; transition: opacity 0.2s;
+    }
+    .footer-link:hover { opacity: 1; }
+    .footer-copy {
+      grid-column: 1 / -1; font-size: 12px; font-weight: 400; letter-spacing: 0.5px;
+      opacity: 0.4; padding-top: 32px; border-top: 1px solid var(--hairline-soft);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav { padding: 0 24px; }
+      .article-hero { height: 380px; }
+      .article-hero-content { padding: 32px 24px; }
+      .article-hero h1 { font-size: 36px; }
+      .article-body { padding: 48px 24px 80px; }
+      .related-section { padding: 48px 24px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer { padding: 48px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <a href="index.html" class="logo">reform<span>.</span></a>
+    <div class="nav-links">
+      <a href="products.html"><span class="zh">商品</span><span class="en">Products</span></a>
+      <a href="about.html"><span class="zh">品牌故事</span><span class="en">About</span></a>
+      <a href="journal.html"><span class="zh">日誌</span><span class="en">Journal</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-btn">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-btn">中</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="article-hero">
+    <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1400&q=85" alt="Balanced yoga pose on reformer">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-content">
+      <p class="article-hero-eyebrow">
+        <span class="zh">運動</span>
+        <span class="en">Movement</span>
+      </p>
+      <h1>
+        <span class="zh">找到你的重心</span>
+        <span class="en">Finding Your Center</span>
+      </h1>
+      <div class="article-hero-meta">
+        <span class="category-tag">
+          <span class="zh">運動</span>
+          <span class="en">Movement</span>
+        </span>
+        <span>2026.03.28</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-body">
+
+    <p class="article-lead">
+      <span class="zh">在墊子上，你學到的第一件事不是任何姿勢，而是「回來」。回來呼吸，回來身體，回來當下那一刻。</span>
+      <span class="en">On the mat, the first thing you learn isn't any pose — it's "return." Return to the breath. Return to the body. Return to the present moment.</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">重心不只是身體的平衡點</span>
+      <span class="en">Center Isn't Just a Physical Point</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">當教練說「找到你的中心」，新手通常理解為「找到身體的平衡點」——那個你可以站穩、不會搖晃的地方。但這只是起點。真正的重心，比物理位置深得多。它是你在情緒風暴中依然可以呼吸的能力。它是當你失敗時依然能坐在那裡，不急著起身的能力。它是你「在此刻」的從容，而不是「想要去別的地方」的緊張。</span>
+      <span class="en">When a coach says "find your center," beginners usually understand it as "find your physical balance point" — the place where you can stand firm and not wobble. But that's just the starting point. The real center goes much deeper than a physical location. It's your ability to stay breathing in the middle of emotional storms. It's your capacity to sit still after failure, not rushing to get up. It's your ease in being here — right now — rather than the tension of wanting to be somewhere else.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">皮拉提斯老師常說的一句話：「不要用力，讓力量找到你。」這聽起來像心靈雞湯，但它是生物力學的真相。當你過度用力時，你緊張，你失去那個微妙的平衡，你的表現反而下降。當你找到重心，身體會自動動員必要的肌肉——不需要掙扎，不需要強迫。</span>
+      <span class="en">A phrase Pilates teachers often say: "Don't force it — let the strength come to you." It sounds like a cliché, but it's biomechanically true. When you over-grip, you tense up, you lose the delicate balance, and your performance drops. When you find your center, your body automatically recruits the necessary muscles — no struggle, no forcing required.</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>
+        <span class="zh">「重心不是你在哪裡站，而是你如何站。」</span>
+        <span class="en">"Center isn't where you stand — it's how you stand."</span>
+      </p>
+    </div>
+
+    <span class="article-section-label">
+      <span class="zh">從物理到心理，再到存在</span>
+      <span class="en">From Physical to Psychological to Existential</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">平衡姿勢（Balance pose）是我見過最誠實的練習。當你單腳站立，雙手在空中，你沒有辦法假裝。你不能依賴慣性，不能躲在心裡某個「待會再處理」的地方。身體知道你在分心。你的重心會晃，你的根基會丟失。這就是為什麼平衡練習經常被形容為「動態的冥想」——它強迫你在此刻，強迫你誠實。</span>
+      <span class="en">Balance poses are the most honest practice I've encountered. When you're standing on one foot with both hands in the air, you can't fake it. You can't rely on momentum, can't hide in some mental "I'll deal with it later." The body knows when you're distracted. Your center wobbles, your foundation slips. That's why balance work is often described as "moving meditation" — it forces presence, it forces honesty.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">但這不是說你必須變得完美才能找到重心。事實上，失衡的時刻比穩定的時刻更能讓你認識它。當你快要摔倒卻又拉回來，那一瞬間——身體啟動的微小調整，專注力的瞬間聚焦，這才是重心的真正含義。不是「永遠不晃」，而是「晃了還能回來」。</span>
+      <span class="en">But this doesn't mean you need to be perfect to find your center. In fact, the moments of instability reveal it more than the stable ones. When you're about to fall and you pull back — that moment, the tiny body adjustments, the snap of focus — that's where center really lives. Not "never wobble," but "wobble and return."</span>
+    </p>
+
+    <span class="article-section-label">
+      <span class="zh">站立的姿態，影響你存在的姿態</span>
+      <span class="en">How You Stand Affects How You Exist</span>
+    </span>
+
+    <p class="article-p">
+      <span class="zh">研究顯示，身體姿態會反過來影響心理狀態。當你雙腳均勻受力、脊椎延伸、肩膀放鬆，大腦會自動降低皮質醇（壓力荷爾蒙）。這不是暗示只要你站直就會快樂——而是你可以透過改變站立的方式，開始改變你內在的天氣。一個簡單的「調整重心」動作，可以是一個情緒的轉折點。</span>
+      <span class="en">Research shows that physical posture feeds back into psychological state. When your weight is evenly distributed, your spine is extended, your shoulders are relaxed — your brain automatically lowers cortisol (the stress hormone). This isn't to say that standing up straight will make you happy — it's that you can begin to shift your inner weather by changing the way you stand. A simple "re-centering" adjustment can be an emotional pivot point.</span>
+    </p>
+
+    <p class="article-p">
+      <span class="zh">重心不只是身體的平衡點，是你站立的姿態——物理的、情緒的、存在的。它是當世界晃動時，你依然能呼吸的那個地方。而那個地方，永遠可以透過練習找到。</span>
+      <span class="en">Center isn't just a physical balancing point — it's how you stand in the world: physically, emotionally, existentially. It's that place inside you where you can still breathe when everything else is shaking. And that place, you can always find your way back to — through practice.</span>
+    </p>
+
+    <hr class="lang-divider">
+
+    <!-- Chinese Version -->
+    <span class="article-section-label">
+      <span class="zh">中文翻譯</span>
+      <span class="en">中文版</span>
+    </span>
+
+    <p class="article-lead">
+      <span class="en">在墊子上，你學到的第一件事不是任何姿勢，而是「回來」。回來呼吸，回來身體，回來當下那一刻。</span>
+      <span class="zh">在墊子上，你學到的第一件事不是任何姿勢，而是「回來」。回來呼吸，回來身體，回來當下那一刻。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">當教練說「找到你的中心」，新手通常理解為「找到身體的平衡點」——那個你可以站穩、不會搖晃的地方。但這只是起點。真正的重心，比物理位置深得多。它是你在情緒風暴中依然可以呼吸的能力。它是當你失敗時依然能坐在那裡，不急著起身的能力。它是你「在此刻」的從容，而不是「想要去別的地方」的緊張。</span>
+      <span class="zh">當教練說「找到你的中心」，新手通常理解為「找到身體的平衡點」——那個你可以站穩、不會搖晃的地方。但這只是起點。真正的重心，比物理位置深得多。它是你在情緒風暴中依然可以呼吸的能力。它是當你失敗時依然能坐在那裡，不急著起身的能力。它是你「在此刻」的從容，而不是「想要去別的地方」的緊張。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">皮拉提斯老師常說的一句話：「不要用力，讓力量找到你。」這聽起來像心靈雞湯，但它是生物力學的真相。當你過度用力時，你緊張，你失去那個微妙的平衡，你的表現反而下降。當你找到重心，身體會自動動員必要的肌肉——不需要掙扎，不需要強迫。</span>
+      <span class="zh">皮拉提斯老師常說的一句話：「不要用力，讓力量找到你。」這聽起來像心靈雞湯，但它是生物力學的真相。當你過度用力時，你緊張，你失去那個微妙的平衡，你的表現反而下降。當你找到重心，身體會自動動員必要的肌肉——不需要掙扎，不需要強迫。</span>
+    </p>
+
+    <div class="article-pullquote">
+      <p>「重心不是你在哪裡站，而是你如何站。」</p>
+    </div>
+
+    <p class="article-p">
+      <span class="en">平衡姿勢（Balance pose）是我見過最誠實的練習。當你單腳站立，雙手在空中，你沒有辦法假裝。你不能依賴慣性，不能躲在心裡某個「待會再處理」的地方。身體知道你在分心。你的重心會晃，你的根基會丟失。這就是為什麼平衡練習經常被形容為「動態的冥想」——它強迫你在此刻，強迫你誠實。</span>
+      <span class="zh">平衡姿勢（Balance pose）是我見過最誠實的練習。當你單腳站立，雙手在空中，你沒有辦法假裝。你不能依賴慣性，不能躲在心裡某個「待會再處理」的地方。身體知道你在分心。你的重心會晃，你的根基會丟失。這就是為什麼平衡練習經常被形容為「動態的冥想」——它強迫你在此刻，強迫你誠實。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">但這不是說你必須變得完美才能找到重心。事實上，失衡的時刻比穩定的時刻更能讓你認識它。當你快要摔倒卻又拉回來，那一瞬間——身體啟動的微小調整，專注力的瞬間聚焦，這才是重心的真正含義。不是「永遠不晃」，而是「晃了還能回來」。</span>
+      <span class="zh">但這不是說你必須變得完美才能找到重心。事實上，失衡的時刻比穩定的時刻更能讓你認識它。當你快要摔倒卻又拉回來，那一瞬間——身體啟動的微小調整，專注力的瞬間聚焦，這才是重心的真正含義。不是「永遠不晃」，而是「晃了還能回來」。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">研究顯示，身體姿態會反過來影響心理狀態。當你雙腳均勻受力、脊椎延伸、肩膀放鬆，大腦會自動降低皮質醇（壓力荷爾蒙）。這不是暗示只要你站直就會快樂——而是你可以透過改變站立的方式，開始改變你內在的天氣。一個簡單的「調整重心」動作，可以是一個情緒的轉折點。</span>
+      <span class="zh">研究顯示，身體姿態會反過來影響心理狀態。當你雙腳均勻受力、脊椎延伸、肩膀放鬆，大腦會自動降低皮質醇（壓力荷爾蒙）。這不是暗示只要你站直就會快樂——而是你可以透過改變站立的方式，開始改變你內在的天氣。一個簡單的「調整重心」動作，可以是一個情緒的轉折點。</span>
+    </p>
+
+    <p class="article-p">
+      <span class="en">重心不只是身體的平衡點，是你站立的姿態——物理的、情緒的、存在的。它是當世界晃動時，你依然能呼吸的那個地方。而那個地方，永遠可以透過練習找到。</span>
+      <span class="zh">重心不只是身體的平衡點，是你站立的姿態——物理的、情緒的、存在的。它是當世界晃動時，你依然能呼吸的那個地方。而那個地方，永遠可以透過練習找到。</span>
+    </p>
+
+  </main>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="related-inner">
+      <p class="related-label">
+        <span class="zh">更多文章</span>
+        <span class="en">More Articles</span>
+      </p>
+      <div class="related-grid">
+        <a href="article-consistency.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e067?w=600&q=80" alt="The Art of Consistency" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat">
+              <span class="zh">運動</span>
+              <span class="en">Movement</span>
+            </p>
+            <p class="related-card-title">
+              <span class="zh">持續的藝術</span>
+              <span class="en">The Art of Consistency</span>
+            </p>
+            <p class="related-card-date">2026.04.12</p>
+          </div>
+        </a>
+        <a href="article-design.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Why Design Matters" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat">
+              <span class="zh">設計</span>
+              <span class="en">Design</span>
+            </p>
+            <p class="related-card-title">
+              <span class="zh">為什麼健身裝備的設計很重要</span>
+              <span class="en">Why Design Matters in Fitness Gear</span>
+            </p>
+            <p class="related-card-date">2026.03.15</p>
+          </div>
+        </a>
+        <a href="article-mindset.html" class="related-card">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="The Quiet Power of Daily Practice" class="related-card-img">
+          <div class="related-card-body">
+            <p class="related-card-cat">
+              <span class="zh">心態</span>
+              <span class="en">Mindset</span>
+            </p>
+            <p class="related-card-title">
+              <span class="zh">日常練習的安靜力量</span>
+              <span class="en">The Quiet Power of Daily Practice</span>
+            </p>
+            <p class="related-card-date">2026.02.22</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">reform<span>.</span></div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="products.html" class="footer-link">Products</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="journal.html" class="footer-link">Journal</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 reform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('langToggle');
+    if (localStorage.getItem('reform-lang') === 'en') {
+      html.classList.add('lang-en');
+    }
+    const btns = toggle.querySelectorAll('.lang-btn');
+    const isEN = html.classList.contains('lang-en');
+    btns[0].classList.toggle('active', !isEN);
+    btns[1].classList.toggle('active', isEN);
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('lang-en');
+      const isEN = html.classList.contains('lang-en');
+      localStorage.setItem('reform-lang', isEN ? 'en' : 'zh');
+      const btns = toggle.querySelectorAll('.lang-btn');
+      btns[0].classList.toggle('active', !isEN);
+      btns[1].classList.toggle('active', isEN);
+    });
+  </script>
+</body>
+</html>

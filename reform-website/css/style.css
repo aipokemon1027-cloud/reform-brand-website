@@ -1816,3 +1816,120 @@ button {
 .footer-link-raw .cn { display: none; }
 .footer-link-raw:hover .en { display: none; }
 .footer-link-raw:hover .cn { display: inline; }
+
+/* ============================================
+   Product Detail Page
+   ============================================ */
+
+.product-detail {
+  padding: var(--space-xl) var(--space-lg) var(--space-xxl);
+}
+
+.product-detail-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--space-xl);
+  color: var(--color-mid-gray);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--color-dark);
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  align-items: start;
+}
+
+.product-detail-img img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.product-detail-category {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--color-mid-gray);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.product-detail-name {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: var(--space-sm);
+}
+
+.product-detail-price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
+}
+
+.product-detail-desc {
+  color: var(--color-mid-gray);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+.product-detail-specs {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: var(--space-xl);
+}
+
+.spec-row {
+  display: flex;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.spec-label {
+  width: 80px;
+  font-size: 0.8rem;
+  color: var(--color-mid-gray);
+  letter-spacing: 0.05em;
+}
+
+.spec-value {
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.size-select {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid rgba(0,0,0,0.12);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  appearance: none;
+  cursor: pointer;
+  color: var(--color-dark);
+}
+
+@media (max-width: 768px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-detail-name {
+    font-size: 1.8rem;
+  }
+}

@@ -128,22 +128,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Contact form — prevent default submit, show confirmation
-  const contactForm = document.querySelector('.contact-form');
+  // Contact form — Formspree integration
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
-      btn.innerHTML = '<span class="en">Sent! ✓</span><span class="cn">已傳送！✓</span>';
-      btn.style.opacity = '0.7';
+      btn.innerText = 'Sending...';
       btn.disabled = true;
-      setTimeout(() => {
-        contactForm.reset();
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          if (formSuccess) formSuccess.style.display = 'block';
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
         btn.innerHTML = originalText;
-        btn.style.opacity = '';
         btn.disabled = false;
-      }, 3000);
+        alert('Something went wrong. Please email us directly at hello@reform-brand.com');
+      }
     });
   }
 });

@@ -4,24 +4,463 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — reform.</title>
+  <meta name="description" content="reform. 的品牌故事 — 從一個問題開始，創造改變。" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About — reform." />
+  <meta property="og:description" content="從一個問題開始，創造改變。" />
+  <meta property="og:image" content="assets/reform-hero-new.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* About Page Specific Styles */
+    .about-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--color-deep-night);
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-16) var(--space-8);
+    }
+    
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+    
+    .about-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    
+    .about-hero-label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-dusty-rose);
+      margin-bottom: var(--space-6);
+    }
+    
+    .about-hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 300;
+      color: var(--color-cream);
+      line-height: 1;
+      margin-bottom: var(--space-8);
+    }
+    
+    .about-hero-title em {
+      font-style: italic;
+      color: var(--color-dusty-rose);
+    }
+    
+    .about-hero-subtitle {
+      font-size: var(--text-xl);
+      color: rgba(250, 248, 245, 0.7);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    /* Origin Section */
+    .about-origin {
+      padding: var(--section-padding) 0;
+      background: var(--color-cream);
+      position: relative;
+    }
+    
+    .about-origin::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-light-pink), transparent);
+    }
+    
+    .about-origin-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .about-origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    
+    .about-origin-visual {
+      position: relative;
+    }
+    
+    .about-origin-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .about-origin-number {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      font-family: var(--font-display);
+      font-size: var(--text-6xl);
+      font-weight: 300;
+      color: var(--color-light-pink);
+      opacity: 0.5;
+      line-height: 1;
+    }
+    
+    .about-origin-content {
+      padding: var(--space-8) 0;
+    }
+    
+    .about-origin-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-deep-plum);
+      margin-bottom: var(--space-8);
+      line-height: 1.2;
+    }
+    
+    .about-origin-text {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: var(--space-6);
+    }
+    
+    .about-origin-quote {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-style: italic;
+      color: var(--color-dusty-rose);
+      padding-left: var(--space-6);
+      border-left: 2px solid var(--color-dusty-rose);
+      margin-top: var(--space-8);
+    }
+    
+    /* Mission Section — Dark Cinematic */
+    .about-mission {
+      padding: var(--section-padding) 0;
+      background: var(--color-deep-night);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-mission::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+    
+    .about-mission-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    
+    .about-mission-number {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 300;
+      color: var(--color-dusty-rose);
+      opacity: 0.5;
+      line-height: 1;
+      padding-top: var(--space-4);
+    }
+    
+    .about-mission-content {
+      max-width: 600px;
+    }
+    
+    .about-mission-title {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      color: var(--color-cream);
+      margin-bottom: var(--space-8);
+      line-height: 1.1;
+    }
+    
+    .about-mission-text {
+      font-size: var(--text-lg);
+      color: rgba(250, 248, 245, 0.7);
+      line-height: 1.9;
+    }
+    
+    /* Values Section */
+    .about-values {
+      padding: var(--section-padding) 0;
+      background: var(--color-soft-blush);
+    }
+    
+    .about-values-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .about-values-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .about-values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+    
+    .about-value-item {
+      padding: var(--space-8);
+      background: var(--color-cream);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-slow);
+    }
+    
+    .about-value-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .about-value-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-light-pink);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-deep-plum);
+    }
+    
+    .about-value-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-deep-plum);
+      margin-bottom: var(--space-4);
+    }
+    
+    .about-value-text {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+    
+    /* Team Section — Dark */
+    .about-team {
+      padding: var(--section-padding) 0;
+      background: var(--color-deep-night);
+      position: relative;
+    }
+    
+    .about-team::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212, 165, 165, 0.2), transparent);
+    }
+    
+    .about-team-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .about-team-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .about-team-header .section-label {
+      color: var(--color-dusty-rose);
+    }
+    
+    .about-team-header .section-title {
+      color: var(--color-cream);
+    }
+    
+    .about-team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-12);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about-team-member {
+      text-align: center;
+    }
+    
+    .about-team-img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto var(--space-6);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--color-dusty-rose);
+      padding: 3px;
+      background: var(--color-deep-night);
+    }
+    
+    .about-team-img-src {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    
+    .about-team-name {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-cream);
+      margin-bottom: var(--space-2);
+    }
+    
+    .about-team-role {
+      font-size: var(--text-sm);
+      color: var(--color-dusty-rose);
+      letter-spacing: 0.1em;
+    }
+    
+    /* CTA Section */
+    .about-cta {
+      padding: var(--section-padding) 0;
+      background: var(--color-cream);
+      text-align: center;
+    }
+    
+    .about-cta-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .about-cta-title {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      color: var(--color-deep-plum);
+      margin-bottom: var(--space-4);
+    }
+    
+    .about-cta-text {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-10);
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      padding: var(--space-4) var(--space-10);
+      background: var(--color-dusty-rose);
+      color: var(--color-cream);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-base);
+    }
+    
+    .btn-primary:hover {
+      background: var(--color-muted-lavender);
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .about-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .about-hero-title {
+        font-size: var(--text-4xl);
+      }
+      
+      .about-origin-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+      
+      .about-origin-number {
+        position: static;
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-4);
+      }
+      
+      .about-mission-inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      
+      .about-mission-number {
+        font-size: var(--text-3xl);
+      }
+      
+      .about-values-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-team-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="mainNav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">reform.</a>
       <div class="nav-links">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="blog.html" class="nav-link">Journal</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
+        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
+        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+        <a href="dashboard.html" class="nav-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
+        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
       </div>
       <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
         <span></span>
         <span></span>
       </button>
@@ -31,52 +470,56 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link">About</a>
-      <a href="products.html" class="mobile-link">Products</a>
-      <a href="blog.html" class="mobile-link">Journal</a>
-      <a href="contact.html" class="mobile-link">Contact</a>
+      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
+      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
+      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+      <a href="dashboard.html" class="mobile-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
+      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
     </div>
   </div>
 
-  <!-- Page Header -->
-  <header class="page-header">
-    <div class="page-header-inner">
-      <span class="section-label">About</span>
-      <h1 class="page-title">我們的故事</h1>
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="about-hero-content reveal">
+      <div class="about-hero-label">Our Story</div>
+      <h1 class="about-hero-title">從一個<em>問題</em>開始</h1>
+      <p class="about-hero-subtitle">為什麼沒有介於專業與日常之間的訓練襪？</p>
     </div>
-  </header>
+  </section>
 
-  <!-- Story Section -->
-  <section class="about-story">
-    <div class="about-story-inner">
-      <div class="about-story-grid">
-        <div class="about-story-visual">
-          <div class="about-img-large">
-            <img src="assets/reform-hero.png" alt="About reform. - our story" class="about-img-large">
-          </div>
+  <!-- Origin Section -->
+  <section class="about-origin">
+    <div class="about-origin-inner">
+      <div class="about-origin-grid">
+        <div class="about-origin-visual reveal">
+          <div class="about-origin-number">01</div>
+          <img src="assets/reform-hero-new.png" alt="reform. origin story" class="about-origin-img" />
         </div>
-        <div class="about-story-content">
-          <h2 class="about-heading">從一個問題開始</h2>
-          <p class="about-text">
+        <div class="about-origin-content reveal">
+          <h2 class="about-origin-title">2024 年，<br>我們決定不再妥協</h2>
+          <p class="about-origin-text">
             還記得第一次走進 Pilates 教室的那一刻嗎？陌生的動作、不熟悉的節奏，
             還有那雙總是滑動的普通襪子。
           </p>
-          <p class="about-text">
-            2024 年的某一天，我們決定不再妥協。為什麼沒有一雙襪子，
-            可以同時做到防滑、舒適、而且好看？我們找遍了市場，答案是不。
+          <p class="about-origin-text">
+            我們找遍了市場，答案是不存在。所以我們自己做。
           </p>
-          <p class="about-text">
-            所以我們自己做。
+          <p class="about-origin-text">
+            reform. 的第一款產品，經過了 47 次材料測試、12 次版型調整，
+            只為了解決一個問題：怎麼樣的襪子，才能讓你在墊子上專注於動作，而不是分心於腳下？
           </p>
+          <blockquote class="about-origin-quote">
+            「好的設計，是讓你忘記它的存在。」
+          </blockquote>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Mission Section -->
+  <!-- Mission Section — Dark Cinematic -->
   <section class="about-mission">
-    <div class="about-mission-inner">
-      <div class="about-mission-number">01</div>
+    <div class="about-mission-inner reveal">
+      <div class="about-mission-number">02</div>
       <div class="about-mission-content">
         <h2 class="about-mission-title">我們的使命很簡單</h2>
         <p class="about-mission-text">
@@ -84,6 +527,8 @@
           <br><br>
           reform. 不只是運動配件。我們相信，當你穿的、用的，都是為你設計的，
           你的表現會自然地不同。
+          <br><br>
+          從一雙襪子開始，找到你的節奏。
         </p>
       </div>
     </div>
@@ -92,24 +537,28 @@
   <!-- Values Section -->
   <section class="about-values">
     <div class="about-values-inner">
-      <div class="about-values-header">
+      <div class="about-values-header reveal">
         <span class="section-label">Values</span>
         <h2 class="section-title">價值觀</h2>
       </div>
       <div class="about-values-grid">
-        <div class="about-value-item">
+        <div class="about-value-item reveal">
+          <div class="about-value-icon">A</div>
           <h3 class="about-value-title">功能先行</h3>
           <p class="about-value-text">每一個設計決定，都從功能出發。時尚是結果，不是目的。</p>
         </div>
-        <div class="about-value-item">
+        <div class="about-value-item reveal">
+          <div class="about-value-icon">B</div>
           <h3 class="about-value-title">材料說話</h3>
           <p class="about-value-text">我們只使用我們願意每天穿的材料。透氣、支撐、持久。</p>
         </div>
-        <div class="about-value-item">
+        <div class="about-value-item reveal">
+          <div class="about-value-icon">C</div>
           <h3 class="about-value-title">簡化複雜</h3>
           <p class="about-value-text">不需要選項過多。每一個產品，都是唯一的那個。</p>
         </div>
-        <div class="about-value-item">
+        <div class="about-value-item reveal">
+          <div class="about-value-icon">D</div>
           <h3 class="about-value-title">持續改進</h3>
           <p class="about-value-text">沒有最好，只有更好。我們一直在測試、一直在優化。</p>
         </div>
@@ -117,24 +566,24 @@
     </div>
   </section>
 
-  <!-- Team Section -->
+  <!-- Team Section — Dark -->
   <section class="about-team">
     <div class="about-team-inner">
-      <div class="about-team-header">
+      <div class="about-team-header reveal">
         <span class="section-label">Team</span>
         <h2 class="section-title">成員</h2>
       </div>
       <div class="about-team-grid">
-        <div class="about-team-member">
+        <div class="about-team-member reveal">
           <div class="about-team-img">
-            <img src="assets/team-kurt.svg" alt="KURT - Founder & Designer" class="about-team-img-src" style="object-fit: cover;">
+            <img src="assets/team-kurt.svg" alt="KURT" class="about-team-img-src" />
           </div>
           <h3 class="about-team-name">KURT</h3>
           <p class="about-team-role">Founder & Designer</p>
         </div>
-        <div class="about-team-member">
+        <div class="about-team-member reveal">
           <div class="about-team-img">
-            <img src="assets/team-xiaoyang.svg" alt="小陽 - Creative Director" class="about-team-img-src" style="object-fit: cover;">
+            <img src="assets/team-xiaoyang.svg" alt="小陽" class="about-team-img-src" />
           </div>
           <h3 class="about-team-name">小陽</h3>
           <p class="about-team-role">Creative Director</p>
@@ -144,11 +593,14 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="about-cta">
+  <section class="about-cta reveal">
     <div class="about-cta-inner">
       <h2 class="about-cta-title">準備好開始了嗎？</h2>
       <p class="about-cta-text">探索我們的系列，找到你的節奏。</p>
-      <a href="products.html" class="btn-primary">View Products</a>
+      <a href="products.html" class="btn-primary">
+        <span class="en">View Products</span>
+        <span class="cn">探索產品</span>
+      </a>
     </div>
   </section>
 
@@ -161,30 +613,29 @@
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4 class="footer-heading">Shop</h4>
-          <a href="products.html" class="footer-link">All Products</a>
-          <a href="products.html" class="footer-link">Grip Socks</a>
-          <a href="products.html" class="footer-link">Accessories</a>
+          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
+          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading">About</h4>
-          <a href="about.html" class="footer-link">Our Story</a>
-          <a href="blog.html" class="footer-link">Journal</a>
-          <a href="contact.html" class="footer-link">Contact</a>
+          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
+          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
+          <a href="dashboard.html" class="footer-link"><span class="en">Brand Experience</span><span class="cn">品牌體驗</span></a>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading">Connect</h4>
+          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
           <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
           <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan</p>
+        <p class="footer-location">Taipei, Taiwan · v5.0</p>
       </div>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>

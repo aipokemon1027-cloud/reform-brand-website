@@ -4,37 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>reform. — be the reform</title>
+  <meta name="description" content="重新定義你的每一次練習。reform. 專注於 Pilates 專業防滑襪，輕盈、透氣、時尚且高效的運動配件。" />
+  
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="reform." />
   <meta property="og:title" content="reform. — be the reform" />
-  <meta property="og:description" content="重新定義你的每一次練習。reform. 專注於 Pilates 專業防滑襪，輕盈、透氣、時尚且高效的運動配件。" />
-  <meta property="og:image" content="assets/reform-lifestyle-hero.png" />
+  <meta property="og:description" content="重新定義你的每一次練習。" />
+  <meta property="og:image" content="assets/reform-hero-new.png" />
   <meta property="og:url" content="https://aipokemon1027-cloud.github.io/reform-brand-website/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="reform. — be the reform" />
-  <meta name="twitter:description" content="重新定義你的每一次練習。reform. 專注於 Pilates 專業防滑襪，輕盈、透氣、時尚且高效的運動配件。" />
-  <meta name="twitter:image" content="assets/reform-lifestyle-hero.png" />
-
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="mainNav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">reform.</a>
       <div class="nav-links">
         <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
         <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
         <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+        <a href="dashboard.html" class="nav-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
         <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
       </div>
       <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
         <span></span>
         <span></span>
       </button>
@@ -47,15 +52,15 @@
       <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
       <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
       <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+      <a href="dashboard.html" class="mobile-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
       <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
     </div>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Hero Section — Cinematic Full Screen -->
   <section class="hero">
     <div class="hero-media">
-      <!-- Video placeholder - gradient for now -->
-      <img src="assets/reform-hero.png" alt="reform. — be the reform" class="hero-bg-image" />
+      <img src="assets/reform-hero-new.png" alt="reform. — be the reform" class="hero-bg-image" />
     </div>
     <div class="hero-content">
       <div class="hero-text">
@@ -74,7 +79,7 @@
 
   <!-- Brand Statement -->
   <section class="statement">
-    <div class="statement-inner">
+    <div class="statement-inner reveal">
       <div class="statement-number">01</div>
       <div class="statement-content">
         <h2 class="statement-title">重新定義<br><em>你的運動美學</em></h2>
@@ -87,30 +92,30 @@
     </div>
   </section>
 
-  <!-- Philosophy Grid -->
+  <!-- Philosophy Grid — Film Card Style -->
   <section class="philosophy">
     <div class="philosophy-inner">
-      <div class="philosophy-header">
+      <div class="philosophy-header reveal">
         <span class="section-label">Philosophy</span>
         <h2 class="section-title">我們的信念</h2>
       </div>
       <div class="philosophy-grid">
-        <article class="philosophy-item">
+        <article class="philosophy-item reveal">
           <span class="philosophy-num">A</span>
           <h3 class="philosophy-name">Movement</h3>
           <p class="philosophy-desc">每一下呼吸，每一次專注，都值得被溫柔對待。儀式感是開始，不是結束。</p>
         </article>
-        <article class="philosophy-item">
+        <article class="philosophy-item reveal">
           <span class="philosophy-num">B</span>
           <h3 class="philosophy-name">Aesthetic</h3>
           <p class="philosophy-desc">少，卻剛好。每一個細節，都是刻意留下來的。</p>
         </article>
-        <article class="philosophy-item">
+        <article class="philosophy-item reveal">
           <span class="philosophy-num">C</span>
           <h3 class="philosophy-name">Quality</h3>
           <p class="philosophy-desc">看不見的結構，撐得住看得見的表現。透氣、支撐、防滑，一次滿足。</p>
         </article>
-        <article class="philosophy-item">
+        <article class="philosophy-item reveal">
           <span class="philosophy-num">D</span>
           <h3 class="philosophy-name">Community</h3>
           <p class="philosophy-desc">在墊子上，我們各自練習，各自抵達。這條路不孤單。</p>
@@ -119,12 +124,14 @@
     </div>
   </section>
 
-  <!-- Product Preview -->
+  <!-- Product Showcase — Horizontal Scroll Film Posters -->
   <section class="preview">
     <div class="preview-inner">
-      <div class="preview-header">
-        <span class="section-label">Products</span>
-        <h2 class="section-title">精選系列</h2>
+      <div class="preview-header reveal">
+        <div>
+          <span class="section-label">Products</span>
+          <h2 class="section-title">精選系列</h2>
+        </div>
         <a href="products.html" class="preview-link">
           <span class="en">View All</span><span class="cn">查看全部</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -133,7 +140,7 @@
         </a>
       </div>
       <div class="preview-grid">
-        <a href="products.html" class="preview-item large">
+        <a href="products.html" class="preview-item large reveal">
           <div class="preview-img">
             <img loading="lazy" src="assets/reform-product-01.png" alt="Essential Grip Sock" class="preview-img-src" />
           </div>
@@ -143,7 +150,7 @@
             <span class="preview-cta"><span class="en">View Details →</span><span class="cn">看詳情 →</span></span>
           </div>
         </a>
-        <a href="products.html" class="preview-item">
+        <a href="products.html" class="preview-item reveal">
           <div class="preview-img">
             <img loading="lazy" src="assets/reform-gift-set.png" alt="Studio Grip Sock" class="preview-img-src" />
           </div>
@@ -153,7 +160,7 @@
             <span class="preview-cta"><span class="en">View Details →</span><span class="cn">看詳情 →</span></span>
           </div>
         </a>
-        <a href="products.html" class="preview-item">
+        <a href="products.html" class="preview-item reveal">
           <div class="preview-img">
             <img loading="lazy" src="assets/reform-lifestyle-hero.png" alt="Pro Performance" class="preview-img-src" />
           </div>
@@ -163,53 +170,95 @@
             <span class="preview-cta"><span class="en">View Details →</span><span class="cn">看詳情 →</span></span>
           </div>
         </a>
+        <a href="products.html" class="preview-item reveal">
+          <div class="preview-img">
+            <img loading="lazy" src="assets/reform-product-detail.png" alt="Gift Set" class="preview-img-src" />
+          </div>
+          <div class="preview-info">
+            <h3 class="preview-name">Gift Set</h3>
+            <span class="preview-price">NT$ 1,280</span>
+            <span class="preview-cta"><span class="en">View Details →</span><span class="cn">看詳情 →</span></span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Journal Preview -->
+  <!-- Journal Preview — Dark Cinematic Section -->
   <section class="journal">
     <div class="journal-inner">
-      <div class="journal-header">
+      <div class="journal-header reveal">
         <span class="section-label">Journal</span>
         <h2 class="section-title">故事</h2>
       </div>
       <div class="journal-list">
-        <a href="article-01.html" class="journal-item">
+        <a href="article-01.html" class="journal-item reveal">
           <div class="journal-meta">
             <span class="journal-date">2026.04.10</span>
             <span class="journal-cat">Movement</span>
           </div>
-          <h3 class="journal-title">找到你的節奏：如何建立每日的輕運動習慣</h3>
-          <p class="journal-excerpt">早上六點四十七分，鬧鐘響了。不是關於毅力，是關於找到那個願意開始的自己。</p>
-          <span class="journal-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
+          <div>
+            <h3 class="journal-title">找到你的節奏：如何建立每日的輕運動習慣</h3>
+            <p class="journal-excerpt">早上六點四十七分，鬧鐘響了。不是關於毅力，是關於找到那個願意開始的自己。</p>
+            <span class="journal-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
+          </div>
         </a>
-        <a href="article-02.html" class="journal-item">
+        <a href="article-02.html" class="journal-item reveal">
           <div class="journal-meta">
             <span class="journal-date">2026.03.28</span>
             <span class="journal-cat">Aesthetic</span>
           </div>
-          <h3 class="journal-title">極簡主義：少即是多的運動穿搭</h3>
-          <p class="journal-excerpt">白 Tee、寬褲、一雙好的襪子。當質感開始說話，運動就成了表達。</p>
-          <span class="journal-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
+          <div>
+            <h3 class="journal-title">極簡主義：少即是多的運動穿搭</h3>
+            <p class="journal-excerpt">白 Tee、寬褲、一雙好的襪子。當質感開始說話，運動就成了表達。</p>
+            <span class="journal-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
+          </div>
         </a>
-        <a href="article-03.html" class="journal-item">
+        <a href="article-03.html" class="journal-item reveal">
           <div class="journal-meta">
             <span class="journal-date">2026.03.15</span>
             <span class="journal-cat">Community</span>
           </div>
-          <h3 class="journal-title">不只是襪子：reform. 的誕生故事</h3>
-          <p class="journal-excerpt">我們花了兩年，只為解決一個問題：為什麼沒有介於專業與日常之間的訓練襪？現在有了。</p>
-          <span class="journal-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
+          <div>
+            <h3 class="journal-title">不只是襪子：reform. 的誕生故事</h3>
+            <p class="journal-excerpt">我們花了兩年，只為解決一個問題：為什麼沒有介於專業與日常之間的訓練襪？現在有了。</p>
+            <span class="journal-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
+          </div>
         </a>
       </div>
-      <div class="journal-footer">
+      <div class="journal-footer reveal">
         <a href="blog.html" class="btn-text">
           <span class="en">More Stories</span><span class="cn">更多故事</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cinematic CTA Section -->
+  <section class="statement" style="background: var(--color-deep-night); padding: var(--section-padding) 0;">
+    <div class="statement-inner reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
+      <div class="statement-content" style="text-align: center;">
+        <h2 class="statement-title" style="color: var(--color-cream); font-size: var(--text-4xl);">開始你的<br><em style="color: var(--color-dusty-rose);"> reform.</em> 旅程</h2>
+        <p class="statement-text" style="color: rgba(250, 248, 245, 0.7); margin-top: var(--space-6);">
+          每一個偉大的改變，都從一個小決定開始。
+          <br><br>
+          從今天起，讓 reform. 陪伴你的每一次練習。
+        </p>
+        <a href="products.html" class="btn-primary" style="
+          display: inline-block;
+          margin-top: var(--space-10);
+          padding: var(--space-4) var(--space-10);
+          background: var(--color-dusty-rose);
+          color: var(--color-cream);
+          font-size: var(--text-sm);
+          font-weight: 500;
+          letter-spacing: 0.1em;
+          border-radius: var(--radius-md);
+          transition: all var(--transition-base);
+        ">探索產品</a>
       </div>
     </div>
   </section>
@@ -232,7 +281,7 @@
           <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
           <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
           <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-          <a href="contact.html" class="footer-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+          <a href="dashboard.html" class="footer-link"><span class="en">Brand Experience</span><span class="cn">品牌體驗</span></a>
         </div>
         <div class="footer-col">
           <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
@@ -242,12 +291,143 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v4.0</p>
+        <p class="footer-location">Taipei, Taiwan · v5.0</p>
       </div>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
+  
+  <!-- Scroll Reveal Animation Script -->
+  <script>
+    // Intersection Observer for scroll reveal animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Nav scroll effect
+      const nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+      }
+      
+      // Scroll reveal animation
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add stagger delay based on index within the same section
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealElements.forEach(el => {
+        revealObserver.observe(el);
+      });
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Parallax effect for hero
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        window.addEventListener('scroll', function() {
+          const scrolled = window.scrollY;
+          const heroBg = hero.querySelector('.hero-bg-image');
+          if (heroBg && scrolled < window.innerHeight) {
+            heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+          }
+        });
+      }
+      
+      // Philosophy cards 3D tilt effect
+      const philosophyItems = document.querySelectorAll('.philosophy-item');
+      philosophyItems.forEach(item => {
+        item.addEventListener('mousemove', function(e) {
+          const rect = this.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / 20;
+          const rotateY = (centerX - x) / 20;
+          
+          this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+      });
+      
+      // Horizontal scroll for preview items
+      const previewGrid = document.querySelector('.preview-grid');
+      if (previewGrid) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        previewGrid.addEventListener('mousedown', (e) => {
+          isDown = true;
+          previewGrid.style.cursor = 'grabbing';
+          startX = e.pageX - previewGrid.offsetLeft;
+          scrollLeft = previewGrid.scrollLeft;
+        });
+        
+        previewGrid.addEventListener('mouseleave', () => {
+          isDown = false;
+          previewGrid.style.cursor = 'grab';
+        });
+        
+        previewGrid.addEventListener('mouseup', () => {
+          isDown = false;
+          previewGrid.style.cursor = 'grab';
+        });
+        
+        previewGrid.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - previewGrid.offsetLeft;
+          const walk = (x - startX) * 2;
+          previewGrid.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Set initial cursor style
+        previewGrid.style.cursor = 'grab';
+      }
+    });
+  </script>
 </body>
 </html>
-

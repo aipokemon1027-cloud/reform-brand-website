@@ -4,25 +4,323 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — reform.</title>
+  <meta name="description" content="與 reform. 聯繫 — 任何問題、建議，或只是想打個招呼。" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact — reform." />
+  <meta property="og:description" content="與 reform. 聯繫。" />
+  <meta property="og:image" content="assets/reform-hero-new.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--color-deep-night);
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-16) var(--space-8);
+    }
+    
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+    
+    .contact-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-hero-label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-dusty-rose);
+      margin-bottom: var(--space-4);
+    }
+    
+    .contact-hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 300;
+      color: var(--color-cream);
+      line-height: 1;
+      margin-bottom: var(--space-4);
+    }
+    
+    .contact-hero-subtitle {
+      font-size: var(--text-lg);
+      color: rgba(250, 248, 245, 0.7);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      padding: var(--section-padding) 0;
+      background: var(--color-cream);
+    }
+    
+    .contact-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    
+    .contact-info {
+      padding: var(--space-8) 0;
+    }
+    
+    .contact-info-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-deep-plum);
+      line-height: 1.3;
+      margin-bottom: var(--space-10);
+    }
+    
+    .contact-detail {
+      margin-bottom: var(--space-8);
+    }
+    
+    .contact-detail-label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-dusty-rose);
+      margin-bottom: var(--space-2);
+    }
+    
+    .contact-detail-value {
+      font-size: var(--text-base);
+      color: var(--color-text-secondary);
+    }
+    
+    .contact-detail-value a {
+      color: var(--color-deep-plum);
+      transition: color var(--transition-fast);
+    }
+    
+    .contact-detail-value a:hover {
+      color: var(--color-dusty-rose);
+    }
+    
+    /* Form Styles */
+    .contact-form {
+      background: var(--color-soft-blush);
+      padding: var(--space-10);
+      border-radius: var(--radius-lg);
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-label {
+      display: block;
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-dusty-rose);
+      margin-bottom: var(--space-2);
+    }
+    
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: var(--space-4);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-deep-plum);
+      background: var(--color-cream);
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-base);
+    }
+    
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-dusty-rose);
+      box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+    }
+    
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-submit {
+      width: 100%;
+      padding: var(--space-4);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--color-cream);
+      background: var(--color-dusty-rose);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    
+    .form-submit:hover {
+      background: var(--color-muted-lavender);
+      transform: translateY(-2px);
+    }
+    
+    .form-success {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      text-align: center;
+      color: var(--color-dusty-rose);
+      font-size: var(--text-sm);
+    }
+    
+    /* FAQ Section — Dark */
+    .faq-section {
+      padding: var(--section-padding) 0;
+      background: var(--color-deep-night);
+      position: relative;
+    }
+    
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212, 165, 165, 0.2), transparent);
+    }
+    
+    .faq-inner {
+      position: relative;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .faq-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    
+    .faq-header .section-label {
+      color: var(--color-dusty-rose);
+    }
+    
+    .faq-header .section-title {
+      color: var(--color-cream);
+    }
+    
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-4);
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-6);
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-cream);
+      cursor: pointer;
+      list-style: none;
+    }
+    
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    
+    .faq-question::after {
+      content: '+';
+      font-size: var(--text-xl);
+      color: var(--color-dusty-rose);
+      transition: transform var(--transition-base);
+    }
+    
+    .faq-item[open] .faq-question::after {
+      transform: rotate(45deg);
+    }
+    
+    .faq-answer {
+      padding: 0 var(--space-6) var(--space-6);
+      font-size: var(--text-base);
+      color: rgba(250, 248, 245, 0.7);
+      line-height: 1.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-hero-title {
+        font-size: var(--text-4xl);
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+      
+      .contact-form {
+        padding: var(--space-6);
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="mainNav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">reform.</a>
       <div class="nav-links">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="blog.html" class="nav-link">Journal</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
+        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
+        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+        <a href="dashboard.html" class="nav-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
+        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
       </div>
       <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span>
         <span></span>
         <span></span>
       </button>
@@ -32,28 +330,29 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link">About</a>
-      <a href="products.html" class="mobile-link">Products</a>
-      <a href="blog.html" class="mobile-link">Journal</a>
-      <a href="contact.html" class="mobile-link">Contact</a>
+      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
+      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
+      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+      <a href="dashboard.html" class="mobile-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
+      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
     </div>
   </div>
 
-  <!-- Page Header -->
-  <header class="page-header">
-    <div class="page-header-inner">
-      <span class="section-label">Contact</span>
-      <h1 class="page-title">聯絡我們</h1>
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="contact-hero-content reveal">
+      <div class="contact-hero-label">Contact</div>
+      <h1 class="contact-hero-title">聯絡我們</h1>
+      <p class="contact-hero-subtitle">任何問題、建議，或只是想打個招呼</p>
     </div>
-  </header>
+  </section>
 
   <!-- Contact Section -->
   <section class="contact-section">
     <div class="contact-inner">
       <div class="contact-grid">
-        
         <!-- Contact Info -->
-        <div class="contact-info">
+        <div class="contact-info reveal">
           <h2 class="contact-info-title">有任何問題、建議，<br>或只是想打個招呼？</h2>
           
           <div class="contact-detail">
@@ -85,7 +384,7 @@
         </div>
 
         <!-- Contact Form -->
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-group">
             <label class="form-label" for="name">Name</label>
             <input type="text" id="name" name="name" class="form-input" required>
@@ -106,10 +405,15 @@
             <textarea id="message" name="message" class="form-textarea" required></textarea>
           </div>
           
-          <button type="submit" class="form-submit">Send Message</button>
-          <p class="form-success" id="formSuccess" style="display:none;">Thank you! We'll be in touch soon. ✓</p>
+          <button type="submit" class="form-submit">
+            <span class="en">Send Message</span>
+            <span class="cn">發送訊息</span>
+          </button>
+          <p class="form-success" id="formSuccess" style="display:none;">
+            <span class="en">Thank you! We'll be in touch soon. ✓</span>
+            <span class="cn">感謝！我們會盡快回覆。✓</span>
+          </p>
         </form>
-
       </div>
     </div>
   </section>
@@ -117,25 +421,25 @@
   <!-- FAQ Section -->
   <section class="faq-section">
     <div class="faq-inner">
-      <div class="faq-header">
+      <div class="faq-header reveal">
         <span class="section-label">FAQ</span>
         <h2 class="section-title">常見問題</h2>
       </div>
       <div class="faq-list">
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary class="faq-question">你們的運費如何計算？</summary>
           <p class="faq-answer">全館滿 NT$ 1,000 免運。未達門檻，運費為 NT$ 80。港澳地區運費 NT$ 150。</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary class="faq-question">可以退換貨嗎？</summary>
           <p class="faq-answer">收到商品後 7 天內可申請退換貨。請注意，襪子屬於個人衛生用品，拆封後恕不退換。</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary class="faq-question">如何選擇尺寸？</summary>
           <p class="faq-answer">我們的尺寸分為 S/M/L。S 適合 36-38，M 適合 39-41，L 適合 42-44。如有疑問，歡迎聯絡我們。</p>
         </details>
-        <details class="faq-item">
-          <summary class="faq-question">你們支持批發或代 理嗎？</summary>
+        <details class="faq-item reveal">
+          <summary class="faq-question">你們支持批發或代理嗎？</summary>
           <p class="faq-answer">目前暫未開放批發。如有合作提案，歡迎來信說明。</p>
         </details>
       </div>
@@ -151,30 +455,29 @@
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4 class="footer-heading">Shop</h4>
-          <a href="products.html" class="footer-link">All Products</a>
-          <a href="products.html" class="footer-link">Grip Socks</a>
-          <a href="products.html" class="footer-link">Accessories</a>
+          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
+          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading">About</h4>
-          <a href="about.html" class="footer-link">Our Story</a>
-          <a href="blog.html" class="footer-link">Journal</a>
-          <a href="contact.html" class="footer-link">Contact</a>
+          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
+          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
+          <a href="dashboard.html" class="footer-link"><span class="en">Brand Experience</span><span class="cn">品牌體驗</span></a>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading">Connect</h4>
+          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
           <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
           <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v4.0</p>
+        <p class="footer-location">Taipei, Taiwan · v5.0</p>
       </div>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>

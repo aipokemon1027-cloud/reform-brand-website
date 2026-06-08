@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Experience — reform.</title>
+  <meta name="description" content="reform. 品牌體驗 — 探索我們的視覺語言、色彩系統與設計哲學。" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Dashboard Specific Styles */
+    .dashboard-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, var(--color-deep-night) 0%, var(--color-twilight) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-16) var(--space-8);
+    }
+    
+    .dashboard-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+    
+    .dashboard-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .dashboard-hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 300;
+      color: var(--color-cream);
+      line-height: 1;
+      margin-bottom: var(--space-6);
+    }
+    
+    .dashboard-hero-title em {
+      color: var(--color-dusty-rose);
+      font-style: italic;
+    }
+    
+    .dashboard-hero-subtitle {
+      font-size: var(--text-xl);
+      color: rgba(250, 248, 245, 0.7);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Section Styles */
+    .dashboard-section {
+      padding: var(--section-padding) 0;
+      background: var(--color-deep-night);
+      position: relative;
+    }
+    
+    .dashboard-section:nth-child(even) {
+      background: var(--color-twilight);
+    }
+    
+    .dashboard-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212, 165, 165, 0.2), transparent);
+    }
+    
+    .section-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .section-header {
+      margin-bottom: var(--space-12);
+    }
+    
+    .section-header .section-label {
+      color: var(--color-dusty-rose);
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 400;
+      color: var(--color-cream);
+      margin-bottom: var(--space-4);
+    }
+    
+    .section-header p {
+      font-size: var(--text-base);
+      color: rgba(250, 248, 245, 0.6);
+      max-width: 600px;
+    }
+    
+    /* Color Palette */
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--space-6);
+    }
+    
+    .color-item {
+      text-align: center;
+    }
+    
+    .color-swatch {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-4);
+      position: relative;
+      cursor: pointer;
+      transition: transform var(--transition-base);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .color-swatch:hover {
+      transform: scale(1.05);
+    }
+    
+    .color-swatch::after {
+      content: 'Click to copy';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      font-size: var(--text-xs);
+      opacity: 0;
+      border-radius: var(--radius-lg);
+      transition: opacity var(--transition-fast);
+    }
+    
+    .color-swatch:hover::after {
+      opacity: 1;
+    }
+    
+    .color-name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      color: var(--color-cream);
+      margin-bottom: var(--space-1);
+    }
+    
+    .color-hex {
+      font-size: var(--text-xs);
+      color: rgba(250, 248, 245, 0.5);
+      font-family: monospace;
+    }
+    
+    /* Typography Showcase */
+    .type-showcase {
+      display: grid;
+      gap: var(--space-10);
+    }
+    
+    .type-group {
+      padding: var(--space-8);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .type-group-name {
+      font-size: var(--text-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-dusty-rose);
+      margin-bottom: var(--space-6);
+    }
+    
+    .type-sample {
+      margin-bottom: var(--space-4);
+    }
+    
+    .type-sample-chinese {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      color: var(--color-cream);
+      line-height: 1.2;
+    }
+    
+    .type-sample-english {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-cream);
+      font-style: italic;
+    }
+    
+    .type-meta {
+      font-size: var(--text-xs);
+      color: rgba(250, 248, 245, 0.4);
+      margin-top: var(--space-2);
+    }
+    
+    /* Motion Demos */
+    .motion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .motion-card {
+      padding: var(--space-8);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+    
+    .motion-preview {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .motion-ball {
+      width: 40px;
+      height: 40px;
+      background: var(--color-dusty-rose);
+      border-radius: 50%;
+    }
+    
+    .motion-name {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-cream);
+      margin-bottom: var(--space-2);
+    }
+    
+    .motion-desc {
+      font-size: var(--text-xs);
+      color: rgba(250, 248, 245, 0.5);
+    }
+    
+    /* Component Gallery */
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .component-card {
+      padding: var(--space-8);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .component-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-cream);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .component-demo {
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Buttons */
+    .demo-btn {
+      display: inline-block;
+      padding: var(--space-3) var(--space-6);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      border: none;
+      margin: var(--space-2);
+    }
+    
+    .demo-btn-primary {
+      background: var(--color-dusty-rose);
+      color: var(--color-cream);
+    }
+    
+    .demo-btn-primary:hover {
+      background: var(--color-muted-lavender);
+      transform: translateY(-2px);
+    }
+    
+    .demo-btn-secondary {
+      background: transparent;
+      color: var(--color-cream);
+      border: 1px solid rgba(250, 248, 245, 0.3);
+    }
+    
+    .demo-btn-secondary:hover {
+      border-color: var(--color-dusty-rose);
+      color: var(--color-dusty-rose);
+    }
+    
+    .demo-btn-ghost {
+      background: transparent;
+      color: var(--color-dusty-rose);
+    }
+    
+    .demo-btn-ghost:hover {
+      color: var(--color-cream);
+    }
+    
+    /* Cards */
+    .demo-card {
+      background: var(--color-soft-blush);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      max-width: 280px;
+    }
+    
+    .demo-card-dark {
+      background: var(--color-soft-black);
+    }
+    
+    .demo-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-deep-plum);
+      margin-bottom: var(--space-2);
+    }
+    
+    .demo-card-dark .demo-card-title {
+      color: var(--color-cream);
+    }
+    
+    .demo-card-text {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    
+    .demo-card-dark .demo-card-text {
+      color: rgba(250, 248, 245, 0.7);
+    }
+    
+    /* Badges */
+    .demo-badges {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    
+    .demo-badge {
+      padding: var(--space-1) var(--space-3);
+      font-size: var(--text-xs);
+      border-radius: var(--radius-sm);
+      background: var(--color-light-pink);
+      color: var(--color-deep-plum);
+    }
+    
+    .demo-badge-outline {
+      background: transparent;
+      border: 1px solid var(--color-dusty-rose);
+      color: var(--color-dusty-rose);
+    }
+    
+    /* Navigation Demo */
+    .demo-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-cream);
+      border-radius: var(--radius-md);
+    }
+    
+    .demo-nav-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-deep-plum);
+    }
+    
+    .demo-nav-links {
+      display: flex;
+      gap: var(--space-6);
+    }
+    
+    .demo-nav-link {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    
+    /* Mood Board */
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+    
+    .mood-item {
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .mood-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .mood-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .mood-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 26, 31, 0.6), transparent);
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+    
+    .mood-item:hover::after {
+      opacity: 1;
+    }
+    
+    /* Animation Classes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 165, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(212, 165, 165, 0.6); }
+    }
+    
+    .anim-fade-in-up {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .anim-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .anim-pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .anim-glow {
+      animation: glow 2s ease-in-out infinite;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .color-palette {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .dashboard-hero-title {
+        font-size: var(--text-4xl);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav" style="background: transparent;">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="color: var(--color-cream);">reform.</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-link" style="color: rgba(250, 248, 245, 0.7);"><span class="en">About</span><span class="cn">關於</span></a>
+        <a href="products.html" class="nav-link" style="color: rgba(250, 248, 245, 0.7);"><span class="en">Products</span><span class="cn">產品</span></a>
+        <a href="blog.html" class="nav-link" style="color: rgba(250, 248, 245, 0.7);"><span class="en">Journal</span><span class="cn">日誌</span></a>
+        <a href="dashboard.html" class="nav-link" style="color: var(--color-cream);"><span class="en">Experience</span><span class="cn">體驗</span></a>
+        <a href="contact.html" class="nav-link" style="color: rgba(250, 248, 245, 0.7);"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+      </div>
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu" style="color: var(--color-cream);">
+        <span style="background: var(--color-cream);"></span>
+        <span style="background: var(--color-cream);"></span>
+        <span style="background: var(--color-cream);"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
+      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
+      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
+      <a href="dashboard.html" class="mobile-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
+      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="dashboard-hero">
+    <div class="dashboard-hero-content">
+      <h1 class="dashboard-hero-title reveal">brand <em>experience</em></h1>
+      <p class="dashboard-hero-subtitle reveal">探索 reform. 的視覺語言、色彩系統與設計哲學</p>
+    </div>
+  </section>
+
+  <!-- Mood Board Section -->
+  <section class="dashboard-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Mood Board</span>
+        <h2>品牌情緒板</h2>
+        <p>我們的視覺靈感來源 — 柔和光影、極簡線條與電影感的氛圍</p>
+      </div>
+      <div class="mood-grid reveal">
+        <div class="mood-item">
+          <img src="assets/reform-product-01.png" alt="Product aesthetic" />
+        </div>
+        <div class="mood-item">
+          <img src="assets/reform-lifestyle-hero.png" alt="Lifestyle" />
+        </div>
+        <div class="mood-item" style="background: var(--color-light-pink); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-deep-plum);">A</span>
+        </div>
+        <div class="mood-item" style="background: var(--color-muted-lavender); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-deep-plum);">B</span>
+        </div>
+        <div class="mood-item" style="background: var(--color-soft-blush); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-deep-plum);">C</span>
+        </div>
+        <div class="mood-item" style="background: var(--color-cream); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-dusty-rose);">D</span>
+        </div>
+        <div class="mood-item" style="background: var(--color-warm-glow); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-deep-plum);">E</span>
+        </div>
+        <div class="mood-item" style="background: var(--color-deep-plum); display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-cream);">F</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Palette Section -->
+  <section class="dashboard-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Color System</span>
+        <h2>色彩系統</h2>
+        <p>柔和的粉色、薰衣草與奶油白 — 創造溫暖而有力量的視覺體驗</p>
+      </div>
+      <div class="color-palette reveal">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #FAF8F5;" data-color="#FAF8F5" onclick="copyColor(this)"></div>
+          <div class="color-name">Cream White</div>
+          <div class="color-hex">#FAF8F5</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #F5E6E0;" data-color="#F5E6E0" onclick="copyColor(this)"></div>
+          <div class="color-name">Soft Blush</div>
+          <div class="color-hex">#F5E6E0</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #F2D4D0;" data-color="#F2D4D0" onclick="copyColor(this)"></div>
+          <div class="color-name">Light Pink</div>
+          <div class="color-hex">#F2D4D0</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #D4A5A5;" data-color="#D4A5A5" onclick="copyColor(this)"></div>
+          <div class="color-name">Dusty Rose</div>
+          <div class="color-hex">#D4A5A5</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #C5B8D9;" data-color="#C5B8D9" onclick="copyColor(this)"></div>
+          <div class="color-name">Muted Lavender</div>
+          <div class="color-hex">#C5B8D9</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #3D2C3D;" data-color="#3D2C3D" onclick="copyColor(this)"></div>
+          <div class="color-name">Deep Plum</div>
+          <div class="color-hex">#3D2C3D</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #E8D5C4;" data-color="#E8D5C4" onclick="copyColor(this)"></div>
+          <div class="color-name">Warm Glow</div>
+          <div class="color-hex">#E8D5C4</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #C9A87C;" data-color="#C9A87C" onclick="copyColor(this)"></div>
+          <div class="color-name">Golden Hour</div>
+          <div class="color-hex">#C9A87C</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography Section -->
+  <section class="dashboard-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Typography</span>
+        <h2>字體系統</h2>
+        <p>Cormorant Garamond 的優雅襯線與 Inter 的現代簡潔 — 創造電影感的排版節奏</p>
+      </div>
+      <div class="type-showcase reveal">
+        <div class="type-group">
+          <div class="type-group-name">Display — Cormorant Garamond</div>
+          <div class="type-sample">
+            <div class="type-sample-chinese">重新定義你的每一次練習</div>
+            <div class="type-sample-english">Be the reform. Movement. Aesthetic.</div>
+            <div class="type-meta">Cormorant Garamond 300 — 主要標題與品牌標語</div>
+          </div>
+        </div>
+        <div class="type-group">
+          <div class="type-group-name">Body — Inter</div>
+          <div class="type-sample">
+            <div class="type-sample-english" style="font-family: var(--font-body); font-size: var(--text-lg); font-style: normal;">The quick brown fox jumps over the lazy dog.</div>
+            <div class="type-meta" style="font-family: var(--font-body);">Inter 400 — 內文與說明文字</div>
+          </div>
+        </div>
+        <div class="type-group">
+          <div class="type-group-name">Numbers & Labels</div>
+          <div class="type-sample">
+            <div style="font-family: var(--font-display); font-size: var(--text-5xl); color: var(--color-cream);">01 / 02 / 03</div>
+            <div class="type-meta">光學數字 — 章節標記與年份</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motion Library Section -->
+  <section class="dashboard-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Motion Library</span>
+        <h2>動效系統</h2>
+        <p>細膩的動效設計 — 創造有節奏感的品牌體驗</p>
+      </div>
+      <div class="motion-grid reveal">
+        <div class="motion-card">
+          <div class="motion-preview">
+            <div class="motion-ball anim-fade-in-up" style="background: var(--color-dusty-rose);"></div>
+          </div>
+          <div class="motion-name">Fade In Up</div>
+          <div class="motion-desc">元素進入視口時的基礎動畫</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-preview">
+            <div class="motion-ball anim-float" style="background: var(--color-muted-lavender);"></div>
+          </div>
+          <div class="motion-name">Float</div>
+          <div class="motion-desc">裝飾元素的漂浮動畫</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-preview">
+            <div class="motion-ball anim-pulse" style="background: var(--color-light-pink);"></div>
+          </div>
+          <div class="motion-name">Pulse</div>
+          <div class="motion-desc">CTA 按鈕的呼吸動畫</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-preview">
+            <div class="motion-ball anim-glow" style="background: var(--color-dusty-rose); border-radius: 8px;"></div>
+          </div>
+          <div class="motion-name">Glow</div>
+          <div class="motion-desc">Hover 狀態的光暈效果</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Component Gallery Section -->
+  <section class="dashboard-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Component Gallery</span>
+        <h2>組件畫廊</h2>
+        <p>品牌的核心 UI 組件 — 可視化展示與互動示例</p>
+      </div>
+      <div class="component-grid reveal">
+        <!-- Buttons -->
+        <div class="component-card">
+          <div class="component-title">Buttons</div>
+          <div class="component-demo">
+            <button class="demo-btn demo-btn-primary">Primary Button</button>
+            <button class="demo-btn demo-btn-secondary">Secondary</button>
+            <button class="demo-btn demo-btn-ghost">Ghost →</button>
+          </div>
+        </div>
+        
+        <!-- Cards -->
+        <div class="component-card">
+          <div class="component-title">Cards</div>
+          <div class="component-demo">
+            <div class="demo-card">
+              <div class="demo-card-title">Movement</div>
+              <div class="demo-card-text">每一下呼吸，每一次專注，都值得被溫柔對待。</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Badges -->
+        <div class="component-card">
+          <div class="component-title">Badges & Tags</div>
+          <div class="component-demo">
+            <div class="demo-badges">
+              <span class="demo-badge">Movement</span>
+              <span class="demo-badge">Aesthetic</span>
+              <span class="demo-badge demo-badge-outline">Quality</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="component-card">
+          <div class="component-title">Navigation</div>
+          <div class="component-demo">
+            <div class="demo-nav">
+              <span class="demo-nav-logo">reform.</span>
+              <div class="demo-nav-links">
+                <span class="demo-nav-link">About</span>
+                <span class="demo-nav-link">Products</span>
+                <span class="demo-nav-link" style="color: var(--color-dusty-rose);">Journal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="background: var(--color-deep-night); border-top: 1px solid rgba(212, 165, 165, 0.1);">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">reform.</span>
+        <p class="footer-tagline">be the reform</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
+          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
+          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
+          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
+          <a href="dashboard.html" class="footer-link"><span class="en">Brand Experience</span><span class="cn">品牌體驗</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
+          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
+          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
+        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Copy color to clipboard
+    function copyColor(element) {
+      const color = element.getAttribute('data-color');
+      navigator.clipboard.writeText(color).then(() => {
+        // Visual feedback
+        element.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          element.style.transform = '';
+        }, 150);
+        
+        // Show tooltip
+        const tooltip = document.createElement('div');
+        tooltip.textContent = 'Copied!';
+        tooltip.style.cssText = `
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: var(--color-deep-plum);
+          color: var(--color-cream);
+          padding: 8px 16px;
+          border-radius: 4px;
+          font-size: 12px;
+          z-index: 1000;
+        `;
+        element.appendChild(tooltip);
+        setTimeout(() => tooltip.remove(), 1000);
+      });
+    }
+    
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+        });
+      }
+      
+      // Scroll reveal animation
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealElements.forEach(el => {
+        revealObserver.observe(el);
+      });
+      
+      // Nav scroll effect
+      const nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          nav.style.background = 'rgba(26, 26, 31, 0.95)';
+          nav.style.backdropFilter = 'blur(20px)';
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'none';
+        }
+      });
+      
+      // Trigger animations for motion section
+      const motionBalls = document.querySelectorAll('.motion-ball');
+      motionBalls.forEach((ball, index) => {
+        setTimeout(() => {
+          ball.style.opacity = '1';
+          ball.style.transform = 'translateY(0)';
+        }, 500 + (index * 200));
+      });
+    });
+  </script>
+</body>
+</html>

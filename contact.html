@@ -3,180 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — reform.</title>
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="reform." />
-  <meta property="og:title" content="Contact reform." />
-  <meta property="og:description" content="與 reform. 聯絡，歡迎任何合作與詢問。" />
-  <meta property="og:image" content="assets/reform-lifestyle-hero.png" />
-  <meta property="og:url" content="https://aipokemon1027-cloud.github.io/reform-brand-website/contact.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact reform." />
-  <meta name="twitter:description" content="與 reform. 聯絡，歡迎任何合作與詢問。" />
-  <meta name="twitter:image" content="assets/reform-lifestyle-hero.png" />
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Contact 聯繫 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Navigation -->
   <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">reform.</a>
-      <div class="nav-links">
-        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
-        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
-        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-        <a href="contact.html" class="nav-link active"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-      </div>
-      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-      </button>
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
     </div>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
-      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
-      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-    </div>
+  <div class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close">×</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
   </div>
 
-  <!-- Page Header -->
+  <a href="index.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Home 返回首頁
+  </a>
+
   <header class="page-header">
-    <div class="page-header-inner">
-      <span class="section-label">Contact</span>
-      <h1 class="page-title">聯絡我們</h1>
-    </div>
+    <h1 class="display-lg fade-in">Get in Touch<br>聯繫我們</h1>
+    <p class="fade-in">We'd love to hear from you. Questions, feedback, or just saying hello.<br>我們很樂意聽到您的聲音。問題、回饋，或只是打招呼。</p>
   </header>
 
-  <!-- Contact Section -->
   <section class="contact-section">
-    <div class="contact-inner">
-      <div class="contact-grid">
-        
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h2 class="contact-heading">說點什麼吧</h2>
-          <p class="contact-text">
-            關於產品、合作想法，或是純粹想聊天——都在這裡等著。
-          </p>
-          
-          <div class="contact-methods">
-            <div class="contact-method">
-              <span class="contact-label">Email</span>
-              <a href="mailto:hello@reform-brand.com" class="contact-value">hello@reform-brand.com</a>
-            </div>
-            <div class="contact-method">
-              <span class="contact-label">Instagram</span>
-              <a href="https://instagram.com/reform.tw" target="_blank" class="contact-value">@reform.tw</a>
-            </div>
-            <div class="contact-method">
-              <span class="contact-label">Location</span>
-              <span class="contact-value">Taipei, Taiwan</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="contact-form-wrapper">
-          <form class="contact-form" action="#" method="POST">
-            <div class="form-group">
-              <label for="name" class="form-label">名字</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="你的名字" required />
-            </div>
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required />
-            </div>
-            <div class="form-group">
-              <label for="subject" class="form-label">主題</label>
-              <select id="subject" name="subject" class="form-input">
-                <option value="">選擇主題</option>
-                <option value="product">產品相關問題</option>
-                <option value="order">訂單與物流</option>
-                <option value="collab">一起做點什麼</option>
-                <option value="other">說說其他的</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message" class="form-label">訊息內容</label>
-              <textarea id="message" name="message" class="form-input form-textarea" placeholder="想跟我們說什麼..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary"><span class="en">Send Message</span><span class="cn">傳送訊息</span></button>
-          </form>
-        </div>
-
+    <div class="contact-info fade-in">
+      <h2 class="display-sm">Let's Connect<br>保持聯繫</h2>
+      <p>Whether you're a first-time buyer or a long-time member of the reform. family, we're here to help.<br>無論您是第一次購買還是 reform. 大家庭的長期成員，我們都在這裡提供幫助。</p>
+      
+      <div class="contact-detail">
+        <h4>Email 電子郵件</h4>
+        <p>hello@reform-pilates.com</p>
+      </div>
+      
+      <div class="contact-detail">
+        <h4>Phone 電話</h4>
+        <p>+886 2 2771 5522</p>
+      </div>
+      
+      <div class="contact-detail">
+        <h4>Address 地址</h4>
+        <p>8th Floor, No. 128, Section 3<br>Minquan East Road, Songshan District<br>Taipei City 105, Taiwan<br>台北市松山區民權東路三段128號8樓</p>
+      </div>
+      
+      <div class="contact-detail">
+        <h4>Hours 營業時間</h4>
+        <p>Mon - Fri: 9:00 - 18:00<br>週一至週五: 上午9點至下午6點<br>Sat - Sun: Closed 週末休息</p>
       </div>
     </div>
+
+    <form class="contact-form fade-in">
+      <div class="form-group">
+        <label for="name">Your Name 您的姓名</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address 電子郵件</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="subject">Subject 主題</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message 訊息</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      
+      <button type="submit" class="btn-primary">
+        Send Message 發送訊息
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </form>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="faq-inner">
-      <div class="faq-header">
-        <span class="section-label">FAQ</span>
-        <h2 class="section-title">常見問題</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3 class="faq-question">你們提供國際配送嗎？</h3>
-          <p class="faq-answer">目前主要服務台灣。國際寄送可以寫 email 聊聊，我們幫你想辨法。</p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-question">我可以退貨或換貨嗎？</h3>
-          <p class="faq-answer">7 天內，沒理由也能退。穿過不滿意，我們負責。</p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-question">你們有實體店面嗎？</h3>
-          <p class="faq-answer">目前全線上。歡迎關注我們的線下活動，近距離體驗是我們最喜歡的方式。</p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-question">如何知道我的訂單狀態？</h3>
-          <p class="faq-answer">下單後，Email 馬上確認。出貨了，給你追蹤碼，隨時知道它在哪裡。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-logo">reform.</span>
-        <p class="footer-tagline">be the reform</p>
+        <h3>REFORM.</h3>
+        <p>Professional anti-slip Pilates socks engineered for women. 為女性設計的專業防滑襪。</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
-          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Gift Sets</span><span class="cn">禮盒</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
-          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
-          <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-          <a href="contact.html" class="footer-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
-          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
-          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
-        </div>
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul>
+          <li><a href="about.html">About Us 關於我們</a></li>
+          <li><a href="blog.html">Journal 日誌</a></li>
+          <li><a href="contact.html">Contact 聯繫</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul>
+          <li><a href="shipping.html">Shipping 配送</a></li>
+          <li><a href="returns.html">Returns 退換</a></li>
+          <li><a href="faq.html">FAQ 常見問題</a></li>
+          <li><a href="size-guide.html">Size Guide 尺寸指南</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 reform. All rights reserved. 版權所有。</p>
+      <div class="social-links">
+        <a href="https://instagram.com/reform.pilates" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>

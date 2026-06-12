@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed! 訂單確認 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .confirmation-page { padding: 8rem 2rem 6rem; max-width: 900px; margin: 0 auto; text-align: center; }
+    
+    .confirmation-icon { margin-bottom: 3rem; }
+    .confirmation-icon svg { width: 80px; height: 80px; color: var(--gold); }
+    
+    .confirmation-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400; margin-bottom: 1rem; }
+    .confirmation-header p { font-size: 1.1rem; color: var(--gray); margin-bottom: 0.5rem; }
+    .confirmation-header .order-number { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; color: var(--black); margin-top: 1rem; display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid var(--gray-light); }
+    
+    .confirmation-divider { width: 60px; height: 1px; background: var(--gold); margin: 3rem auto; }
+    
+    .order-details { text-align: left; margin: 3rem 0; }
+    .order-details h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 2rem; text-align: center; }
+    
+    .order-section { margin-bottom: 3rem; }
+    .order-section h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--gray-light); }
+    
+    .order-items { }
+    .order-item { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--gray-light); align-items: center; }
+    .order-item:last-child { border-bottom: none; }
+    .order-item-image { width: 100px; height: 100px; object-fit: cover; background: var(--cream); }
+    .order-item-info { flex: 1; }
+    .order-item-name { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .order-item-name-en { font-size: 0.9rem; color: var(--gray); font-style: italic; margin-bottom: 0.5rem; }
+    .order-item-variant { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray); letter-spacing: 0.1em; }
+    .order-item-price { font-family: var(--font-mono); font-size: 0.95rem; text-align: right; }
+    .order-item-qty { font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray); }
+    
+    .order-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .order-info-item h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.8rem; }
+    .order-info-item p { font-size: 0.95rem; line-height: 1.6; color: var(--gray-dark); }
+    .order-info-item .highlight { color: var(--black); font-weight: 500; }
+    
+    .order-summary { background: var(--cream); padding: 2rem 2.5rem; margin: 2rem 0; text-align: left; }
+    .summary-row { display: flex; justify-content: space-between; padding: 0.7rem 0; border-bottom: 1px solid var(--gray-light); font-size: 0.95rem; }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row.total { font-size: 1.1rem; font-weight: 500; padding-top: 1rem; margin-top: 0.5rem; border-top: 2px solid var(--black); }
+    .summary-row .label { color: var(--gray); }
+    .summary-row .value { font-family: var(--font-mono); }
+    
+    .next-steps { margin: 4rem 0; padding: 2.5rem; background: var(--black); color: var(--white); text-align: left; }
+    .next-steps h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; text-align: center; color: var(--white); }
+    .next-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .next-step { text-align: center; }
+    .next-step-icon { width: 48px; height: 48px; margin: 0 auto 1rem; opacity: 0.7; }
+    .next-step h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .next-step p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    
+    .confirmation-note { font-size: 0.9rem; color: var(--gray); margin: 3rem 0; padding: 1.5rem; border: 1px dashed var(--gray-light); }
+    .confirmation-note p { line-height: 1.6; margin-bottom: 0.8rem; }
+    .confirmation-note p:last-child { margin-bottom: 0; }
+    
+    .confirmation-actions { display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
+    .btn-primary { 
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      padding: 1.2rem 2.5rem; background: var(--black); color: var(--white);
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.3s ease;
+    }
+    .btn-primary:hover { background: var(--rose); }
+    .btn-secondary { 
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      padding: 1.2rem 2.5rem; background: none; color: var(--black);
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none; border: 1px solid var(--black); transition: all 0.3s ease;
+    }
+    .btn-secondary:hover { background: var(--black); color: var(--white); }
+    
+    @media (max-width: 768px) {
+      .order-info-grid { grid-template-columns: 1fr; }
+      .next-steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .confirmation-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <main class="confirmation-page">
+    <div class="confirmation-icon fade-in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+
+    <div class="confirmation-header fade-in">
+      <h1>Thank You! 感謝您的訂購！</h1>
+      <p>Your order has been confirmed. We will send you a confirmation email shortly.<br>您的訂單已確認。我們將很快發送確認電子郵件給您。</p>
+      <div class="order-number" id="orderNumber">Order #RF-0000000000</div>
+    </div>
+
+    <div class="confirmation-divider"></div>
+
+    <div class="order-details fade-in">
+      <h2>Order Details 訂單詳情</h2>
+      
+      <div class="order-section">
+        <h3>Items Ordered 訂購商品</h3>
+        <div class="order-items" id="orderItems"></div>
+      </div>
+
+      <div class="order-info-grid">
+        <div class="order-info-item">
+          <h4>Shipping Address 配送地址</h4>
+          <p id="shippingAddress"></p>
+        </div>
+        <div class="order-info-item">
+          <h4>Contact 聯絡方式</h4>
+          <p id="contactInfo"></p>
+        </div>
+        <div class="order-info-item">
+          <h4>Shipping Method 配送方式</h4>
+          <p id="shippingMethod"></p>
+        </div>
+        <div class="order-info-item">
+          <h4>Payment Method 付款方式</h4>
+          <p id="paymentMethod"></p>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <div class="summary-row">
+          <span class="label">Subtotal 小計</span>
+          <span class="value" id="summarySubtotal">NT$0</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Shipping 運費</span>
+          <span class="value" id="summaryShipping">NT$0</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Total 總計</span>
+          <span class="value" id="summaryTotal">NT$0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="next-steps fade-in">
+      <h2>What's Next? 接下來會發生什麼？</h2>
+      <div class="next-steps-grid">
+        <div class="next-step">
+          <svg class="next-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <h4>Confirmation Email 確認郵件</h4>
+          <p>Check your inbox for order details and tracking information.<br>查看您的收件匣獲取訂單詳情和追蹤資訊。</p>
+        </div>
+        <div class="next-step">
+          <svg class="next-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <h4>Shipping 配送中</h4>
+          <p>We'll prepare your order and ship it within 1-2 business days.<br>我們將在 1-2 個工作天內準備並寄出您的商品。</p>
+        </div>
+        <div class="next-step">
+          <svg class="next-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <h4>Delivery 收貨</h4>
+          <p>Track your package and receive it at your doorstep.<br>追蹤您的包裹並在門口接收。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="confirmation-note fade-in">
+      <p><strong>Questions? 有問題嗎？</strong></p>
+      <p>If you have any questions about your order, please contact us at <a href="mailto:hello@reform.style" style="color: var(--black);">hello@reform.style</a> or visit our <a href="faq.html" style="color: var(--black);">FAQ page 常見問題頁面</a>.</p>
+      <p>如有任何關於訂單的問題，請通過 <a href="mailto:hello@reform.style" style="color: var(--black);">hello@reform.style</a> 與我們聯繫，或訪問我們的 <a href="faq.html" style="color: var(--black);">常見問題頁面</a>。</p>
+    </div>
+
+    <div class="confirmation-actions fade-in">
+      <a href="products.html" class="btn-primary">
+        Continue Shopping 繼續購物
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="index.html" class="btn-secondary">
+        Return Home 返回首頁
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>REFORM.</h3><p>Professional anti-slip Pilates socks for women. 為女性設計的專業防滑襪。</p></div>
+      <div class="footer-links"><h4>Shop 商店</h4><ul><li><a href="products.html">All Products 所有產品</a></li><li><a href="product-classic.html">Classic 經典款</a></li><li><a href="product-pro.html">Pro 專業款</a></li><li><a href="product-elite.html">Elite 頂級款</a></li></ul></div>
+      <div class="footer-links"><h4>Company 公司</h4><ul><li><a href="about.html">About Us 關於我們</a></li><li><a href="blog.html">Journal 日誌</a></li><li><a href="contact.html">Contact 聯繫</a></li></ul></div>
+      <div class="footer-links"><h4>Support 支援</h4><ul><li><a href="shipping.html">Shipping 配送</a></li><li><a href="returns.html">Returns 退換</a></li><li><a href="faq.html">FAQ 常見問題</a></li><li><a href="size-guide.html">Size Guide 尺寸指南</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 reform. All rights reserved. 版權所有。</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const orderData = JSON.parse(localStorage.getItem('reformLastOrder') || '{}');
+      
+      if (!orderData.items || orderData.items.length === 0) {
+        document.querySelector('.confirmation-page').innerHTML = `
+          <div class="confirmation-icon fade-in">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <div class="confirmation-header fade-in">
+            <h1>No Order Found 找不到訂單</h1>
+            <p>You haven't placed any order yet.<br>您還沒有下過任何訂單。</p>
+          </div>
+          <div class="confirmation-divider"></div>
+          <div class="confirmation-actions fade-in">
+            <a href="products.html" class="btn-primary">
+              Browse Products 瀏覽產品
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        `;
+        return;
+      }
+      
+      // Generate order number
+      const orderNum = 'RF-' + Date.now().toString().slice(-10);
+      document.getElementById('orderNumber').textContent = 'Order #' + orderNum;
+      
+      // Render order items
+      document.getElementById('orderItems').innerHTML = orderData.items.map(item => `
+        <div class="order-item">
+          <img src="${item.image}" alt="${item.name}" class="order-item-image">
+          <div class="order-item-info">
+            <div class="order-item-name">${item.name}</div>
+            <div class="order-item-name-en">${item.nameEn}</div>
+            <div class="order-item-variant">${item.size} / Qty: ${item.qty}</div>
+          </div>
+          <div class="order-item-price">NT$${(item.price * item.qty).toLocaleString()}</div>
+        </div>
+      `).join('');
+      
+      // Render address and contact
+      document.getElementById('shippingAddress').innerHTML = `
+        <span class="highlight">${orderData.firstName} ${orderData.lastName}</span><br>
+        ${orderData.address}<br>
+        ${orderData.city}, ${orderData.zip}<br>
+        ${orderData.country}
+      `;
+      
+      document.getElementById('contactInfo').innerHTML = `
+        <span class="highlight">${orderData.email}</span><br>
+        ${orderData.phone}
+      `;
+      
+      const shippingMethods = {
+        'free': 'Standard Shipping 標準配送 (7-14 days)',
+        'express': 'Express Shipping 快速配送 (3-5 days)',
+        'premium': 'Premium Delivery 頂級配送 (1-2 days)'
+      };
+      document.getElementById('shippingMethod').innerHTML = `<span class="highlight">${shippingMethods[orderData.shipping] || 'Standard'}</span>`;
+      
+      const paymentMethods = {
+        'card': 'Credit/Debit Card 信用卡/金融卡',
+        'linepay': 'LINE Pay',
+        'atm': 'ATM Transfer 自動櫃員機轉帳',
+        'cod': 'Cash on Delivery 貨到付款'
+      };
+      document.getElementById('paymentMethod').innerHTML = `<span class="highlight">${paymentMethods[orderData.payment] || 'Card'}</span>`;
+      
+      // Render totals
+      document.getElementById('summarySubtotal').textContent = `NT$${orderData.subtotal.toLocaleString()}`;
+      document.getElementById('summaryShipping').textContent = orderData.shippingCost === 0 ? 'Free 免費' : `NT$${orderData.shippingCost}`;
+      document.getElementById('summaryTotal').textContent = `NT$${orderData.total.toLocaleString()}`;
+    });
+  </script>
+</body>
+</html>

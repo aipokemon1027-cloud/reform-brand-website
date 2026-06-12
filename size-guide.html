@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Size Guide 尺寸指南 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <a href="contact.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Contact 返回聯繫
+  </a>
+
+  <header class="page-header">
+    <h1 class="display-lg fade-in">Size Guide<br>尺寸指南</h1>
+    <p class="fade-in">Find your perfect fit with our size chart.<br>使用我們的尺寸表找到您的完美尺寸。</p>
+  </header>
+
+  <section class="about-intro" style="padding: 5rem; max-width: 900px; margin: 0 auto;">
+    <div style="overflow-x: auto;" class="fade-in">
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 3rem;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--black);">
+            <th style="padding: 1rem; text-align: left; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;">Size 尺寸</th>
+            <th style="padding: 1rem; text-align: left; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;">US Women 美國女性</th>
+            <th style="padding: 1rem; text-align: left; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;">EU 歐盟</th>
+            <th style="padding: 1rem; text-align: left; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;">Foot Length 腳長 (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--gray-light);">
+            <td style="padding: 1rem; font-family: var(--font-display); font-size: 1.2rem;">S</td>
+            <td style="padding: 1rem;">5 - 6.5</td>
+            <td style="padding: 1rem;">35 - 37</td>
+            <td style="padding: 1rem;">21.5 - 23</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--gray-light);">
+            <td style="padding: 1rem; font-family: var(--font-display); font-size: 1.2rem;">M</td>
+            <td style="padding: 1rem;">7 - 8.5</td>
+            <td style="padding: 1rem;">38 - 40</td>
+            <td style="padding: 1rem;">23.5 - 25</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem; font-family: var(--font-display); font-size: 1.2rem;">L</td>
+            <td style="padding: 1rem;">9 - 10.5</td>
+            <td style="padding: 1rem;">41 - 43</td>
+            <td style="padding: 1rem;">25.5 - 27</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="padding: 2rem; background: var(--rose-pale); border-left: 3px solid var(--rose); margin-bottom: 2rem;" class="fade-in">
+      <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1rem;">How to Measure 如何測量</h3>
+      <ol style="color: var(--gray-dark); line-height: 1.8; padding-left: 1.5rem;">
+        <li>Stand on a piece of paper with your heel against a wall 您的腳跟靠牆站在紙上</li>
+        <li>Trace the outline of your foot 描繪您的腳輪廓</li>
+        <li>Measure from heel to longest toe 測量從腳跟到最長腳趾的距離</li>
+        <li>Compare to our size chart above 與上面的尺寸表比較</li>
+      </ol>
+    </div>
+
+    <p style="color: var(--gray); font-size: 0.9rem;" class="fade-in">
+      Still unsure? <a href="contact.html" style="color: var(--rose);">Contact us 聯繫我們</a> and we'll help you find the perfect size!
+    </p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>© 2024 reform. All rights reserved. 版權所有。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一雙襪子的旅程：從實驗室到你腳上 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-page { padding: 8rem 2rem 6rem; max-width: 900px; margin: 0 auto; }
+    .article-meta { text-align: center; margin-bottom: 2.5rem; }
+    .article-meta .category { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .article-date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray); letter-spacing: 0.1em; }
+    .article-header { margin-bottom: 3rem; }
+    .article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.5rem; color: var(--black); }
+    .article-title-en { font-family: var(--font-display); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 300; font-style: italic; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.3; }
+    .article-subtitle { font-size: 1rem; color: var(--gray-dark); margin-bottom: 1rem; line-height: 1.7; }
+    .article-subtitle-en { font-size: 0.95rem; color: var(--gray); font-style: italic; line-height: 1.6; }
+    .article-hero-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; margin-bottom: 4rem; display: block; }
+    .article-divider { width: 60px; height: 1px; background: var(--gold); margin: 3rem auto; }
+    .article-body { max-width: 720px; margin: 0 auto; }
+    .article-body h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 3.5rem 0 1.2rem; color: var(--black); line-height: 1.3; }
+    .article-body .h3-en { font-family: var(--font-display); font-size: 1rem; font-weight: 300; font-style: italic; color: var(--gray); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-light); }
+    .article-body p { font-size: 1.05rem; line-height: 1.9; color: var(--gray-dark); margin-bottom: 1.6rem; }
+    .article-body .p-en { font-size: 0.95rem; line-height: 1.8; color: var(--gray); font-style: italic; border-left: 2px solid var(--gold); padding-left: 1.5rem; margin-top: -0.8rem; margin-bottom: 2rem; }
+    .article-author { text-align: center; padding: 3rem 0; border-top: 1px solid var(--gray-light); margin-top: 4rem; }
+    .article-author span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray); letter-spacing: 0.1em; }
+    .article-cta { display: inline-flex; align-items: center; gap: 1rem; padding: 1.2rem 2.5rem; background: var(--black); color: var(--white); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; margin-top: 3rem; transition: all 0.3s ease; }
+    .article-cta:hover { background: var(--rose); transform: translateX(5px); }
+    .back-btn { position: fixed; top: 7rem; left: 2rem; z-index: 100; display: flex; align-items: center; gap: 0.5rem; color: var(--black); text-decoration: none; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s; }
+    .back-btn:hover { opacity: 1; }
+    .back-btn svg { width: 18px; height: 18px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <a href="blog.html" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    ← Back to Journal 返回日誌
+  </a>
+
+  <article class="article-page">
+    <div class="article-meta fade-in">
+      <span class="category">Quality</span>
+      <time class="article-date">2025.12.05</time>
+    </div>
+
+    <header class="article-header fade-in">
+      <h1 class="article-title">一雙襪子的旅程：從實驗室到你腳上</h1>
+      <p class="article-title-en">The Journey of a Sock: From Lab to Your Feet</p>
+      <div class="article-divider"></div>
+      <p class="article-subtitle">經過四十二次測試，只為找到最完美的防滑解決方案。</p>
+      <p class="article-subtitle-en">Forty-two tests to find the perfect anti-slip solution.</p>
+    </header>
+
+    <img src="assets/june11-07.png" alt="Article image" class="article-hero-img fade-in">
+
+    <div class="article-body fade-in">
+      <h3>起點：一個材料問題</h3>
+<p class="h3-en">The Starting Point: A Material Problem</p>
+<p>大多數人不會想到：一雙襪子的誕生，可以從一個材料問題開始。</p>
+<p class="p-en">Most people wouldn't think: the birth of a pair of socks can start from a material problem.</p>
+
+<p>但 reform. 的起點，就是一個材料問題。</p>
+<p class="p-en">But reform.'s starting point was a material problem.</p>
+
+<p>二〇二一年，我們的創始人在墊上練習時，注意到一個重複出現的問題：市場上的「防滑襪」，要不摩擦力太強，做完一小時練習，腳底闆都痛；要不摩擦力不夠，做什麼動作襪子都在滑。</p>
+<p class="p-en">In 2021, our founder noticed a recurring problem during mat practice: the "anti-slip socks" on the market either had too much friction—after an hour of practice, the soles ached—or too little friction—the socks slipped with every movement.</p>
+
+<p>這不是主觀感受。這是物理問題。而物理問題，需要物理解法。</p>
+<p class="p-en">This wasn't subjective feeling. It was a physics problem. And physics problems require physics solutions.</p>
+
+<h3>圖案測試：找到那個甜區</h3>
+<p class="h3-en">Pattern Testing: Finding the Sweet Spot</p>
+<p>防滑襪的核心是表面結構。而表面結構的設計，有一個「甜區」——摩擦力太強，腳底痛；摩擦力太弱，會滑。</p>
+<p class="p-en">The core of anti-slip socks is surface structure. And surface structure design has a "sweet spot"—friction too strong, feet hurt; friction too weak, slip.</p>
+
+<p>我們測試了三十七種不同的圖案方案。</p>
+<p class="p-en">We tested thirty-seven different pattern schemes.</p>
+
+<p>第一個方案：經典的點狀圖案。摩擦力足夠，但磨損太快。第十五次洗滌後，性能下降明顯。</p>
+<p class="p-en">First scheme: classic dot pattern. Friction was sufficient, but wear was too fast. After the fifteenth wash, performance dropped noticeably.</p>
+
+<p>第二個方案：線性圖案。更均勻的磨損，但初始摩擦力不夠強。</p>
+<p class="p-en">Second scheme: linear pattern. More even wear, but initial friction wasn't strong enough.</p>
+
+<p>第三、七、十三、二十二、三十七號方案……每一次失敗，都讓我們更接近那個甜區。</p>
+<p class="p-en">Schemes three, seven, thirteen, twenty-two, thirty-seven... each failure brought us closer to that sweet spot.</p>
+
+<h3>磨損測試：這個襪子能穿多久</h3>
+<p class="h3-en">Wear Testing: How Long Can These Socks Last</p>
+<p>找到甜區只是第一步。第二步是：確保存住甜區。</p>
+<p class="p-en">Finding the sweet spot was just the first step. The second step: ensuring the sweet spot is maintained.</p>
+
+<p>大多數人一雙襪子穿多久？一個月？兩個月？我們需要確保：在這個時間範圍內，摩擦力不會下降到「不舒服」的程度。</p>
+<p class="p-en">How long do most people wear a pair of socks? One month? Two months? We needed to ensure: within this timeframe, friction wouldn't drop to an "uncomfortable" level.</p>
+
+<p>所以我們做了磨損測試。不是模擬測試，是真實的磨損測試。</p>
+<p class="p-en">So we did wear testing. Not simulated testing—real wear testing.</p>
+
+<p>我們找了八位測試者，讓他們連續三個月穿同一雙襪子、每週至少三次、每次至少一小時。記錄每一次的摩擦力變化。</p>
+<p class="p-en">We found eight testers and had them wear the same pair of socks for three consecutive months, at least three times per week, at least one hour each time. Recording every change in friction.</p>
+
+<p>第三十七號方案，通過了這個測試。</p>
+<p class="p-en">Scheme thirty-seven passed this test.</p>
+
+<h3>洗滌測試：這個襪子能洗多少次</h3>
+<p class="h3-en">Washing Testing: How Many Times Can These Socks Be Washed</p>
+<p>但磨損不是唯一的敵人。洗滌，才是。</p>
+<p class="p-en">But wear wasn't the only enemy. Washing was.</p>
+
+<p>大多數功能性紡織品，在第一次洗滌後就會開始降解。高溫、洗滌劑、機器的力量——每一個都會破壞材料的結構。</p>
+<p class="p-en">Most functional textiles start degrading after the first wash. High temperatures, detergents, the force of the machine—each breaks down the material's structure.</p>
+
+<p>我們需要一種材料，可以在反覆洗滌後依然保持性能。</p>
+<p class="p-en">We needed a material that could maintain performance after repeated washing.</p>
+
+<p>第四十二次測試的時候，我們終於找到了答案：在材料中加入一個穩定添加劑，讓洗滌反而使摩擦力稍微增加。</p>
+<p class="p-en">At the forty-second test, we finally found the answer: adding a stabilizing additive to the material so that washing actually slightly increased friction.</p>
+
+<h3>我們學到了什麼</h3>
+<p class="h3-en">What We Learned</p>
+<p>從實驗室到你的腳上，這雙襪子經歷了四十二次配方測試、三十七種圖案方案、三個月的磨損測試、和無數次洗滌循環。</p>
+<p class="p-en">From the lab to your feet, this pair of socks went through forty-two formula tests, thirty-seven pattern schemes, three months of wear testing, and countless wash cycles.</p>
+
+<p>但最重要的是：我們學到了「看不見的價值是什麼意思」。</p>
+<p class="p-en">But most importantly: we learned what "invisible value" means.</p>
+
+<p>一雙好的防滑襪，應該在你穿的時候存在感趨近於零。它只是安靜地在那裡，保証你的腳不滑，但永遠不會讓你注意到它。</p>
+<p class="p-en">A good pair of anti-slip socks should have near-zero presence when you wear them. They just quietly stay there, ensuring your feet don't slip, but never letting you notice them.</p>
+
+<p>如果你是穿著 reform. 的襪子，感覺不到它——那正是我們想要的。</p>
+<p class="p-en">If you can wear reform. socks and not feel them—that's exactly what we want.</p>
+      <p class="article-author"><span>By reform. Editorial Team · reform. 編輯團隊</span></p>
+    </div>
+
+    <a href="products.html" class="article-cta">
+      Explore reform. Socks 探索 reform. 襪子
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </article>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>REFORM.</h3><p>Professional anti-slip Pilates socks for women. 為女性設計的專業防滑襪。</p></div>
+      <div class="footer-links">
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul><li><a href="about.html">About Us 關於我們</a></li><li><a href="blog.html">Journal 日誌</a></li><li><a href="contact.html">Contact 聯繫</a></li></ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul><li><a href="shipping.html">Shipping 配送</a></li><li><a href="returns.html">Returns 退換</a></li><li><a href="faq.html">FAQ 常見問題</a></li><li><a href="size-guide.html">Size Guide 尺寸指南</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 reform. All rights reserved. 版權所有。</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

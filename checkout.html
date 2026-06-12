@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout 結帳 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .checkout-page { padding: 8rem 2rem 6rem; max-width: 1200px; margin: 0 auto; }
+    .checkout-header { text-align: center; margin-bottom: 4rem; }
+    .checkout-header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; margin-bottom: 1rem; }
+    .checkout-header p { font-size: 1rem; color: var(--gray); }
+    
+    .checkout-empty { text-align: center; padding: 6rem 2rem; }
+    .checkout-empty h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem; }
+    .checkout-empty p { color: var(--gray); margin-bottom: 2.5rem; }
+    .checkout-empty .btn-continue { 
+      display: inline-flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 2.5rem; background: var(--black); color: var(--white);
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.3s ease;
+    }
+    .checkout-empty .btn-continue:hover { background: var(--rose); }
+    
+    .checkout-content { display: none; }
+    .checkout-content.active { display: block; }
+    
+    .checkout-layout { display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: start; }
+    
+    .checkout-form-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-light); }
+    
+    .form-section { margin-bottom: 3rem; }
+    .form-section-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--black); }
+    
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-grid .full { grid-column: 1 / -1; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .form-group input, .form-group select, .form-group textarea { 
+      padding: 1rem 1.2rem; border: 1px solid var(--gray-light); background: var(--white);
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--black); outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group input::placeholder { color: var(--gray-light); }
+    .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    
+    .shipping-options { display: flex; flex-direction: column; gap: 1rem; }
+    .shipping-option { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border: 1px solid var(--gray-light); cursor: pointer; transition: all 0.2s; }
+    .shipping-option:hover { border-color: var(--gold); }
+    .shipping-option.selected { border-color: var(--gold); background: var(--cream); }
+    .shipping-option input { display: none; }
+    .shipping-option .radio { width: 18px; height: 18px; border: 2px solid var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .shipping-option.selected .radio { border-color: var(--gold); }
+    .shipping-option.selected .radio::after { content: ''; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; }
+    .shipping-option-info { flex: 1; }
+    .shipping-option-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .shipping-option-time { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray); }
+    .shipping-option-price { font-family: var(--font-mono); font-size: 0.9rem; }
+    
+    .payment-options { display: flex; flex-direction: column; gap: 1rem; }
+    .payment-option { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border: 1px solid var(--gray-light); cursor: pointer; transition: all 0.2s; }
+    .payment-option:hover { border-color: var(--gold); }
+    .payment-option.selected { border-color: var(--gold); background: var(--cream); }
+    .payment-option input { display: none; }
+    .payment-option .radio { width: 18px; height: 18px; border: 2px solid var(--gray-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .payment-option.selected .radio { border-color: var(--gold); }
+    .payment-option.selected .radio::after { content: ''; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; }
+    .payment-option-info { flex: 1; }
+    .payment-option-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .payment-option-desc { font-size: 0.8rem; color: var(--gray); }
+    
+    .card-fields { display: none; }
+    .card-fields.active { display: block; }
+    
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    
+    .order-note { margin-top: 2rem; padding: 1.5rem; background: var(--cream); border-left: 3px solid var(--gold); }
+    .order-note p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+    
+    .btn-place-order { 
+      width: 100%; margin-top: 2rem; padding: 1.4rem 2rem;
+      background: var(--black); color: var(--white);
+      font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .btn-place-order:hover { background: var(--rose); }
+    
+    .checkout-summary { background: var(--cream); padding: 2.5rem; position: sticky; top: 8rem; }
+    .checkout-summary h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; }
+    
+    .checkout-items { margin-bottom: 2rem; }
+    .checkout-item { display: flex; gap: 1.2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--gray-light); }
+    .checkout-item:last-child { border-bottom: none; }
+    .checkout-item-image { width: 80px; height: 80px; object-fit: cover; background: var(--white); }
+    .checkout-item-info { flex: 1; }
+    .checkout-item-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .checkout-item-variant { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray); margin-bottom: 0.3rem; }
+    .checkout-item-price { font-family: var(--font-mono); font-size: 0.85rem; }
+    
+    .summary-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--gray-light); font-size: 0.95rem; }
+    .summary-row:last-of-type { border-bottom: none; }
+    .summary-row.total { font-size: 1.1rem; font-weight: 500; padding-top: 1.2rem; margin-top: 0.5rem; border-top: 2px solid var(--black); }
+    .summary-row .label { color: var(--gray); }
+    .summary-row .value { font-family: var(--font-mono); }
+    
+    .secure-badge { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 2rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; }
+    .secure-badge svg { width: 14px; height: 14px; }
+    
+    .return-cart { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; text-decoration: none; }
+    .return-cart:hover { color: var(--black); }
+    .return-cart svg { width: 14px; height: 14px; }
+    
+    @media (max-width: 900px) {
+      .checkout-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .checkout-summary { position: static; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    
+    .back-btn { position: fixed; top: 7rem; left: 2rem; z-index: 100; display: flex; align-items: center; gap: 0.5rem; color: var(--black); text-decoration: none; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s; }
+    .back-btn:hover { opacity: 1; }
+    .back-btn svg { width: 18px; height: 18px; }
+    
+    .promo-form { display: flex; gap: 0; margin-top: 1.5rem; }
+    .promo-form input { flex: 1; padding: 1rem 1.2rem; border: 1px solid var(--gray-light); border-right: none; font-family: var(--font-body); font-size: 0.85rem; outline: none; }
+    .promo-form input:focus { border-color: var(--gold); }
+    .promo-form button { padding: 1rem 1.5rem; background: var(--black); color: var(--white); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; }
+    .promo-form button:hover { background: var(--rose); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <a href="cart.html" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    ← Back to Cart 返回購物車
+  </a>
+
+  <main class="checkout-page">
+    <div class="checkout-header fade-in">
+      <h1>Checkout 結帳</h1>
+      <p>Complete your order 完成您的訂單</p>
+    </div>
+
+    <div class="checkout-empty" id="checkoutEmpty">
+      <h2>Your cart is empty 您的購物車是空的</h2>
+      <p>Add some products before checking out. 新增一些商品後再結帳。</p>
+      <a href="products.html" class="btn-continue">
+        Browse Products 瀏覽產品
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="checkout-content" id="checkoutContent">
+      <a href="cart.html" class="return-cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Return to Cart 返回購物車
+      </a>
+
+      <div class="checkout-layout">
+        <div class="checkout-form-section">
+          <form id="checkoutForm">
+            <section class="form-section">
+              <h2 class="form-section-title">Contact Information 聯絡資訊</h2>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="email">Email 電子郵件 *</label>
+                  <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone 電話 *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+886 9XX XXX XXX" required>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="form-section-title">Shipping Address 配送地址</h2>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="firstName">First Name 名 *</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="婉如" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name 姓 *</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="陳" required>
+                </div>
+                <div class="form-group full">
+                  <label for="address">Address 地址 *</label>
+                  <input type="text" id="address" name="address" placeholder="台北市大安區忠孝東路四段 101 號" required>
+                </div>
+                <div class="form-group">
+                  <label for="city">City 城市 *</label>
+                  <input type="text" id="city" name="city" placeholder="台北市" required>
+                </div>
+                <div class="form-group">
+                  <label for="zip">Postal Code 郵遞區號 *</label>
+                  <input type="text" id="zip" name="zip" placeholder="106" required>
+                </div>
+                <div class="form-group full">
+                  <label for="country">Country / Region 國家/地區 *</label>
+                  <select id="country" name="country" required>
+                    <option value="TW">Taiwan 台灣</option>
+                    <option value="HK">Hong Kong 香港</option>
+                    <option value="MO">Macau 澳門</option>
+                    <option value="CN">China 中國</option>
+                    <option value="JP">Japan 日本</option>
+                    <option value="KR">South Korea 南韓</option>
+                    <option value="SG">Singapore 新加坡</option>
+                    <option value="US">United States 美國</option>
+                    <option value="GB">United Kingdom 英國</option>
+                    <option value="AU">Australia 澳洲</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="form-section-title">Shipping Method 配送方式</h2>
+              <div class="shipping-options">
+                <label class="shipping-option selected" data-price="0">
+                  <input type="radio" name="shipping" value="free" checked>
+                  <div class="radio"></div>
+                  <div class="shipping-option-info">
+                    <div class="shipping-option-name">Standard Shipping 標準配送 <span style="color: var(--gold); font-size: 0.8rem;">(Free 免費)</span></div>
+                    <div class="shipping-option-time">7-14 business days 7-14 個工作天</div>
+                  </div>
+                  <div class="shipping-option-price">NT$0</div>
+                </label>
+                <label class="shipping-option" data-price="250">
+                  <input type="radio" name="shipping" value="express">
+                  <div class="radio"></div>
+                  <div class="shipping-option-info">
+                    <div class="shipping-option-name">Express Shipping 快速配送</div>
+                    <div class="shipping-option-time">3-5 business days 3-5 個工作天</div>
+                  </div>
+                  <div class="shipping-option-price">NT$250</div>
+                </label>
+                <label class="shipping-option" data-price="450">
+                  <input type="radio" name="shipping" value="premium">
+                  <div class="radio"></div>
+                  <div class="shipping-option-info">
+                    <div class="shipping-option-name">Premium Delivery 頂級配送</div>
+                    <div class="shipping-option-time">1-2 business days 1-2 個工作天</div>
+                  </div>
+                  <div class="shipping-option-price">NT$450</div>
+                </label>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="form-section-title">Payment Method 付款方式</h2>
+              <div class="payment-options">
+                <label class="payment-option selected" data-method="card">
+                  <input type="radio" name="payment" value="card" checked>
+                  <div class="radio"></div>
+                  <div class="payment-option-info">
+                    <div class="payment-option-name">Credit / Debit Card 信用卡/金融卡</div>
+                    <div class="payment-option-desc">Visa, Mastercard, JCB, UnionPay 接受Visa、Mastercard、JCB、銀聯卡</div>
+                  </div>
+                </label>
+                <label class="payment-option" data-method="linepay">
+                  <input type="radio" name="payment" value="linepay">
+                  <div class="radio"></div>
+                  <div class="payment-option-info">
+                    <div class="payment-option-name">LINE Pay</div>
+                    <div class="payment-option-desc">Pay with your LINE account 使用您的 LINE 帳戶付款</div>
+                  </div>
+                </label>
+                <label class="payment-option" data-method="atm">
+                  <input type="radio" name="payment" value="atm">
+                  <div class="radio"></div>
+                  <div class="payment-option-info">
+                    <div class="payment-option-name">ATM Transfer 自動櫃員機轉帳</div>
+                    <div class="payment-option-desc">Virtual account payment 虛擬帳號轉帳</div>
+                  </div>
+                </label>
+                <label class="payment-option" data-method="cod">
+                  <input type="radio" name="payment" value="cod">
+                  <div class="radio"></div>
+                  <div class="payment-option-info">
+                    <div class="payment-option-name">Cash on Delivery 貨到付款</div>
+                    <div class="payment-option-desc">Pay when you receive your order 收到商品時付款 (+NT$30 service fee 額外手續費)</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="card-fields" id="cardFields">
+                <div class="form-group" style="margin-top: 1.5rem;">
+                  <label for="cardNumber">Card Number 卡號 *</label>
+                  <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+                </div>
+                <div class="form-row" style="margin-top: 1.2rem;">
+                  <div class="form-group">
+                    <label for="cardExpiry">Expiry Date 有效期 *</label>
+                    <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5">
+                  </div>
+                  <div class="form-group">
+                    <label for="cardCvc">CVC / CVV *</label>
+                    <input type="text" id="cardCvc" name="cardCvc" placeholder="123" maxlength="4">
+                  </div>
+                </div>
+                <div class="form-group" style="margin-top: 1.2rem;">
+                  <label for="cardName">Name on Card 持卡人姓名 *</label>
+                  <input type="text" id="cardName" name="cardName" placeholder="WAN-JU CHEN">
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="form-section-title">Order Note 訂單備註</h2>
+              <div class="form-group">
+                <label for="notes">Special Instructions 特別說明 (Optional 選填)</label>
+                <textarea id="notes" name="notes" placeholder="Any special delivery instructions or requests? 任何特殊的配送說明或要求？"></textarea>
+              </div>
+            </section>
+
+            <button type="submit" class="btn-place-order">
+              Place Order 確認訂單
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="checkout-summary">
+          <h2>Order Summary 訂單摘要</h2>
+          <div class="checkout-items" id="checkoutItems"></div>
+          
+          <div class="summary-row">
+            <span class="label">Subtotal 小計</span>
+            <span class="value" id="checkoutSubtotal">NT$0</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Shipping 運費</span>
+            <span class="value" id="checkoutShipping">NT$0</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Discount 折扣</span>
+            <span class="value" id="checkoutDiscount">-NT$0</span>
+          </div>
+          <div class="summary-row total">
+            <span class="label">Total 總計</span>
+            <span class="value" id="checkoutTotal">NT$0</span>
+          </div>
+
+          <div class="promo-form">
+            <input type="text" id="promoCode" placeholder="Promo Code 優惠碼">
+            <button type="button" onclick="applyPromo()">Apply 套用</button>
+          </div>
+
+          <div class="secure-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Secure Checkout 安全結帳
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>REFORM.</h3><p>Professional anti-slip Pilates socks for women. 為女性設計的專業防滑襪。</p></div>
+      <div class="footer-links"><h4>Shop 商店</h4><ul><li><a href="products.html">All Products 所有產品</a></li><li><a href="product-classic.html">Classic 經典款</a></li><li><a href="product-pro.html">Pro 專業款</a></li><li><a href="product-elite.html">Elite 頂級款</a></li></ul></div>
+      <div class="footer-links"><h4>Company 公司</h4><ul><li><a href="about.html">About Us 關於我們</a></li><li><a href="blog.html">Journal 日誌</a></li><li><a href="contact.html">Contact 聯繫</a></li></ul></div>
+      <div class="footer-links"><h4>Support 支援</h4><ul><li><a href="shipping.html">Shipping 配送</a></li><li><a href="returns.html">Returns 退換</a></li><li><a href="faq.html">FAQ 常見問題</a></li><li><a href="size-guide.html">Size Guide 尺寸指南</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 reform. All rights reserved. 版權所有。</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCheckoutUI();
+      
+      // Shipping option selection
+      document.querySelectorAll('.shipping-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.shipping-option').forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+          updateCheckoutTotals();
+        });
+      });
+      
+      // Payment option selection
+      document.querySelectorAll('.payment-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+          const method = this.dataset.method;
+          document.getElementById('cardFields').classList.toggle('active', method === 'card');
+        });
+      });
+      
+      // Form submission
+      document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const cart = JSON.parse(localStorage.getItem('reformCart') || '[]');
+        if (cart.length === 0) {
+          alert('Your cart is empty. 您的購物車是空的。');
+          return;
+        }
+        // Store order info and redirect
+        const formData = new FormData(this);
+        const orderData = {
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          firstName: formData.get('firstName'),
+          lastName: formData.get('lastName'),
+          address: formData.get('address'),
+          city: formData.get('city'),
+          zip: formData.get('zip'),
+          country: formData.get('country'),
+          shipping: document.querySelector('input[name="shipping"]:checked').value,
+          payment: document.querySelector('input[name="payment"]:checked').value,
+          notes: formData.get('notes'),
+          items: cart,
+          subtotal: calculateSubtotal(),
+          shippingCost: getSelectedShippingCost(),
+          total: calculateSubtotal() + getSelectedShippingCost()
+        };
+        localStorage.setItem('reformLastOrder', JSON.stringify(orderData));
+        localStorage.removeItem('reformCart');
+        window.location.href = 'order-confirmation.html';
+      });
+    });
+    
+    function calculateSubtotal() {
+      const cart = JSON.parse(localStorage.getItem('reformCart') || '[]');
+      return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    }
+    
+    function getSelectedShippingCost() {
+      const selected = document.querySelector('.shipping-option.selected');
+      return selected ? parseInt(selected.dataset.price) : 0;
+    }
+    
+    function updateCheckoutUI() {
+      const cart = JSON.parse(localStorage.getItem('reformCart') || '[]');
+      const checkoutEmpty = document.getElementById('checkoutEmpty');
+      const checkoutContent = document.getElementById('checkoutContent');
+      
+      if (cart.length === 0) {
+        checkoutEmpty.style.display = 'block';
+        checkoutContent.classList.remove('active');
+      } else {
+        checkoutEmpty.style.display = 'none';
+        checkoutContent.classList.add('active');
+        
+        // Render checkout items
+        const checkoutItems = document.getElementById('checkoutItems');
+        checkoutItems.innerHTML = cart.map(item => `
+          <div class="checkout-item">
+            <img src="${item.image}" alt="${item.name}" class="checkout-item-image">
+            <div class="checkout-item-info">
+              <div class="checkout-item-name">${item.name}</div>
+              <div class="checkout-item-variant">${item.size} / Qty: ${item.qty}</div>
+              <div class="checkout-item-price">NT$${item.price * item.qty}</div>
+            </div>
+          </div>
+        `).join('');
+        
+        updateCheckoutTotals();
+      }
+    }
+    
+    function updateCheckoutTotals() {
+      const subtotal = calculateSubtotal();
+      const shippingCost = getSelectedShippingCost();
+      const total = subtotal + shippingCost;
+      
+      document.getElementById('checkoutSubtotal').textContent = `NT$${subtotal.toLocaleString()}`;
+      document.getElementById('checkoutShipping').textContent = shippingCost === 0 ? 'Free 免費' : `NT$${shippingCost}`;
+      document.getElementById('checkoutTotal').textContent = `NT$${total.toLocaleString()}`;
+    }
+    
+    function applyPromo() {
+      const code = document.getElementById('promoCode').value.trim().toUpperCase();
+      // Promo codes (mock)
+      const promos = { 'REFORM10': 10, 'FIRST20': 20, 'VIP30': 30 };
+      if (promos[code]) {
+        alert(`Promo code applied! ${promos[code]}% off.
+優惠碼已套用，省 ${promos[code]}%。`);
+      } else {
+        alert('Invalid promo code. 無效的優惠碼。');
+      }
+    }
+  </script>
+</body>
+</html>

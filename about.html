@@ -3,197 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — reform.</title>
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="reform." />
-  <meta property="og:title" content="About reform. — be the reform" />
-  <meta property="og:description" content="了解 reform. 的品牌故事，我們相信好的設計應該成為你的一部分。" />
-  <meta property="og:image" content="assets/reform-lifestyle-hero.png" />
-  <meta property="og:url" content="https://aipokemon1027-cloud.github.io/reform-brand-website/about.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About reform. — be the reform" />
-  <meta name="twitter:description" content="了解 reform. 的品牌故事，我們相信好的設計應該成為你的一部分。" />
-  <meta name="twitter:image" content="assets/reform-lifestyle-hero.png" />
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>About Us 關於我們 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Navigation -->
   <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">reform.</a>
-      <div class="nav-links">
-        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
-        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
-        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-      </div>
-      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-      </button>
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
     </div>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
-      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
-      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-    </div>
+  <div class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close">×</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
   </div>
 
-  <!-- Page Header -->
+  <a href="index.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Home 返回首頁
+  </a>
+
   <header class="page-header">
-    <div class="page-header-inner">
-      <span class="section-label">About</span>
-      <h1 class="page-title">我們的故事</h1>
-    </div>
+    <h1 class="display-lg fade-in">Our Story<br>我們的故事</h1>
+    <p class="fade-in">Precision-engineered for women who demand more from their practice.<br>為追求更高品質練習的女性而設計。</p>
   </header>
 
-  <!-- Story Section -->
-  <section class="about-story">
-    <div class="about-story-inner">
-      <div class="about-story-grid">
-        <div class="about-story-visual">
-          <div class="about-img-large">
-            <img loading="lazy" src="assets/reform-lifestyle-hero.png" alt="About reform." class="about-img-src" />
-          </div>
-        </div>
-        <div class="about-story-content">
-          <h2 class="about-heading">從一個問題開始</h2>
-          <p class="about-text">
-            還記得第一次走進 Pilates 教室的那一刻嗎？陌生的動作、不熟悉的節奏，
-            還有那雙總是滑動的普通襪子。
-          </p>
-          <p class="about-text">
-            2024 年的某一天，我們決定不再妥協。為什麼沒有一雙襪子，
-            可以同時做到防滑、舒適、而且好看？我們找遍了市場，答案是不。
-          </p>
-          <p class="about-text">
-            所以乾脆自己來做。
-          </p>
-        </div>
+  <section class="about-intro">
+    <h2 class="display-lg fade-in">
+      We believe that every detail matters.<br>
+      Every thread. Every grip. Every breath.<br>
+      我們相信每個細節都很重要。
+    </h2>
+    <p class="fade-in">
+      reform. was founded in Taipei by a team of Pilates instructors and product designers who shared one frustration: the socks available on the market simply weren't good enough. They slipped, bunched, and distracted from what should be a focused, meditative practice.
+      reform. 由一群 Pilates 教練和產品設計師在台北創立，我們有一個共同的挫折：市場上現有的襪子根本不夠好。它們會滑落、捲曲，讓應該專注的練習分心。
+    </p>
+    <p class="fade-in" style="margin-top: 1.5rem;">
+      So we made our own. After two years of research, prototyping, and testing with over 500 practitioners, we created socks that stay in place, feel incredible, and last. 所以我們自己製作。經過兩年的研究、開發和超過 500 位練習者的測試，我們創造了能固定位置、舒適感驚人且耐用的襪子。
+    </p>
+  </section>
+
+  <section class="philosophy-section" style="height: 60vh;">
+    <img src="assets/reform-lifestyle-hero.png" alt="Our design studio">
+    <div class="philosophy-overlay">
+      <div class="philosophy-content fade-in">
+        <h2>Designed in Taipei, Crafted for the World<br>台北設計，服務全球</h2>
+        <p>Every pair of reform. socks goes through 12 quality checkpoints before reaching you.<br>每一雙 reform. 襪子在到達您手中前都會經過 12 道品質檢查。</p>
       </div>
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="about-mission">
-    <div class="about-mission-inner">
-      <div class="about-mission-number">01</div>
-      <div class="about-mission-content">
-        <h2 class="about-mission-title">我們的使命很簡單</h2>
-        <p class="about-mission-text">
-          讓每一個動作，都是你的。墊子上的那一個小時，值得被好好對待。
-          <br><br>
-          reform. 不只是運動配件。我們相信，當你穿的、用的，都是為你設計的，
-          你的表現會自然地不同。
-        </p>
+  <section class="team-section">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <span class="caption fade-in">The Team 我們的團隊</span>
+      <h2 class="display-md fade-in">Meet the people behind reform.<br>認識 reform. 背後的人</h2>
+    </div>
+    
+    <div class="team-grid">
+      <div class="team-member fade-in">
+        <div class="team-photo">
+          <img src="assets/reform-product-01.png" alt="Lin Wei">
+        </div>
+        <h3 class="team-name">Lin Wei 林薇</h3>
+        <span class="team-role">Founder & CEO 創辦人</span>
+      </div>
+      <div class="team-member fade-in">
+        <div class="team-photo">
+          <img src="assets/reform-gift-set.png" alt="Chen Yi-Ling">
+        </div>
+        <h3 class="team-name">Chen Yi-Ling 陳怡伶</h3>
+        <span class="team-role">Head of Product 產品主管</span>
+      </div>
+      <div class="team-member fade-in">
+        <div class="team-photo">
+          <img src="assets/reform-product-detail.png" alt="Marco Huang">
+        </div>
+        <h3 class="team-name">Marco Huang 黃Marco</h3>
+        <span class="team-role">Lead Designer 設計總監</span>
       </div>
     </div>
   </section>
 
-  <!-- Values Section -->
-  <section class="about-values">
-    <div class="about-values-inner">
-      <div class="about-values-header">
-        <span class="section-label">Values</span>
-        <h2 class="section-title">價值觀</h2>
-      </div>
-      <div class="about-values-grid">
-        <div class="about-value-item">
-          <h3 class="about-value-title">功能先行</h3>
-          <p class="about-value-text">從功能出發，時尚是結果，不是出發點。</p>
-        </div>
-        <div class="about-value-item">
-          <h3 class="about-value-title">材料說話</h3>
-          <p class="about-value-text">只選我們願意每天穿的材料。透氣，支撐，耐久。</p>
-        </div>
-        <div class="about-value-item">
-          <h3 class="about-value-title">簡化複雜</h3>
-          <p class="about-value-text">不提供選擇困難。每一個款式，都是我們的反覆測試後的唯一答案。</p>
-        </div>
-        <div class="about-value-item">
-          <h3 class="about-value-title">持續改進</h3>
-          <p class="about-value-text">昨天的不夠好，是今天的標配。一直測試，一直前進。</p>
-        </div>
-      </div>
+  <section class="stats-row" style="margin: 0;">
+    <div class="stat-item fade-in">
+      <div class="stat-number">2024</div>
+      <div class="stat-label">Founded 創立</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Beta Testers 測試者</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Quality Checks 品管</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Sustainable 永續</div>
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="about-team">
-    <div class="about-team-inner">
-      <div class="about-team-header">
-        <span class="section-label">Team</span>
-        <h2 class="section-title">成員</h2>
-      </div>
-      <div class="about-team-grid">
-        <div class="about-team-member">
-          <div class="about-team-img">
-            <img loading="lazy" src="assets/reform-product-01.png" alt="KURT" class="about-team-img-src" />
-          </div>
-          <h3 class="about-team-name">KURT</h3>
-          <p class="about-team-role">Founder & Designer</p>
-        </div>
-        <div class="about-team-member">
-          <div class="about-team-img">
-            <img loading="lazy" src="assets/reform-gift-set.png" alt="小陽" class="about-team-img-src" />
-          </div>
-          <h3 class="about-team-name">小陽</h3>
-          <p class="about-team-role">Creative Director</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="about-cta">
-    <div class="about-cta-inner">
-      <h2 class="about-cta-title">你的第一步，在這裡。</h2>
-      <p class="about-cta-text">探索我們的系列，開始感覺對了的那一刻。</p>
-      <a href="products.html" class="btn-primary"><span class="en">View Products</span><span class="cn">看產品</span></a>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-logo">reform.</span>
-        <p class="footer-tagline">be the reform</p>
+        <h3>REFORM.</h3>
+        <p>Professional anti-slip Pilates socks engineered for women. 為女性設計的專業防滑襪。</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
-          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Accessories</span><span class="cn">配件</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
-          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
-          <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-          <a href="contact.html" class="footer-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
-          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
-          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
-        </div>
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul>
+          <li><a href="about.html">About Us 關於我們</a></li>
+          <li><a href="blog.html">Journal 日誌</a></li>
+          <li><a href="contact.html">Contact 聯繫</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul>
+          <li><a href="shipping.html">Shipping 配送</a></li>
+          <li><a href="returns.html">Returns 退換</a></li>
+          <li><a href="faq.html">FAQ 常見問題</a></li>
+          <li><a href="size-guide.html">Size Guide 尺寸指南</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 reform. All rights reserved. 版權所有。</p>
+      <div class="social-links">
+        <a href="https://instagram.com/reform.pilates" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>

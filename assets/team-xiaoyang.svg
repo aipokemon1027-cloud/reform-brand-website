@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#F5EEF8"/>
+      <stop offset="100%" stop-color="#EDE4F0"/>
+    </radialGradient>
+    <radialGradient id="face" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#F0D8CC"/>
+      <stop offset="100%" stop-color="#E0C4B8"/>
+    </radialGradient>
+    <linearGradient id="top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8D4E8"/>
+      <stop offset="100%" stop-color="#D8C4DC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bg)"/>
+
+  <!-- Subtle abstract shape -->
+  <ellipse cx="200" cy="185" rx="105" ry="125" fill="#E8D8EC" opacity="0.5"/>
+
+  <!-- Neck / shoulders hint - soft lavender top -->
+  <path d="M130 340 Q130 295 155 270 L155 255 Q200 268 245 255 L245 270 Q270 295 270 340 Z" fill="url(#top)" opacity="0.8"/>
+
+  <!-- Hair - long, soft, past shoulder -->
+  <path d="M100 200 Q95 120 200 105 Q305 120 300 200 Q295 165 200 155 Q105 165 100 200 Z" fill="#2A1A2E"/>
+  <path d="M100 200 Q85 230 88 270 Q90 290 95 280 Q92 250 100 210 Z" fill="#2A1A2E"/>
+  <path d="M300 200 Q315 230 312 270 Q310 290 305 280 Q308 250 300 210 Z" fill="#2A1A2E"/>
+  <!-- Hair texture -->
+  <path d="M105 210 Q100 250 105 285" stroke="#3D2B40" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M295 210 Q300 250 295 285" stroke="#3D2B40" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- Face shape -->
+  <ellipse cx="200" cy="195" rx="68" ry="82" fill="url(#face)"/>
+
+  <!-- Ears (partially covered by hair) -->
+  <ellipse cx="132" cy="200" rx="8" ry="12" fill="#E0C4B8" opacity="0.7"/>
+  <ellipse cx="268" cy="200" rx="8" ry="12" fill="#E0C4B8" opacity="0.7"/>
+
+  <!-- Eyebrows - soft, refined -->
+  <path d="M160 172 Q172 167 186 170" stroke="#2A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M214 170 Q228 167 240 172" stroke="#2A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Eyes - gentle, creative director energy -->
+  <ellipse cx="173" cy="188" rx="10" ry="7" fill="#1A1A1A"/>
+  <ellipse cx="227" cy="188" rx="10" ry="7" fill="#1A1A1A"/>
+  <!-- Eye shine -->
+  <circle cx="176" cy="186" r="3" fill="#FFFFFF" opacity="0.75"/>
+  <circle cx="230" cy="186" r="3" fill="#FFFFFF" opacity="0.75"/>
+
+  <!-- Nose -->
+  <path d="M200 196 L197 216 Q200 220 203 216 Z" fill="#C9A8A0" opacity="0.5"/>
+
+  <!-- Lips - natural, slight smile -->
+  <path d="M183 234 Q200 242 217 234" stroke="#C09090" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M187 234 Q200 238 213 234" fill="#D4A0A0" opacity="0.3"/>
+
+  <!-- Blush -->
+  <ellipse cx="158" cy="210" rx="16" ry="9" fill="#E8A090" opacity="0.18"/>
+  <ellipse cx="242" cy="210" rx="16" ry="9" fill="#E8A090" opacity="0.18"/>
+
+  <!-- Jawline -->
+  <path d="M148 238 Q143 262 158 282" stroke="#C9A8A0" stroke-width="1" fill="none" opacity="0.35"/>
+  <path d="M252 238 Q257 262 242 282" stroke="#C9A8A0" stroke-width="1" fill="none" opacity="0.35"/>
+
+  <!-- Initials overlay - subtle bottom right -->
+  <text x="370" y="385" font-family="Cormorant Garamond, serif" font-size="11" fill="#C8B8E8" opacity="0.5" text-anchor="end" letter-spacing="2">X</text>
+</svg>

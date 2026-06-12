@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我們的第一次線下活動 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-page { padding: 8rem 2rem 6rem; max-width: 900px; margin: 0 auto; }
+    .article-meta { text-align: center; margin-bottom: 2.5rem; }
+    .article-meta .category { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .article-date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray); letter-spacing: 0.1em; }
+    .article-header { margin-bottom: 3rem; }
+    .article-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.5rem; color: var(--black); }
+    .article-title-en { font-family: var(--font-display); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 300; font-style: italic; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.3; }
+    .article-subtitle { font-size: 1rem; color: var(--gray-dark); margin-bottom: 1rem; line-height: 1.7; }
+    .article-subtitle-en { font-size: 0.95rem; color: var(--gray); font-style: italic; line-height: 1.6; }
+    .article-hero-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; margin-bottom: 4rem; display: block; }
+    .article-divider { width: 60px; height: 1px; background: var(--gold); margin: 3rem auto; }
+    .article-body { max-width: 720px; margin: 0 auto; }
+    .article-body h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 3.5rem 0 1.2rem; color: var(--black); line-height: 1.3; }
+    .article-body .h3-en { font-family: var(--font-display); font-size: 1rem; font-weight: 300; font-style: italic; color: var(--gray); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-light); }
+    .article-body p { font-size: 1.05rem; line-height: 1.9; color: var(--gray-dark); margin-bottom: 1.6rem; }
+    .article-body .p-en { font-size: 0.95rem; line-height: 1.8; color: var(--gray); font-style: italic; border-left: 2px solid var(--gold); padding-left: 1.5rem; margin-top: -0.8rem; margin-bottom: 2rem; }
+    .article-author { text-align: center; padding: 3rem 0; border-top: 1px solid var(--gray-light); margin-top: 4rem; }
+    .article-author span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray); letter-spacing: 0.1em; }
+    .article-cta { display: inline-flex; align-items: center; gap: 1rem; padding: 1.2rem 2.5rem; background: var(--black); color: var(--white); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; margin-top: 3rem; transition: all 0.3s ease; }
+    .article-cta:hover { background: var(--rose); transform: translateX(5px); }
+    .back-btn { position: fixed; top: 7rem; left: 2rem; z-index: 100; display: flex; align-items: center; gap: 0.5rem; color: var(--black); text-decoration: none; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s; }
+    .back-btn:hover { opacity: 1; }
+    .back-btn svg { width: 18px; height: 18px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <a href="blog.html" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    ← Back to Journal 返回日誌
+  </a>
+
+  <article class="article-page">
+    <div class="article-meta fade-in">
+      <span class="category">Event</span>
+      <time class="article-date">2026.01.25</time>
+    </div>
+
+    <header class="article-header fade-in">
+      <h1 class="article-title">我們的第一次線下活動</h1>
+      <p class="article-title-en">Our First Offline Event</p>
+      <div class="article-divider"></div>
+      <p class="article-subtitle">三十個人，一個工作室，一個下午。</p>
+      <p class="article-subtitle-en">Thirty people. One studio. One afternoon.</p>
+    </header>
+
+    <img src="assets/reform-gift-set.png" alt="Article image" class="article-hero-img fade-in">
+
+    <div class="article-body fade-in">
+      <h3>三十個人，一個雨天</h3>
+<p class="h3-en">Thirty People, One Rainy Day</p>
+<p>十二月。台北。冬雨。</p>
+<p class="p-en">December. Taipei. Winter rain.</p>
+
+<p>我們本來預計在室外的一個天台舉辦這次活動。草皮、陽光、寬闘的空間。但天氣預報說那天會下雨，所以我們在最後一刻決定：移到室內。</p>
+<p class="p-en">We had originally planned to hold this event on an outdoor rooftop. Grass, sunlight, spacious environment. But the weather forecast said rain that day, so at the last minute we decided: move indoors.</p>
+
+<p>三十個人到了。沒有一個人因為天氣改變而退出。</p>
+<p class="p-en">Thirty people showed up. Not a single person dropped out because of the weather change.</p>
+
+<h3>為什麼選擇沉默</h3>
+<p class="h3-en">Why We Chose Silence</p>
+<p>這次活動的設計很特別：我們選擇全程不說話。</p>
+<p class="p-en">The design of this event was special: we chose complete silence throughout.</p>
+
+<p>不是開玩笑。引導員不说话。沒有背景音樂。沒有口頭指令。每個人安靜地做自己的練習，沒有任何人的干預。</p>
+<p class="p-en">Not joking. The instructor didn't speak. No background music. No verbal instructions. Everyone did their own practice in silence, without anyone's intervention.</p>
+
+<p>為什麼？因為我們想看看：當所有的「噪音」都被拿掉的時候，練習本身是什麼樣子的。</p>
+<p class="p-en">Why? Because we wanted to see: when all the "noise" is removed, what does the practice itself look like?</p>
+
+<p>結果讓我們安靜了很久。</p>
+<p class="p-en">The result kept us quiet for a long time.</p>
+
+<h3>那個早晨</h3>
+<p class="h3-en">That Morning</p>
+<p>活動在上午九點開始。每個人到來的時候，、工作人員只說了一句：「請安靜。請享受。」</p>
+<p class="p-en">The event started at 9 AM. When each person arrived, the staff only said: "Please be quiet. Please enjoy."</p>
+
+<p>一小時的練習。沒有說明，沒有示範，沒有互動。只是安靜地、通過自己的節奏、與自己的身體相處。</p>
+<p class="p-en">One hour of practice. No instructions, no demonstrations, no interaction. Just quietly, at your own pace, being with your own body.</p>
+
+<p>一小時後，大多數人仍然坐在墊子上。沒有人站起來離開。沒有人看手機。沒有人說話。</p>
+<p class="p-en">After an hour, most people were still sitting on their mats. No one stood up to leave. No one checked their phone. No one spoke.</p>
+
+<p>這種沉默，在我們的經驗裡，是罕見的。</p>
+<p class="p-en">In our experience, this kind of silence is rare.</p>
+
+<h3>那個群體</h3>
+<p class="h3-en">The Community</p>
+<p>活動結束後，我們提供了一個反饋表格。其中一個問題是：「如果未來有類似的活動，你會想參加嗎？」</p>
+<p class="p-en">After the event, we provided a feedback form. One question was: "If there are similar events in the future, would you like to participate?"</p>
+
+<p>回答「是」的人數：100%。</p>
+<p class="p-en">Number of people who answered "yes": 100%.</p>
+
+<p>另一個問題是：「你最喜歡這次活動的什麼？」最常見的回答不是「動作」，不是「環境」，不是「老師」。是最簡單的一個詞：「安静。」</p>
+<p class="p-en">Another question: "What did you like most about this event?" The most common answer wasn't "the movements," wasn't "the environment," wasn't "the instructor." It was the simplest word: "silence."</p>
+
+<h3>我們學到了什麼</h3>
+<p class="h3-en">What We Learned</p>
+<p>我們學到了：墊上練習者，其實比我們以為的更渴望安靜。</p>
+<p class="p-en">We learned: mat practitioners actually crave silence more than we thought.</p>
+
+<p>這個時代，「內容」過度生產。每一個應用、每一個平台、每一個空間，都在竞争你的注意力。墊上的那一小時，本應是這個噪音世界裡最安靜的地方——但它也在慢慢地被「內容化」。教練的語言、背景音樂、口令——這些都是內容。而內容疲勞是真实的。</p>
+<p class="p-en">In this era, "content" is overproduced. Every app, every platform, every space is competing for your attention. That one hour on the mat should be the quietest place in this noisy world—but it's also slowly being "content-ified." The instructor's words, background music, cues—these are all content. And content fatigue is real.</p>
+
+<p>我們想創造的，是一個真正的安靜空間。不是「更好的內容」，是「沒有內容」。</p>
+<p class="p-en">What we want to create is a truly quiet space. Not "better content," but "no content."</p>
+
+<p>如果未來有更多這樣的活動，也許我們會把「沉默」變成 reform. 的一個傳統。</p>
+<p class="p-en">If there are more such events in the future, perhaps we'll make "silence" a tradition of reform.</p>
+      <p class="article-author"><span>By reform. Editorial Team · reform. 編輯團隊</span></p>
+    </div>
+
+    <a href="products.html" class="article-cta">
+      Explore reform. Socks 探索 reform. 襪子
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </article>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>REFORM.</h3><p>Professional anti-slip Pilates socks for women. 為女性設計的專業防滑襪。</p></div>
+      <div class="footer-links">
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul><li><a href="about.html">About Us 關於我們</a></li><li><a href="blog.html">Journal 日誌</a></li><li><a href="contact.html">Contact 聯繫</a></li></ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul><li><a href="shipping.html">Shipping 配送</a></li><li><a href="returns.html">Returns 退換</a></li><li><a href="faq.html">FAQ 常見問題</a></li><li><a href="size-guide.html">Size Guide 尺寸指南</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 reform. All rights reserved. 版權所有。</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

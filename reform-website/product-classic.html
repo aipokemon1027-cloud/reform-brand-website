@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact 聯繫 | reform.</title>
+  <title>Classic 經典款 | reform.</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,79 +45,84 @@
     </ul>
   </div>
 
-  <a href="index.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+  <a href="products.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M19 12H5M12 19l-7-7 7-7"/>
     </svg>
-    Back to Home 返回首頁
+    Back to Products 返回產品
   </a>
 
-  <header class="page-header">
-    <h1 class="display-lg fade-in">Get in Touch<br>聯繫我們</h1>
-    <p class="fade-in">We'd love to hear from you. Questions, feedback, or just saying hello.<br>我們很樂意聽到您的聲音。問題、回饋，或只是打招呼。</p>
-  </header>
+  <section class="product-detail-section">
+    <div class="product-detail-grid">
+      <div class="product-gallery">
+        <div class="product-main-image fade-in">
+          <img src="assets/reform-product-01.png" alt="reform. Classic 經典款">
+        </div>
+        <div class="product-thumbnails">
+          <div class="product-thumb active">
+            <img src="assets/reform-product-01.png" alt="Classic Front">
+          </div>
+          <div class="product-thumb">
+            <img src="assets/reform-product-detail.png" alt="Classic Detail">
+          </div>
+          <div class="product-thumb">
+            <img src="assets/reform-gift-set.png" alt="Classic Package">
+          </div>
+          <div class="product-thumb">
+            <img src="assets/reform-lifestyle-hero.png" alt="Classic In Use">
+          </div>
+        </div>
+      </div>
 
-  <section class="contact-section">
-    <div class="contact-info fade-in">
-      <h2 class="display-sm">Let's Connect<br>保持聯繫</h2>
-      <p>Whether you're a first-time buyer or a long-time member of the reform. family, we're here to help.<br>無論您是第一次購買還是 reform. 大家庭的長期成員，我們都在這裡提供幫助。</p>
-      
-      <div class="contact-detail">
-        <h4>Email 電子郵件</h4>
-        <p>hello@reform-pilates.com</p>
-      </div>
-      
-      <div class="contact-detail">
-        <h4>Phone 電話</h4>
-        <p>+886 2 2771 5522</p>
-      </div>
-      
-      <div class="contact-detail">
-        <h4>Address 地址</h4>
-        <p>8th Floor, No. 128, Section 3<br>Minquan East Road, Songshan District<br>Taipei City 105, Taiwan<br>台北市松山區民權東路三段128號8樓</p>
-      </div>
-      
-      <div class="contact-detail">
-        <h4>Hours 營業時間</h4>
-        <p>Mon - Fri: 9:00 - 18:00<br>週一至週五: 上午9點至下午6點<br>Sat - Sun: Closed 週末休息</p>
+      <div class="product-info-detail fade-in">
+        <span class="caption">The Essential · 必備款</span>
+        <h1>Classic 經典款</h1>
+        <p class="product-price-detail">NT$ 680</p>
+        
+        <p class="product-description">
+          The foundation of your practice. Our Classic sock provides essential anti-slip protection with premium cotton blend comfort. Perfect for daily sessions and beginners. 練習的基礎。我們的經典款襪子提供基本防滑保護和優質棉質舒適感。
+        </p>
+
+        <div class="product-features">
+          <h3>Features 特點</h3>
+          <ul>
+            <li>Premium cotton blend 優質棉混紡</li>
+            <li>Essential grip zones 基本防滑區域</li>
+            <li>Breathable fabric 透氣面料</li>
+            <li>Arch support 足弓支撐</li>
+            <li>Machine washable 可機洗</li>
+          </ul>
+        </div>
+
+        <div class="product-colors-detail">
+          <h3>Color 顏色</h3>
+          <div class="color-options">
+            <span class="color-option" style="background: #1a1a1a;" title="Black 黑"></span>
+            <span class="color-option" style="background: #f5f0eb; border: 1px solid #ddd;" title="Cream 奶油"></span>
+            <span class="color-option" style="background: #c9a96e;" title="Gold 金"></span>
+            <span class="color-option" style="background: #c4837a;" title="Rose 玫瑰"></span>
+          </div>
+        </div>
+
+        <div class="product-sizes">
+          <h3>Size 尺寸</h3>
+          <div class="size-options">
+            <span class="size-option">S</span>
+            <span class="size-option">M</span>
+            <span class="size-option">L</span>
+          </div>
+        </div>
+
+        <button class="btn-add-cart">Add to Cart 加入購物車</button>
       </div>
     </div>
-
-    <form class="contact-form fade-in">
-      <div class="form-group">
-        <label for="name">Your Name 您的姓名</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="email">Email Address 電子郵件</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="subject">Subject 主題</label>
-        <input type="text" id="subject" name="subject" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="message">Message 訊息</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-      
-      <button type="submit" class="btn-primary">
-        Send Message 發送訊息
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </button>
-    </form>
   </section>
 
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>REFORM.</h3>
-        <p>Professional anti-slip Pilates socks engineered for women. 為女性設計的專業防滑襪。</p>
+        <p>Professional anti-slip Pilates socks engineered for women who demand the best. 為追求卓越的女性設計的專業防滑襪。</p>
       </div>
       <div class="footer-links">
         <h4>Shop 商店</h4>

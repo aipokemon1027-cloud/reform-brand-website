@@ -3,562 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journal — reform.</title>
-  <meta name="description" content="reform. 日誌 — 關於運動、設計與生活美學的故事。" />
-  
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Journal — reform." />
-  <meta property="og:description" content="關於運動、設計與生活美學的故事。" />
-  <meta property="og:image" content="assets/reform-lifestyle-hero.png" />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  
-  <!-- Fonts -->
+  <title>Journal 日誌 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  
-  <style>
-    /* Blog Page Specific Styles */
-    .blog-hero {
-      min-height: 50vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: var(--color-deep-night);
-      position: relative;
-      overflow: hidden;
-      padding: var(--space-16) var(--space-8);
-    }
-    
-    .blog-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      opacity: 0.03;
-      pointer-events: none;
-    }
-    
-    .blog-hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .blog-hero-label {
-      font-size: var(--text-xs);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-dusty-rose);
-      margin-bottom: var(--space-4);
-    }
-    
-    .blog-hero-title {
-      font-family: var(--font-display);
-      font-size: var(--text-hero);
-      font-weight: 300;
-      color: var(--color-cream);
-      line-height: 1;
-      margin-bottom: var(--space-4);
-    }
-    
-    .blog-hero-subtitle {
-      font-size: var(--text-lg);
-      color: rgba(250, 248, 245, 0.7);
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    
-    /* Featured Article */
-    .blog-featured {
-      padding: var(--section-padding) 0;
-      background: var(--color-cream);
-    }
-    
-    .blog-featured-inner {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0 var(--space-8);
-    }
-    
-    .featured-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-12);
-      align-items: center;
-      background: var(--color-soft-blush);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    
-    .featured-img {
-      aspect-ratio: 4/3;
-      overflow: hidden;
-    }
-    
-    .featured-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform var(--transition-slow);
-    }
-    
-    .featured-card:hover .featured-img img {
-      transform: scale(1.05);
-    }
-    
-    .featured-content {
-      padding: var(--space-10);
-    }
-    
-    .featured-label {
-      display: inline-block;
-      font-size: var(--text-xs);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-dusty-rose);
-      margin-bottom: var(--space-4);
-    }
-    
-    .featured-title {
-      font-family: var(--font-display);
-      font-size: var(--text-3xl);
-      color: var(--color-deep-plum);
-      margin-bottom: var(--space-4);
-      line-height: 1.2;
-    }
-    
-    .featured-excerpt {
-      font-size: var(--text-base);
-      color: var(--color-text-secondary);
-      line-height: 1.8;
-      margin-bottom: var(--space-6);
-    }
-    
-    .featured-meta {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      font-size: var(--text-xs);
-      color: var(--color-text-muted);
-    }
-    
-    .featured-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--text-sm);
-      color: var(--color-dusty-rose);
-      font-weight: 500;
-      transition: gap var(--transition-base);
-    }
-    
-    .featured-cta:hover {
-      gap: var(--space-4);
-    }
-    
-    /* Articles Grid */
-    .blog-articles {
-      padding: var(--section-padding) 0;
-      background: var(--color-deep-night);
-      position: relative;
-    }
-    
-    .blog-articles::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      opacity: 0.03;
-      pointer-events: none;
-    }
-    
-    .blog-articles-inner {
-      position: relative;
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0 var(--space-8);
-    }
-    
-    .articles-header {
-      text-align: center;
-      margin-bottom: var(--space-12);
-    }
-    
-    .articles-header .section-label {
-      color: var(--color-dusty-rose);
-    }
-    
-    .articles-header .section-title {
-      color: var(--color-cream);
-    }
-    
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-8);
-    }
-    
-    .article-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: all var(--transition-slow);
-      cursor: pointer;
-    }
-    
-    .article-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      transform: translateY(-8px);
-    }
-    
-    .article-img {
-      aspect-ratio: 16/10;
-      overflow: hidden;
-    }
-    
-    .article-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform var(--transition-slow);
-    }
-    
-    .article-card:hover .article-img img {
-      transform: scale(1.05);
-    }
-    
-    .article-content {
-      padding: var(--space-6);
-    }
-    
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      margin-bottom: var(--space-3);
-    }
-    
-    .article-date {
-      font-size: var(--text-xs);
-      color: rgba(250, 248, 245, 0.5);
-      letter-spacing: 0.1em;
-    }
-    
-    .article-category {
-      font-size: var(--text-xs);
-      color: var(--color-dusty-rose);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    
-    .article-title {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      color: var(--color-cream);
-      margin-bottom: var(--space-3);
-      line-height: 1.3;
-    }
-    
-    .article-excerpt {
-      font-size: var(--text-sm);
-      color: rgba(250, 248, 245, 0.6);
-      line-height: 1.7;
-      margin-bottom: var(--space-4);
-    }
-    
-    .article-cta {
-      font-size: var(--text-xs);
-      color: var(--color-dusty-rose);
-      letter-spacing: 0.1em;
-    }
-    
-    /* Categories */
-    .blog-categories {
-      padding: var(--space-12) 0;
-      background: var(--color-cream);
-    }
-    
-    .blog-categories-inner {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0 var(--space-8);
-      text-align: center;
-    }
-    
-    .categories-label {
-      font-size: var(--text-xs);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-dusty-rose);
-      margin-bottom: var(--space-6);
-    }
-    
-    .categories-list {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-    }
-    
-    .category-tag {
-      padding: var(--space-2) var(--space-5);
-      font-size: var(--text-sm);
-      color: var(--color-text-secondary);
-      background: var(--color-soft-blush);
-      border-radius: var(--radius-md);
-      transition: all var(--transition-base);
-      cursor: pointer;
-    }
-    
-    .category-tag:hover,
-    .category-tag.active {
-      background: var(--color-dusty-rose);
-      color: var(--color-cream);
-    }
-    
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .articles-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .blog-hero-title {
-        font-size: var(--text-4xl);
-      }
-      
-      .featured-card {
-        grid-template-columns: 1fr;
-      }
-      
-      .articles-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav class="nav" id="mainNav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">reform.</a>
-      <div class="nav-links">
-        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
-        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
-        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-        <a href="dashboard.html" class="nav-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
-        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-      </div>
-      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html" class="active">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
     </div>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
-      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
-      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-      <a href="dashboard.html" class="mobile-link"><span class="en">Experience</span><span class="cn">體驗</span></a>
-      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-    </div>
+  <div class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close">×</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
   </div>
 
-  <!-- Hero Section -->
-  <section class="blog-hero">
-    <div class="blog-hero-content reveal">
-      <div class="blog-hero-label">Journal</div>
-      <h1 class="blog-hero-title">故事</h1>
-      <p class="blog-hero-subtitle">關於運動、設計與生活美學</p>
-    </div>
-  </section>
+  <a href="index.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Home 返回首頁
+  </a>
 
-  <!-- Featured Article -->
-  <section class="blog-featured">
-    <div class="blog-featured-inner">
-      <a href="article-01.html" class="featured-card reveal">
-        <div class="featured-img">
-          <img src="assets/reform-lifestyle-hero.png" alt="Featured article about daily exercise habits" />
+  <header class="page-header">
+    <h1 class="display-lg fade-in">Journal<br>日誌</h1>
+    <p class="fade-in">Stories, insights, and inspiration for your practice.<br>練習的故事、見解和靈感。</p>
+  </header>
+
+  <section class="news-section" style="padding-top: 4rem;">
+    <div class="news-grid">
+      <!-- Article 1 -->
+      <a href="article-1.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-lifestyle-hero.png" alt="Morning movement ritual">
         </div>
-        <div class="featured-content">
-          <span class="featured-label">Featured</span>
-          <h2 class="featured-title">找到你的節奏：如何建立每日的輕運動習慣</h2>
-          <p class="featured-excerpt">早上六點四十七分，鬧鐘響了。不是關於毅力，是關於找到那個願意開始的自己。</p>
-          <div class="featured-meta">
-            <span>2026.04.10</span>
-            <span>·</span>
-            <span>Movement</span>
-          </div>
-          <span class="featured-cta">
-            <span class="en">Read More →</span>
-            <span class="cn">閱讀更多 →</span>
-          </span>
+        <span class="news-date">2026.04.10</span>
+        <h3 class="news-title">找到你的節奏：如何建立每日的輕運動習慣<br><span class="en">Find Your Rhythm: Building a Daily Movement Habit</span></h3>
+        <p class="news-excerpt">早上六點四十七分，鬧鐘響了。不是關於毅力，是關於找到那個願意開始的自己。</p>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="article-2.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-product-01.png" alt="Minimal workout style">
         </div>
+        <span class="news-date">2026.03.28</span>
+        <h3 class="news-title">極簡主義：少即是多的運動穿搭<br><span class="en">Minimalism: Less is More in Workout Style</span></h3>
+        <p class="news-excerpt">當你的衣櫃只剩下必要的东西，選擇變成了一種本能而不是掙扎。</p>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="article-3.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-product-02.png" alt="Brand story">
+        </div>
+        <span class="news-date">2026.03.15</span>
+        <h3 class="news-title">不只是襪子：reform. 的誕生故事<br><span class="en">More Than Socks: The Birth of reform.</span></h3>
+        <p class="news-excerpt">從第一雙樣品到現在的產品，這是我們三年來的故事。</p>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="article-4.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-lifestyle-hero.png" alt="Morning movements">
+        </div>
+        <span class="news-date">2026.02.28</span>
+        <h3 class="news-title">五個動作，開啟你的每日晨間運動<br><span class="en">Five Moves to Start Your Daily Morning Practice</span></h3>
+        <p class="news-excerpt">不需要墊子，不需要裝備，只需要一個決定的開始。</p>
+      </a>
+
+      <!-- Article 5 -->
+      <a href="article-5.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-product-03.png" alt="Product philosophy">
+        </div>
+        <span class="news-date">2026.02.10</span>
+        <h3 class="news-title">為什麼我們只做一個產品線<br><span class="en">Why We Make Only One Product Line</span></h3>
+        <p class="news-excerpt">專注不是限制，是選擇把一件事做到極致。</p>
+      </a>
+
+      <!-- Article 6 -->
+      <a href="article-6.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-event-01.png" alt="Community event">
+        </div>
+        <span class="news-date">2026.01.25</span>
+        <h3 class="news-title">我們的第一次線下活動<br><span class="en">Our First Offline Event</span></h3>
+        <p class="news-excerpt">三十個人，一個工作室，一個下午。</p>
+      </a>
+
+      <!-- Article 7 -->
+      <a href="article-7.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-color-trend.png" alt="Spring color trends">
+        </div>
+        <span class="news-date">2026.01.10</span>
+        <h3 class="news-title">2026 春季色彩趨勢：柔霧粉與中性灰<br><span class="en">Spring 2026 Color Trends: Muted Pink & Neutral Gray</span></h3>
+        <p class="news-excerpt">新一季的色彩，從實驗室到伸展墊。</p>
+      </a>
+
+      <!-- Article 8 -->
+      <a href="article-8.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/june11-07.png" alt="Quality testing">
+        </div>
+        <span class="news-date">2025.12.05</span>
+        <h3 class="news-title">一雙襪子的旅程：從實驗室到你腳上<br><span class="en">The Journey of a Sock: From Lab to Your Feet</span></h3>
+        <p class="news-excerpt">經過四十二次測試，只為找到最完美的防滑解決方案。</p>
       </a>
     </div>
   </section>
 
-  <!-- Articles Grid -->
-  <section class="blog-articles">
-    <div class="blog-articles-inner">
-      <div class="articles-header reveal">
-        <span class="section-label">All Stories</span>
-        <h2 class="section-title">更多故事</h2>
-      </div>
-      <div class="articles-grid">
-        <a href="article-02.html" class="article-card reveal">
-          <div class="article-img">
-            <img src="assets/reform-product-01.png" alt="Minimalist workout fashion" />
-          </div>
-          <div class="article-content">
-            <div class="article-meta">
-              <span class="article-date">2026.03.28</span>
-              <span class="article-category">Aesthetic</span>
-            </div>
-            <h3 class="article-title">極簡主義：少即是多的運動穿搭</h3>
-            <p class="article-excerpt">白 Tee、寬褲、一雙好的襪子。當質感開始說話，運動就成了表達。</p>
-            <span class="article-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </div>
-        </a>
-        
-        <a href="article-03.html" class="article-card reveal">
-          <div class="article-img">
-            <img src="assets/reform-gift-set.png" alt="reform. brand story" />
-          </div>
-          <div class="article-content">
-            <div class="article-meta">
-              <span class="article-date">2026.03.15</span>
-              <span class="article-category">Community</span>
-            </div>
-            <h3 class="article-title">不只是襪子：reform. 的誕生故事</h3>
-            <p class="article-excerpt">我們花了兩年，只為解決一個問題：為什麼沒有介於專業與日常之間的訓練襪？現在有了。</p>
-            <span class="article-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </div>
-        </a>
-        
-        <a href="article-04.html" class="article-card reveal">
-          <div class="article-img">
-            <img src="assets/reform-hero-new.png" alt="Breathing techniques" />
-          </div>
-          <div class="article-content">
-            <div class="article-meta">
-              <span class="article-date">2026.03.01</span>
-              <span class="article-category">Movement</span>
-            </div>
-            <h3 class="article-title">呼吸的藝術：如何在練習中找到節奏</h3>
-            <p class="article-excerpt">每一次吸氣都是新的開始，每一次呼氣都是釋放。呼吸是練習的基礎。</p>
-            <span class="article-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </div>
-        </a>
-        
-        <a href="article-05.html" class="article-card reveal">
-          <div class="article-img">
-            <img src="assets/reform-product-detail.png" alt="Material quality" />
-          </div>
-          <div class="article-content">
-            <div class="article-meta">
-              <span class="article-date">2026.02.20</span>
-              <span class="article-category">Quality</span>
-            </div>
-            <h3 class="article-title">看不見的結構：為什麼材料和工藝至關重要</h3>
-            <p class="article-excerpt">好的產品不是運氣，是無數次選擇的結果。從紗線到成品，每一步都重要。</p>
-            <span class="article-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </div>
-        </a>
-        
-        <a href="article-06.html" class="article-card reveal">
-          <div class="article-img">
-            <img src="assets/reform-hero.png" alt="Community practice" />
-          </div>
-          <div class="article-content">
-            <div class="article-meta">
-              <span class="article-date">2026.02.10</span>
-              <span class="article-category">Community</span>
-            </div>
-            <h3 class="article-title">在墊子上，我們各自練習，各自抵達</h3>
-            <p class="article-excerpt">練習不是孤獨的旅程。每一個墊子都是一個起點，連接著相似的靈魂。</p>
-            <span class="article-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </div>
-        </a>
-        
-        <a href="article-07.html" class="article-card reveal">
-          <div class="article-img">
-            <img src="assets/reform-lifestyle-hero.png" alt="Morning routine" />
-          </div>
-          <div class="article-content">
-            <div class="article-meta">
-              <span class="article-date">2026.01.28</span>
-              <span class="article-category">Movement</span>
-            </div>
-            <h3 class="article-title">早晨儀式：如何用 10 分鐘開啟一天</h3>
-            <p class="article-excerpt">不是要改變世界，是要改變你與自己的關係。10 分鐘，足够了。</p>
-            <span class="article-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Categories -->
-  <section class="blog-categories reveal">
-    <div class="blog-categories-inner">
-      <div class="categories-label">Explore by Topic</div>
-      <div class="categories-list">
-        <span class="category-tag active">All</span>
-        <span class="category-tag">Movement</span>
-        <span class="category-tag">Aesthetic</span>
-        <span class="category-tag">Quality</span>
-        <span class="category-tag">Community</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-logo">reform.</span>
-        <p class="footer-tagline">be the reform</p>
+        <h3>REFORM.</h3>
+        <p>Professional anti-slip Pilates socks engineered for women. 為女性設計的專業防滑襪。</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
-          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
-          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
-          <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
-          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
-          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
-        </div>
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul>
+          <li><a href="about.html">About Us 關於我們</a></li>
+          <li><a href="blog.html">Journal 日誌</a></li>
+          <li><a href="contact.html">Contact 聯繫</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul>
+          <li><a href="shipping.html">Shipping 配送</a></li>
+          <li><a href="returns.html">Returns 退換</a></li>
+          <li><a href="faq.html">FAQ 常見問題</a></li>
+          <li><a href="size-guide.html">Size Guide 尺寸指南</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 reform. All rights reserved. 版權所有。</p>
+      <div class="social-links">
+        <a href="https://instagram.com/reform.pilates" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>

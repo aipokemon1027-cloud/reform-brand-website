@@ -3,119 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pro Performance — reform.</title>
+  <title>Pro 專業款 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Navigation -->
   <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">reform.</a>
-      <div class="nav-links">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="blog.html" class="nav-link">Journal</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </div>
-      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-      </button>
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
     </div>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link">About</a>
-      <a href="products.html" class="mobile-link">Products</a>
-      <a href="blog.html" class="mobile-link">Journal</a>
-      <a href="contact.html" class="mobile-link">Contact</a>
-    </div>
+  <div class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close">×</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
   </div>
 
-  <!-- Product Detail -->
-  <section class="product-detail">
-    <div class="product-detail-inner">
-      <a href="products.html" class="back-link">← All Products</a>
+  <a href="products.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Products 返回產品
+  </a>
 
-      <div class="product-detail-grid">
-        <div class="product-detail-img">
-          <img src="assets/reform-product-detail.png" alt="Pro Performance — detail of grip texture">
+  <section class="product-detail-section">
+    <div class="product-detail-grid">
+      <div class="product-gallery">
+        <div class="product-main-image fade-in">
+          <img src="assets/reform-gift-set.png" alt="reform. Pro 專業款">
         </div>
-
-        <div class="product-detail-info">
-          <span class="product-detail-category">Grip Socks</span>
-          <h1 class="product-detail-name">Pro Performance</h1>
-          <p class="product-detail-price">NT$ 880</p>
-          <p class="product-detail-desc">專業運動員首選，極致防滑。全面覆蓋的硅膠顆粒紋理，高強度訓練的最佳後盾。</p>
-
-          <div class="product-detail-specs">
-            <div class="spec-row">
-              <span class="spec-label">材質</span>
-              <span class="spec-value">68% 棉、24% 彈性纖維、8% 硅膠防滑粒</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label">尺寸</span>
-              <span class="spec-value">S（36-38）、M（39-41）、L（42-44）</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label">顏色</span>
-              <span class="spec-value">Black / Light Pink</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label">產地</span>
-              <span class="spec-value">Taiwan</span>
-            </div>
+        <div class="product-thumbnails">
+          <div class="product-thumb active">
+            <img src="assets/reform-gift-set.png" alt="Pro Front">
           </div>
-
-          <div class="product-actions">
-            <select class="size-select" aria-label="Select size">
-              <option value="">選擇尺寸</option>
-              <option value="s">S（36-38）</option>
-              <option value="m">M（39-41）</option>
-              <option value="l">L（42-44）</option>
-            </select>
-            <button class="btn-primary" disabled>即將推出</button>
+          <div class="product-thumb">
+            <img src="assets/reform-product-01.png" alt="Pro Detail">
+          </div>
+          <div class="product-thumb">
+            <img src="assets/reform-product-detail.png" alt="Pro Side">
+          </div>
+          <div class="product-thumb">
+            <img src="assets/reform-lifestyle-hero.png" alt="Pro In Use">
           </div>
         </div>
+      </div>
+
+      <div class="product-info-detail fade-in">
+        <span class="caption">Enhanced Grip · 增強防滑</span>
+        <h1>Pro 專業款</h1>
+        <p class="product-price-detail">NT$ 880</p>
+        
+        <p class="product-description">
+          For serious practitioners. Pro features reinforced grip zones across heel and forefoot, providing reliable stability throughout your most demanding sessions. 為認真的練習者設計。專業款具有加強的防滑區域，提供在最艱難的練習中所需的穩定性。
+        </p>
+
+        <div class="product-features">
+          <h3>Features 特點</h3>
+          <ul>
+            <li>Reinforced heel grip 加強後跟防滑</li>
+            <li>Forefoot stability 前掌穩定性</li>
+            <li>Moisture-wicking fabric 吸濕排汗面料</li>
+            <li>Compression support 壓縮支撐</li>
+            <li>Durable construction 耐用結構</li>
+          </ul>
+        </div>
+
+        <div class="product-colors-detail">
+          <h3>Color 顏色</h3>
+          <div class="color-options">
+            <span class="color-option" style="background: #1a1a1a;" title="Black 黑"></span>
+            <span class="color-option" style="background: #f5f0eb; border: 1px solid #ddd;" title="Cream 奶油"></span>
+            <span class="color-option" style="background: #c4837a;" title="Rose 玫瑰"></span>
+          </div>
+        </div>
+
+        <div class="product-sizes">
+          <h3>Size 尺寸</h3>
+          <div class="size-options">
+            <span class="size-option">S</span>
+            <span class="size-option">M</span>
+            <span class="size-option">L</span>
+          </div>
+        </div>
+
+        <button class="btn-add-cart">Add to Cart 加入購物車</button>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-logo">reform.</span>
-        <p class="footer-tagline">be the reform</p>
+        <h3>REFORM.</h3>
+        <p>Professional anti-slip Pilates socks engineered for women. 為女性設計的專業防滑襪。</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4 class="footer-heading">Shop</h4>
-          <a href="products.html" class="footer-link">All Products</a>
-          <a href="products.html" class="footer-link">Grip Socks</a>
-          <a href="products.html" class="footer-link">Accessories</a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">About</h4>
-          <a href="about.html" class="footer-link">Our Story</a>
-          <a href="blog.html" class="footer-link">Journal</a>
-          <a href="contact.html" class="footer-link">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Connect</h4>
-          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
-          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
-        </div>
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v4.0</p>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul>
+          <li><a href="about.html">About Us 關於我們</a></li>
+          <li><a href="blog.html">Journal 日誌</a></li>
+          <li><a href="contact.html">Contact 聯繫</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul>
+          <li><a href="shipping.html">Shipping 配送</a></li>
+          <li><a href="returns.html">Returns 退換</a></li>
+          <li><a href="faq.html">FAQ 常見問題</a></li>
+          <li><a href="size-guide.html">Size Guide 尺寸指南</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 reform. All rights reserved. 版權所有。</p>
+      <div class="social-links">
+        <a href="https://instagram.com/reform.pilates" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>

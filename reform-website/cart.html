@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart 您的購物車 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .cart-page { padding: 8rem 2rem 6rem; max-width: 1200px; margin: 0 auto; }
+    .cart-header { text-align: center; margin-bottom: 4rem; }
+    .cart-header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; margin-bottom: 1rem; }
+    .cart-header p { font-size: 1rem; color: var(--gray); }
+    
+    .cart-empty { text-align: center; padding: 6rem 2rem; }
+    .cart-empty h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem; color: var(--black); }
+    .cart-empty p { color: var(--gray); margin-bottom: 2.5rem; }
+    .cart-empty .btn-continue { 
+      display: inline-flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 2.5rem; background: var(--black); color: var(--white);
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.3s ease;
+    }
+    .cart-empty .btn-continue:hover { background: var(--rose); }
+    
+    .cart-content { display: none; }
+    .cart-content.active { display: block; }
+    
+    .cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: start; }
+    
+    .cart-items-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-light); }
+    
+    .cart-item { display: grid; grid-template-columns: 120px 1fr auto; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--gray-light); align-items: center; }
+    .cart-item-image { width: 120px; height: 120px; object-fit: cover; background: var(--cream); display: block; }
+    .cart-item-details { display: flex; flex-direction: column; gap: 0.5rem; }
+    .cart-item-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+    .cart-item-name-en { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--gray); }
+    .cart-item-variant { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gray); letter-spacing: 0.1em; }
+    .cart-item-price { font-family: var(--font-mono); font-size: 0.9rem; color: var(--black); margin-top: 0.5rem; }
+    
+    .cart-item-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+    .qty-control { display: flex; align-items: center; gap: 0; border: 1px solid var(--gray-light); }
+    .qty-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; font-size: 1.2rem; color: var(--black); transition: background 0.2s; }
+    .qty-btn:hover { background: var(--cream); }
+    .qty-value { width: 48px; text-align: center; font-family: var(--font-mono); font-size: 0.85rem; border-left: 1px solid var(--gray-light); border-right: 1px solid var(--gray-light); line-height: 36px; }
+    .remove-btn { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; background: none; border: none; cursor: pointer; text-decoration: underline; transition: color 0.2s; }
+    .remove-btn:hover { color: var(--rose); }
+    
+    .cart-summary { background: var(--cream); padding: 2.5rem; position: sticky; top: 8rem; }
+    .cart-summary h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; }
+    
+    .summary-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--gray-light); font-size: 0.95rem; }
+    .summary-row:last-of-type { border-bottom: none; }
+    .summary-row.total { font-size: 1.1rem; font-weight: 500; padding-top: 1.2rem; margin-top: 0.5rem; border-top: 2px solid var(--black); }
+    .summary-row .label { color: var(--gray); }
+    .summary-row .value { font-family: var(--font-mono); }
+    
+    .btn-checkout { 
+      width: 100%; margin-top: 2rem; padding: 1.3rem 2rem;
+      background: var(--black); color: var(--white);
+      font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .btn-checkout:hover { background: var(--rose); }
+    
+    .continue-shopping { display: block; text-align: center; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; text-transform: uppercase; }
+    .continue-shopping:hover { color: var(--black); }
+    
+    .free-shipping-bar { margin-top: 2rem; padding: 1.2rem; background: var(--white); border: 1px solid var(--gray-light); }
+    .free-shipping-bar p { font-size: 0.85rem; color: var(--gray); text-align: center; margin-bottom: 0.8rem; }
+    .shipping-progress { height: 4px; background: var(--gray-light); border-radius: 2px; overflow: hidden; }
+    .shipping-progress-fill { height: 100%; background: var(--gold); transition: width 0.5s ease; }
+    .shipping-progress-text { font-family: var(--font-mono); font-size: 0.7rem; color: var(--black); text-align: center; margin-top: 0.5rem; }
+    
+    .secure-badge { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gray); text-transform: uppercase; }
+    .secure-badge svg { width: 14px; height: 14px; }
+    
+    @media (max-width: 900px) {
+      .cart-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .cart-summary { position: static; }
+      .cart-item { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+      .cart-item-actions { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    
+    .back-btn { position: fixed; top: 7rem; left: 2rem; z-index: 100; display: flex; align-items: center; gap: 0.5rem; color: var(--black); text-decoration: none; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s; }
+    .back-btn:hover { opacity: 1; }
+    .back-btn svg { width: 18px; height: 18px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <a href="products.html" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    ← Continue Shopping 繼續購物
+  </a>
+
+  <main class="cart-page">
+    <div class="cart-header fade-in">
+      <h1>Your Cart 您的購物車</h1>
+      <p>We offer free shipping on orders over NT$1,500. 訂單滿 NT$1,500 免運費。</p>
+    </div>
+
+    <div class="cart-empty" id="cartEmpty">
+      <h2>Your cart is empty 您的購物車是空的</h2>
+      <p>Looks like you haven't added anything yet. 看起来您還沒有新增任何商品。</p>
+      <a href="products.html" class="btn-continue">
+        Browse Products 瀏覽產品
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="cart-content" id="cartContent">
+      <div class="cart-layout">
+        <div class="cart-items-section">
+          <h2>Items 商品 (<span id="itemCount">0</span>)</h2>
+          <div id="cartItems"></div>
+        </div>
+
+        <div class="cart-summary">
+          <h2>Order Summary 訂單摘要</h2>
+          <div class="summary-row">
+            <span class="label">Subtotal 小計</span>
+            <span class="value" id="subtotal">NT$0</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Shipping 運費</span>
+            <span class="value" id="shipping">--</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Discount 折扣</span>
+            <span class="value" id="discount">-NT$0</span>
+          </div>
+          <div class="summary-row total">
+            <span class="label">Total 總計</span>
+            <span class="value" id="total">NT$0</span>
+          </div>
+
+          <button class="btn-checkout" onclick="window.location.href='checkout.html'">
+            Proceed to Checkout 前往結帳
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <a href="products.html" class="continue-shopping">← Continue Shopping 繼續購物</a>
+
+          <div class="free-shipping-bar" id="shippingBar">
+            <p id="shippingMsg">Add NT$0 to unlock free shipping 累積 NT$0 解鎖免運</p>
+            <div class="shipping-progress"><div class="shipping-progress-fill" id="shippingProgress" style="width:0%"></div></div>
+            <p class="shipping-progress-text" id="shippingProgressText">0%</p>
+          </div>
+
+          <div class="secure-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Secure Checkout 安全結帳
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>REFORM.</h3><p>Professional anti-slip Pilates socks for women. 為女性設計的專業防滑襪。</p></div>
+      <div class="footer-links"><h4>Shop 商店</h4><ul><li><a href="products.html">All Products 所有產品</a></li><li><a href="product-classic.html">Classic 經典款</a></li><li><a href="product-pro.html">Pro 專業款</a></li><li><a href="product-elite.html">Elite 頂級款</a></li></ul></div>
+      <div class="footer-links"><h4>Company 公司</h4><ul><li><a href="about.html">About Us 關於我們</a></li><li><a href="blog.html">Journal 日誌</a></li><li><a href="contact.html">Contact 聯繫</a></li></ul></div>
+      <div class="footer-links"><h4>Support 支援</h4><ul><li><a href="shipping.html">Shipping 配送</a></li><li><a href="returns.html">Returns 退換</a></li><li><a href="faq.html">FAQ 常見問題</a></li><li><a href="size-guide.html">Size Guide 尺寸指南</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 reform. All rights reserved. 版權所有。</p></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

@@ -3,227 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journal — reform.</title>
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="reform." />
-  <meta property="og:title" content="Journal — reform." />
-  <meta property="og:description" content="reform. 的日誌：關於運動、美學、社群的靈感與故事。" />
-  <meta property="og:image" content="assets/reform-lifestyle-hero.png" />
-  <meta property="og:url" content="https://aipokemon1027-cloud.github.io/reform-brand-website/blog.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Journal — reform." />
-  <meta name="twitter:description" content="reform. 的日誌：關於運動、美學、社群的靈感與故事。" />
-  <meta name="twitter:image" content="assets/reform-lifestyle-hero.png" />
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Journal 日誌 | reform.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=SF+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Navigation -->
   <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">reform.</a>
-      <div class="nav-links">
-        <a href="about.html" class="nav-link"><span class="en">About</span><span class="cn">關於</span></a>
-        <a href="products.html" class="nav-link"><span class="en">Products</span><span class="cn">產品</span></a>
-        <a href="blog.html" class="nav-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-        <a href="contact.html" class="nav-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-      </div>
-      <button class="nav-menu-btn" id="menuToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-      </button>
+    <a href="index.html" class="nav-logo">REFORM.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html" class="active">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
+    
+    <div class="nav-cart">
+      <a href="cart.html" class="cart-icon" data-cart-count="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
     </div>
+    <button class="nav-menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <a href="about.html" class="mobile-link"><span class="en">About</span><span class="cn">關於</span></a>
-      <a href="products.html" class="mobile-link"><span class="en">Products</span><span class="cn">產品</span></a>
-      <a href="blog.html" class="mobile-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-      <a href="contact.html" class="mobile-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-    </div>
+  <div class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close">×</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home 首頁</a></li>
+      <li><a href="about.html">About 關於</a></li>
+      <li><a href="products.html">Products 產品</a></li>
+      <li><a href="blog.html">Journal 日誌</a></li>
+      <li><a href="contact.html">Contact 聯繫</a></li>
+    </ul>
   </div>
 
-  <!-- Page Header -->
+  <a href="index.html" class="back-btn" style="position: fixed; top: 8rem; left: 3rem; z-index: 100;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back to Home 返回首頁
+  </a>
+
   <header class="page-header">
-    <div class="page-header-inner">
-      <span class="section-label">Journal</span>
-      <h1 class="page-title">故事</h1>
-    </div>
+    <h1 class="display-lg fade-in">Journal<br>日誌</h1>
+    <p class="fade-in">Stories, insights, and inspiration for your practice.<br>練習的故事、見解和靈感。</p>
   </header>
 
-  <!-- Featured Post -->
-  <section class="blog-featured">
-    <div class="blog-featured-inner">
-      <a href="article-01.html" class="blog-featured-link">
-        <div class="blog-featured-img">
-          <img loading="lazy" src="assets/reform-lifestyle-hero.png" alt="Featured Post" class="blog-featured-img-src" />
+  <section class="news-section" style="padding-top: 4rem;">
+    <div class="news-grid">
+      <!-- Article 1 -->
+      <a href="article-1.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-lifestyle-hero.png" alt="Morning movement ritual">
         </div>
-        <div class="blog-featured-content">
-          <div class="blog-featured-meta">
-            <span class="blog-featured-date">2026.04.10</span>
-            <span class="blog-featured-cat">Movement</span>
-          </div>
-          <h2 class="blog-featured-title">找到你的節奏：如何建立每日的輕運動習慣</h2>
-          <p class="blog-featured-excerpt">
-            早上六點四十七分，鬧鐘響了。不是關於毅力，是關於找到那個願意開始的自己。
-          </p>
-          <span class="blog-featured-cta"><span class="en">Read More</span><span class="cn">閱讀更多</span></span>
+        <span class="news-date">2026.04.10</span>
+        <h3 class="news-title">找到你的節奏：如何建立每日的輕運動習慣<br><span class="en">Find Your Rhythm: Building a Daily Movement Habit</span></h3>
+        <p class="news-excerpt">早上六點四十七分，鬧鐘響了。不是關於毅力，是關於找到那個願意開始的自己。</p>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="article-2.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-product-01.png" alt="Minimal workout style">
         </div>
+        <span class="news-date">2026.03.28</span>
+        <h3 class="news-title">極簡主義：少即是多的運動穿搭<br><span class="en">Minimalism: Less is More in Workout Style</span></h3>
+        <p class="news-excerpt">當你的衣櫃只剩下必要的东西，選擇變成了一種本能而不是掙扎。</p>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="article-3.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-product-02.png" alt="Brand story">
+        </div>
+        <span class="news-date">2026.03.15</span>
+        <h3 class="news-title">不只是襪子：reform. 的誕生故事<br><span class="en">More Than Socks: The Birth of reform.</span></h3>
+        <p class="news-excerpt">從第一雙樣品到現在的產品，這是我們三年來的故事。</p>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="article-4.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-lifestyle-hero.png" alt="Morning movements">
+        </div>
+        <span class="news-date">2026.02.28</span>
+        <h3 class="news-title">五個動作，開啟你的每日晨間運動<br><span class="en">Five Moves to Start Your Daily Morning Practice</span></h3>
+        <p class="news-excerpt">不需要墊子，不需要裝備，只需要一個決定的開始。</p>
+      </a>
+
+      <!-- Article 5 -->
+      <a href="article-5.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-product-03.png" alt="Product philosophy">
+        </div>
+        <span class="news-date">2026.02.10</span>
+        <h3 class="news-title">為什麼我們只做一個產品線<br><span class="en">Why We Make Only One Product Line</span></h3>
+        <p class="news-excerpt">專注不是限制，是選擇把一件事做到極致。</p>
+      </a>
+
+      <!-- Article 6 -->
+      <a href="article-6.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-event-01.png" alt="Community event">
+        </div>
+        <span class="news-date">2026.01.25</span>
+        <h3 class="news-title">我們的第一次線下活動<br><span class="en">Our First Offline Event</span></h3>
+        <p class="news-excerpt">三十個人，一個工作室，一個下午。</p>
+      </a>
+
+      <!-- Article 7 -->
+      <a href="article-7.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/reform-color-trend.png" alt="Spring color trends">
+        </div>
+        <span class="news-date">2026.01.10</span>
+        <h3 class="news-title">2026 春季色彩趨勢：柔霧粉與中性灰<br><span class="en">Spring 2026 Color Trends: Muted Pink & Neutral Gray</span></h3>
+        <p class="news-excerpt">新一季的色彩，從實驗室到伸展墊。</p>
+      </a>
+
+      <!-- Article 8 -->
+      <a href="article-8.html" class="news-card fade-in">
+        <div class="news-image">
+          <img src="assets/june11-07.png" alt="Quality testing">
+        </div>
+        <span class="news-date">2025.12.05</span>
+        <h3 class="news-title">一雙襪子的旅程：從實驗室到你腳上<br><span class="en">The Journey of a Sock: From Lab to Your Feet</span></h3>
+        <p class="news-excerpt">經過四十二次測試，只為找到最完美的防滑解決方案。</p>
       </a>
     </div>
   </section>
 
-  <!-- Blog Grid -->
-  <section class="blog-section">
-    <div class="blog-inner">
-      <div class="blog-grid">
-        
-        <article class="blog-card">
-          <a href="article-02.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-product-01.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2026.03.28</span>
-              <span class="blog-card-cat">Aesthetic</span>
-            </div>
-            <h3 class="blog-card-title">極簡主義：少即是多的運動穿搭</h3>
-            <p class="blog-card-excerpt">白 Tee、寬褲、一雙好的襪子。當質感開始說話，運動就成了表達。</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-        <article class="blog-card">
-          <a href="article-03.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-gift-set.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2026.03.15</span>
-              <span class="blog-card-cat">Community</span>
-            </div>
-            <h3 class="blog-card-title">不只是襪子：reform. 的誕生故事</h3>
-            <p class="blog-card-excerpt">所有的偉大，都從一個小問題開始。我們花了兩年，只為了解決一個困擾：為什麼沒有一雙介於專業與日常之間的訓練襪？</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-        <article class="blog-card">
-          <a href="article-04.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-lifestyle-hero.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2026.02.28</span>
-              <span class="blog-card-cat">Movement</span>
-            </div>
-            <h3 class="blog-card-title">五個動作，開啟你的每日晨間運動</h3>
-            <p class="blog-card-excerpt">不需要 gym，不需要複雜的配備。你只需要一個墊子，和一個願意早起十分鐘的自己。</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-        <article class="blog-card">
-          <a href="article-05.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-product-detail.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2026.02.10</span>
-              <span class="blog-card-cat">Quality</span>
-            </div>
-            <h3 class="blog-card-title">為什麼我們只做一個產品線</h3>
-            <p class="blog-card-excerpt">專注，是我們對品質的承諾。200 小時耐磨測試、50 次洗滌後，依然不變形。</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-        <article class="blog-card">
-          <a href="article-06.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-product-01.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2026.01.25</span>
-              <span class="blog-card-cat">Community</span>
-            </div>
-            <h3 class="blog-card-title">我們的第一次線下活動</h3>
-            <p class="blog-card-excerpt">三十個人，一個小時的安靜運動。雨天的台北，我們一起呼吸、一起流汗、一起沉默。</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-        <article class="blog-card">
-          <a href="article-07.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-lifestyle-hero.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2026.01.10</span>
-              <span class="blog-card-cat">Aesthetic</span>
-            </div>
-            <h3 class="blog-card-title">2026 春季色彩趨勢：柔霧粉與中性灰</h3>
-            <p class="blog-card-excerpt">從時裝週到運動場，今年的色彩語言是安靜而有力。柔霧粉說的是溫柔的力量，中性灰說的是不退潮的經典。</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-        <article class="blog-card">
-          <a href="article-08.html" class="blog-card-link">
-            <div class="blog-card-img">
-              <img loading="lazy" src="assets/reform-product-detail.png" alt="Blog Post" class="blog-card-img-src" />
-            </div>
-            <div class="blog-card-meta">
-              <span class="blog-card-date">2025.12.05</span>
-              <span class="blog-card-cat">Quality</span>
-            </div>
-            <h3 class="blog-card-title">一雙襪子的旅程：從實驗室到你腳上</h3>
-            <p class="blog-card-excerpt">你知道一雙 reform. 的襪子，在出現在網站上之前，經歷了什麼嗎？十二個月的開發、三次重大結構調整、二十三位測試員的回饋。</p>
-            <span class="blog-card-cta"><span class="en">Read More →</span><span class="cn">閱讀更多 →</span></span>
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-logo">reform.</span>
-        <p class="footer-tagline">be the reform</p>
+        <h3>REFORM.</h3>
+        <p>Professional anti-slip Pilates socks engineered for women. 為女性設計的專業防滑襪。</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Shop</span><span class="cn">商店</span></h4>
-          <a href="products.html" class="footer-link"><span class="en">All Products</span><span class="cn">全部產品</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Grip Socks</span><span class="cn">防滑襪</span></a>
-          <a href="products.html" class="footer-link"><span class="en">Accessories</span><span class="cn">配件</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">About</span><span class="cn">關於</span></h4>
-          <a href="about.html" class="footer-link"><span class="en">Our Story</span><span class="cn">我們的故事</span></a>
-          <a href="blog.html" class="footer-link"><span class="en">Journal</span><span class="cn">日誌</span></a>
-          <a href="contact.html" class="footer-link"><span class="en">Contact</span><span class="cn">聯絡</span></a>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading"><span class="en">Connect</span><span class="cn">聯絡</span></h4>
-          <a href="https://instagram.com/reform.tw" class="footer-link" target="_blank">Instagram</a>
-          <a href="mailto:hello@reform-brand.com" class="footer-link">Email</a>
-        </div>
+        <h4>Shop 商店</h4>
+        <ul>
+          <li><a href="products.html">All Products 所有產品</a></li>
+          <li><a href="product-classic.html">Classic 經典款</a></li>
+          <li><a href="product-pro.html">Pro 專業款</a></li>
+          <li><a href="product-elite.html">Elite 頂級款</a></li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 reform. All rights reserved.</p>
-        <p class="footer-location">Taipei, Taiwan · v5.0</p>
+      <div class="footer-links">
+        <h4>Company 公司</h4>
+        <ul>
+          <li><a href="about.html">About Us 關於我們</a></li>
+          <li><a href="blog.html">Journal 日誌</a></li>
+          <li><a href="contact.html">Contact 聯繫</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support 支援</h4>
+        <ul>
+          <li><a href="shipping.html">Shipping 配送</a></li>
+          <li><a href="returns.html">Returns 退換</a></li>
+          <li><a href="faq.html">FAQ 常見問題</a></li>
+          <li><a href="size-guide.html">Size Guide 尺寸指南</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 reform. All rights reserved. 版權所有。</p>
+      <div class="social-links">
+        <a href="https://instagram.com/reform.pilates" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>

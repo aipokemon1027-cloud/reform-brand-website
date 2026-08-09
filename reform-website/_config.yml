@@ -1,0 +1,24 @@
+# Jekyll configuration for reform. brand website
+# Exclude unnecessary folders from Jekyll processing
+
+exclude:
+  - scripts/
+  - node_modules/
+  - reform-brand-v2/
+  - airtable/
+  - figma/
+  - knowledge/
+  - memory/
+  - "*.md"
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - .gitignore
+  - .DS_Store
+
+# Keep SVG files
+include:
+  - assets/
+  - css/
+  - images/

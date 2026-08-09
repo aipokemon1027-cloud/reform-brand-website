@@ -9,6 +9,14 @@ exclude:
   - figma/
   - knowledge/
   - memory/
+  - mv-project/
+  - nagoya-airbnb-investment/
+  - nagoya-trip-2026/
+  - open-design/
+  - reform-website-v5/
+  - reform-website/
+  - research/
+  - tmp/
   - "*.md"
   - Gemfile
   - Gemfile.lock
@@ -16,9 +24,14 @@ exclude:
   - package-lock.json
   - .gitignore
   - .DS_Store
+  - "*.mp3"
+  - "*.png"
+  - "*.jpg"
+  - "*.jpeg"
 
-# Keep SVG files
+# Ensure SVG files are included
 include:
   - assets/
   - css/
   - images/
+  - fonts/

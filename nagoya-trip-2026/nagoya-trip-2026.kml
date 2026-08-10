@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>名古屋6天5夜 三代同堂親子遊</name>
+    <description>2026年6月26日-7月1日 慢活親子遊</description>
+    <Style id="airport">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="accommodation">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/home.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="restaurant">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="cafe">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="attraction">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-star.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="shopping">
+<IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/pink-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="station">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/rail.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="museum">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/blue-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="mall">
+      <IconStyle><color>ff00ccff</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/orange-circle.png</href></Icon></IconStyle>
+    </Style>
+
+    <!-- Day 1 -->
+    <Folder><name>Day 1 (6/26 五) - 抵達與大須懷舊</name>
+      <Placemark><name>中部國際機場 (NGO)</name><styleUrl>#airport</styleUrl><description>航班 CI154 07:30 TPE→11:15 NGO | 第二航廈</description><Point><coordinates>136.5455,34.8583</coordinates></Point></Placemark>
+      <Placemark><name>民宿 (松原)</name><styleUrl>#accommodation</styleUrl><description>近大須觀音站600m | 4臥室公寓 | Check-in 16:00</description><Point><coordinates>136.8995,35.1667</coordinates></Point></Placemark>
+      <Placemark><name>大須商店街</name><styleUrl>#shopping</styleUrl><description>江戶風格商店街美食購物 | 民宿步行5-8分鐘</description><Point><coordinates>136.8975,35.1650</coordinates></Point></Placemark>
+      <Placemark><name>コンパル 大須本店</name><styleUrl>#cafe</styleUrl><description>必點炸蝦三明治 エビフライサンド 可外帶</description><Point><coordinates>136.8968,35.1648</coordinates></Point></Placemark>
+      <Placemark><name>矢場とん 大須本店</name><styleUrl>#restaurant</styleUrl><description>炸豬排 |週五晚可能排隊建議18:00前抵達</description><Point><coordinates>136.8960,35.1645</coordinates></Point></Placemark>
+    </Folder>
+
+    <!-- Day 2 -->
+    <Folder><name>Day 2 (6/27 六) - 科學震撼與星空午睡</name>
+      <Placemark><name>山本屋総本家 栄店</name><styleUrl>#restaurant</styleUrl><description>味噌烏龍麵 味噌煮込みうどん | 科學館步行8分鐘</description><Point><coordinates>136.8810,35.1700</coordinates></Point></Placemark>
+      <Placemark><name>コメダ珈琲店 栄店</name><styleUrl>#cafe</styleUrl><description>必點冰與火年輪蛋糕 シロノワール | 科學館步行10分鐘</description><Point><coordinates>136.8805,35.1695</coordinates></Point></Placemark>
+      <Placemark><name>榮商圈 (栄)</name><styleUrl>#shopping</styleUrl><description>世界の手羽先/一蘭拉麵/松坂屋/三越 | 步行5分鐘內多選擇</description><Point><coordinates>136.8795,35.1690</coordinates></Point></Placemark>
+      <Placemark><name>世界の山ちゃん 栄店</name><styleUrl>#restaurant</styleUrl><description>名古屋名物胡椒炸雞翅 手羽先</description><Point><coordinates>136.8790,35.1688</coordinates></Point></Placemark>
+    </Folder>
+
+    <!-- Day 3 -->
+<Folder><name>Day 3 (6/28 日) - 海洋生物療癒</name>
+      <Placemark><name>名古屋港水族館</name><styleUrl>#attraction</styleUrl><description>北館虎鯨秀/南館沙丁魚風暴 | 門票大人¥2030 |名古屋港站3番出口步行5分</description><Point><coordinates>136.8870,35.0950</coordinates></Point></Placemark>
+      <Placemark><name>JETTY 美食街</name><styleUrl>#restaurant</styleUrl><description>推薦 味里(寬版きしめん)/あんかけスパ/スガキヤ | 水族館旁步行2分</description><Point><coordinates>136.8875,35.0945</coordinates></Point></Placemark>
+      <Placemark><name>シートレインランド (Sea Train Land)</name><styleUrl>#attraction</styleUrl><description>摩天輪看港景 小孩遊戲設施 | 水族館旁步行3分</description><Point><coordinates>136.8880,35.0940</coordinates></Point></Placemark>
+      <Placemark><name>世界の山ちゃん 名古屋港店</name><styleUrl>#restaurant</styleUrl><description>手羽先晚餐 |名古屋港站步行5-8分</description><Point><coordinates>136.8865,35.0948</coordinates></Point></Placemark>
+    </Folder>
+
+    <!-- Day 4 -->
+<Folder><name>Day 4 (6/29 一) - 歷史巡禮</name>
+      <Placemark><name>名古屋城</name><styleUrl>#attraction</styleUrl><description>天守閣整修中但本丸御殿必看 |門票大人¥500 | 名古屋城站7番出口步行5分</description><Point><coordinates>136.8760,35.1850</coordinates></Point></Placemark>
+      <Placemark><name>あつた蓬莱軒 神宮店</name><styleUrl>#restaurant</styleUrl><description>鰻魚飯三吃ひつまぶし | 週一必吃建議10:30排隊 | 名城線熱田神宮伝馬町站1番出口步行4分</description><Point><coordinates>136.9000,35.1860</coordinates></Point></Placemark>
+      <Placemark><name>熱田神宮</name><styleUrl>#attraction</styleUrl><description>森林浴步道 清め餅配茶 境內寬敞平坦 | 蓬萊軒步行3分</description><Point><coordinates>136.9010,35.1865</coordinates></Point></Placemark>
+      <Placemark><name>オアシス21 (Oasis 21)</name><styleUrl>#shopping</styleUrl><description>水的宇宙船拍照 綠地休息 | 名城線栄站</description><Point><coordinates>136.8785,35.1685</coordinates></Point></Placemark>
+      <Placemark><name>松坂屋 名古屋店</name><styleUrl>#shopping</styleUrl><description>11F餐廳街 和食/洋食/中華 長輩舒適 | Oasis21步行5分</description><Point><coordinates>136.8780,35.1680</coordinates></Point></Placemark>
+    </Folder>
+
+    <!-- Day 5 -->
+    <Folder><name>Day 5 (6/30 二) - 精緻工藝與終極採購</name>
+      <Placemark><name>トヨタ産業技術記念館</name><styleUrl>#museum</styleUrl><description>雨天備案 紡織機表演 全室內 | 門票大人¥1000 | 名鐵栄生站步行3分</description><Point><coordinates>136.8620,35.1830</coordinates></Point></Placemark>
+      <Placemark><name>ノリタケの森 (則武之森)</name><styleUrl>#attraction</styleUrl><description>晴天備案 紅磚建築畫瓷盤體驗 | 門票大人¥1200 | 地鐵亀島站2番出口步行5分</description><Point><coordinates>136.8700,35.1800</coordinates></Point></Placemark>
+      <Placemark><name>イオンモール熱田</name><styleUrl>#mall</styleUrl><description>爸爸帶小孩去遊樂場/書店 媽媽2小時購物 | 金山站出發20-25分鐘</description><Point><coordinates>136.9100,35.1750</coordinates></Point></Placemark>
+    </Folder>
+
+    <!-- Day 6 -->
+    <Folder><name>Day 6 (7/1 三) - 快樂返家</name>
+      <Placemark><name>中部國際機場 免稅店/伴手禮</name><styleUrl>#shopping</styleUrl><description>航班 CI155 12:20 NGO→14:30 TPE | 4F 藍天城最後補貨</description><Point><coordinates>136.5455,34.8583</coordinates></Point></Placemark>
+    </Folder>
+
+  </Document>
+</kml>
